@@ -1,5 +1,22 @@
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, minimum-scale=1">
+<meta name="theme-color" content="#D9503A">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-title" content="Hkm Probas">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="description" content="Fiche de révision complète sur les probabilités niveau 3e : vocabulaire, formules détaillées, arbres, exercices et quiz auto-corrigé.">
+
+<!-- Open Graph / Snap / Insta / iMessage preview -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Hkm — Révisions">
+<meta property="og:title" content="Probabilités 3e — Fiche de révision">
+<meta property="og:description" content="Vocabulaire, formules, arbres, exemples pas à pas et quiz auto-corrigé pour préparer l'éval de maths.">
+<meta property="og:url" content="https://iskim-77.github.io/">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Probabilités 3e — Fiche de révision">
+<meta name="twitter:description" content="Vocabulaire, formules, arbres, exemples pas à pas et quiz auto-corrigé pour préparer l'éval de maths.">
+
 <title>Hkm — Probabilités 3e</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=Source+Sans+3:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
 <style>
@@ -57,6 +74,10 @@
   }
 
   * { box-sizing: border-box; }
+  html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
   body {
     background: var(--ground);
     color: var(--ink);
@@ -65,7 +86,11 @@
     line-height: 1.6;
     margin: 0;
     padding-block: 0;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
   }
+  img, svg, video { max-width: 100%; }
 
   /* Progress bar */
   .progress-bar {
