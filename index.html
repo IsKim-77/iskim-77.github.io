@@ -689,6 +689,170 @@
     margin-top: 20px;
   }
 
+  /* Mobile improvements (≤640px) */
+  @media (max-width: 640px) {
+    body { font-size: 16px; line-height: 1.55; }
+
+    .page {
+      padding-inline: 12px;
+      padding-block: 12px 40px;
+      gap: 14px;
+    }
+
+    .brand-strip { padding: 4px 6px 0 6px; }
+    .brand-mark { font-size: 1.2rem; }
+    .brand-slash { font-size: 1rem; }
+    .brand-section { font-size: 0.7rem; letter-spacing: 0.08em; }
+    .theme-toggle { padding: 5px 10px; font-size: 0.8rem; }
+
+    header.masthead {
+      padding: 20px 18px;
+      border-radius: 10px;
+      gap: 10px;
+    }
+    header.masthead h1 { font-size: 1.85rem; }
+    header.masthead .subtitle { font-size: 0.92rem; line-height: 1.45; }
+    header.masthead .kbd-hint { display: none; }
+
+    /* TOC — horizontal scrolling chip strip */
+    nav.toc {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 12px 12px 8px 12px;
+      box-shadow: var(--shadow);
+    }
+    nav.toc h2 {
+      margin: 0 0 8px 0;
+      font-size: 0.72rem;
+    }
+    nav.toc ol {
+      flex-direction: row;
+      overflow-x: auto;
+      gap: 6px;
+      padding-bottom: 4px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+    }
+    nav.toc li { flex-shrink: 0; }
+    nav.toc a {
+      padding: 7px 12px;
+      font-size: 0.85rem;
+      background: var(--surface-2);
+      border-radius: 20px;
+      border-left: none;
+      white-space: nowrap;
+    }
+    nav.toc a::before {
+      color: var(--accent);
+      font-weight: 700;
+      min-width: 0;
+    }
+    nav.toc a.active {
+      background: var(--accent);
+      color: #fff;
+      border-left: none;
+    }
+    nav.toc a.active::before { color: #fff; }
+    nav.toc a.read::after { margin-left: 4px; margin-right: 0; }
+
+    section.lesson {
+      padding: 20px 16px;
+      border-radius: 10px;
+      margin-bottom: 14px;
+    }
+    section.lesson h2 {
+      font-size: 1.3rem;
+      gap: 10px;
+      margin: 0 0 16px 0;
+    }
+    section.lesson h2 .num {
+      font-size: 0.82rem;
+      padding: 3px 7px;
+    }
+    section.lesson h3 { font-size: 1.05rem; margin: 18px 0 8px 0; }
+    section.lesson ul { padding-left: 20px; }
+
+    /* Formulas — allow wrap, smaller padding */
+    .formula {
+      padding: 14px 16px;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+    .formula.simple { font-size: 0.95rem; padding: 12px 14px; }
+    .formula-label { font-size: 0.68rem; margin-bottom: 6px; }
+    .frac.text .num, .frac.text .den {
+      white-space: normal;
+      font-size: 0.76em;
+      line-height: 1.25;
+    }
+    .math { font-size: 0.95rem; }
+
+    /* Example — smaller step circles */
+    .example { padding: 14px 14px; }
+    .example .steps > li {
+      padding-left: 36px;
+      margin: 12px 0;
+    }
+    .example .steps > li::before {
+      width: 26px;
+      height: 26px;
+      font-size: 0.8rem;
+    }
+    .example .answer { padding: 10px 12px; font-size: 0.95rem; }
+    .example .prompt { font-size: 0.95rem; }
+
+    /* Callouts */
+    .callout { padding: 12px 14px; gap: 10px; font-size: 0.94rem; }
+    .callout ul { padding-left: 18px; }
+
+    /* Dice widget */
+    .dice-widget { padding: 14px; }
+    .dice-face { width: 58px; height: 58px; font-size: 2rem; }
+    .dice-btn { padding: 9px 14px; font-size: 0.88rem; margin: 3px; }
+    .dice-stats { grid-template-columns: repeat(3, 1fr); gap: 5px; }
+    .dice-stats > div { padding: 6px 4px; }
+    .dice-stats .stat-label { font-size: 0.62rem; letter-spacing: 0.04em; }
+    .dice-stats .stat-value { font-size: 0.95rem; }
+
+    /* Tree — tighter */
+    .tree {
+      padding: 14px 12px;
+      font-size: 0.82rem;
+      gap: 6px 12px;
+    }
+    .tree .node { padding: 4px 8px; min-width: 32px; font-size: 0.85rem; }
+    .tree .branch { font-size: 0.72rem; }
+
+    /* Quiz */
+    .quiz { padding: 20px 16px; border-radius: 10px; }
+    .quiz h2 { font-size: 1.35rem; }
+    .quiz .subtitle { font-size: 0.94rem; margin-bottom: 18px; }
+    .qblock { padding: 14px 12px; margin: 16px 0; }
+    .qblock .question { font-size: 0.98rem; }
+    .options label { padding: 9px 11px; font-size: 0.95rem; }
+    .quiz-score { padding: 14px 16px; font-size: 1rem; }
+
+    /* Section mark-as-read */
+    .section-mark { margin-top: 18px; padding-top: 12px; font-size: 0.85rem; }
+
+    footer { padding: 14px; font-size: 0.82rem; }
+  }
+
+  /* Very narrow phones (≤380px) */
+  @media (max-width: 380px) {
+    .page { padding-inline: 8px; }
+    header.masthead h1 { font-size: 1.65rem; }
+    header.masthead { padding: 18px 14px; }
+    section.lesson { padding: 18px 12px; }
+    section.lesson h2 { font-size: 1.2rem; gap: 8px; }
+    .dice-face { width: 52px; height: 52px; font-size: 1.75rem; }
+    .dice-stats { grid-template-columns: 1fr 1fr; }
+    .dice-stats > div:last-child { grid-column: 1 / -1; }
+    .quiz-actions { flex-direction: column; }
+    .quiz-actions .dice-btn { width: 100%; margin: 0; }
+  }
+
   /* Reduced motion */
   @media (prefers-reduced-motion: reduce) {
     * { transition: none !important; animation: none !important; }
