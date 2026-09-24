@@ -458,42 +458,87 @@
   }
   .callout.warn .icon { color: var(--danger); }
 
-  /* Tree diagram */
+  /* Tree diagram — SVG */
   .tree {
     background: var(--ground);
     border: 1px solid var(--line);
     border-radius: 8px;
-    padding: 20px;
+    padding: 20px 16px;
     margin: 16px 0;
-    display: grid;
-    grid-template-columns: auto auto auto;
-    gap: 8px 24px;
-    justify-content: center;
-    align-items: center;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.92rem;
     overflow-x: auto;
   }
-  .tree .node {
-    padding: 6px 12px;
-    border-radius: 6px;
-    background: var(--surface);
-    border: 1px solid var(--line);
-    text-align: center;
-    min-width: 44px;
-    font-weight: 600;
+  .tree svg {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+    min-width: 460px;
   }
-  .tree .node.red { color: var(--danger); border-color: var(--danger); }
-  .tree .node.green { color: var(--success); border-color: var(--success); }
-  .tree .branch {
-    color: var(--muted);
-    font-size: 0.82rem;
-    text-align: center;
+  .tree .branch-line {
+    stroke: var(--muted);
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    fill: none;
   }
-  .tree .result {
+  .tree .node-depart circle {
+    fill: var(--ink-2);
+    stroke: none;
+  }
+  .tree .node-depart .node-caption {
+    fill: var(--muted);
     font-family: 'Source Sans 3', sans-serif;
-    font-size: 0.88rem;
-    color: var(--ink-2);
+    font-size: 12px;
+    font-weight: 500;
+    text-anchor: middle;
+  }
+  .tree .node-r circle {
+    fill: var(--surface);
+    stroke: var(--danger);
+    stroke-width: 2;
+  }
+  .tree .node-r .node-letter {
+    fill: var(--danger);
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 800;
+    font-size: 20px;
+    text-anchor: middle;
+  }
+  .tree .node-v circle {
+    fill: var(--surface);
+    stroke: var(--success);
+    stroke-width: 2;
+  }
+  .tree .node-v .node-letter {
+    fill: var(--success);
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 800;
+    font-size: 20px;
+    text-anchor: middle;
+  }
+  .tree .branch-label {
+    fill: var(--accent);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 700;
+    text-anchor: middle;
+  }
+  .tree .result-label {
+    fill: var(--ink);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 500;
+  }
+  .tree .result-frac {
+    fill: var(--accent-2);
+    font-weight: 700;
+  }
+  .tree .level-header {
+    fill: var(--muted);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    text-anchor: middle;
   }
 
   /* Section mark-as-read */
@@ -817,14 +862,11 @@
     .dice-stats .stat-label { font-size: 0.62rem; letter-spacing: 0.04em; }
     .dice-stats .stat-value { font-size: 0.95rem; }
 
-    /* Tree — tighter */
+    /* Tree — tighter padding, keep SVG scrollable */
     .tree {
-      padding: 14px 12px;
-      font-size: 0.82rem;
-      gap: 6px 12px;
+      padding: 14px 10px;
     }
-    .tree .node { padding: 4px 8px; min-width: 32px; font-size: 0.85rem; }
-    .tree .branch { font-size: 0.72rem; }
+    .tree svg { min-width: 440px; }
 
     /* Quiz */
     .quiz { padding: 20px 16px; border-radius: 10px; }
@@ -1068,11 +1110,73 @@
             </ul>
           </li>
           <li>Je dessine l'arbre :
-            <div class="tree" aria-label="Arbre de probabilité">
-              <div class="branch">3/5</div><div class="node red">R</div><div class="branch">3/5 → R</div>
-              <div></div><div></div><div class="branch">2/5 → V</div>
-              <div class="branch">2/5</div><div class="node green">V</div><div class="branch">3/5 → R</div>
-              <div></div><div></div><div class="branch">2/5 → V</div>
+            <div class="tree" role="img" aria-label="Arbre de probabilité — deux tirages avec remise, urne 3 rouges 2 vertes">
+              <svg viewBox="0 0 540 360" xmlns="http://www.w3.org/2000/svg">
+                <!-- Column headers -->
+                <text x="30" y="18" class="level-header">Départ</text>
+                <text x="200" y="18" class="level-header">1er tirage</text>
+                <text x="370" y="18" class="level-header">2e tirage</text>
+                <text x="470" y="18" class="level-header">Résultat</text>
+
+                <!-- Branches: Départ to level 1 -->
+                <line x1="30" y1="180" x2="200" y2="95" class="branch-line"/>
+                <line x1="30" y1="180" x2="200" y2="265" class="branch-line"/>
+
+                <!-- Branches: level 1 R to level 2 -->
+                <line x1="200" y1="95" x2="370" y2="55" class="branch-line"/>
+                <line x1="200" y1="95" x2="370" y2="135" class="branch-line"/>
+
+                <!-- Branches: level 1 V to level 2 -->
+                <line x1="200" y1="265" x2="370" y2="225" class="branch-line"/>
+                <line x1="200" y1="265" x2="370" y2="305" class="branch-line"/>
+
+                <!-- Branch probability labels -->
+                <text x="100" y="128" class="branch-label">3/5</text>
+                <text x="100" y="240" class="branch-label">2/5</text>
+                <text x="285" y="65" class="branch-label">3/5</text>
+                <text x="285" y="128" class="branch-label">2/5</text>
+                <text x="285" y="232" class="branch-label">3/5</text>
+                <text x="285" y="295" class="branch-label">2/5</text>
+
+                <!-- Départ node -->
+                <g class="node-depart">
+                  <circle cx="30" cy="180" r="10"/>
+                </g>
+
+                <!-- Level 1 nodes -->
+                <g class="node-r">
+                  <circle cx="200" cy="95" r="18"/>
+                  <text x="200" y="102" class="node-letter">R</text>
+                </g>
+                <g class="node-v">
+                  <circle cx="200" cy="265" r="18"/>
+                  <text x="200" y="272" class="node-letter">V</text>
+                </g>
+
+                <!-- Level 2 nodes -->
+                <g class="node-r">
+                  <circle cx="370" cy="55" r="18"/>
+                  <text x="370" y="62" class="node-letter">R</text>
+                </g>
+                <g class="node-v">
+                  <circle cx="370" cy="135" r="18"/>
+                  <text x="370" y="142" class="node-letter">V</text>
+                </g>
+                <g class="node-r">
+                  <circle cx="370" cy="225" r="18"/>
+                  <text x="370" y="232" class="node-letter">R</text>
+                </g>
+                <g class="node-v">
+                  <circle cx="370" cy="305" r="18"/>
+                  <text x="370" y="312" class="node-letter">V</text>
+                </g>
+
+                <!-- Result labels -->
+                <text x="395" y="60" class="result-label">RR = <tspan class="result-frac">9/25</tspan></text>
+                <text x="395" y="140" class="result-label">RV = <tspan class="result-frac">6/25</tspan></text>
+                <text x="395" y="230" class="result-label">VR = <tspan class="result-frac">6/25</tspan></text>
+                <text x="395" y="310" class="result-label">VV = <tspan class="result-frac">4/25</tspan></text>
+              </svg>
             </div>
           </li>
           <li>Je calcule chaque chemin (je <strong>multiplie</strong>) :
