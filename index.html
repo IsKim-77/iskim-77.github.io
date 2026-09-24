@@ -974,15 +974,22 @@
       <h2><span class="num">01</span>Le vocabulaire à connaître par cœur</h2>
 
       <ul>
-        <li><strong>Expérience aléatoire</strong> — une expérience dont on ne connaît pas le résultat à l'avance.<br>
-          <em>Ex : lancer un dé, tirer une carte.</em></li>
-        <li><strong>Issue</strong> — un seul résultat possible.<br>
-          <em>Ex : sur un dé, « obtenir 4 » est une issue.</em></li>
-        <li><strong>Événement</strong> — plusieurs issues regroupées.<br>
-          <em>Ex : « obtenir un nombre pair » = {2, 4, 6}.</em></li>
-        <li><strong>Événement certain</strong> — arrive toujours → probabilité = <strong>1</strong>.</li>
-        <li><strong>Événement impossible</strong> — n'arrive jamais → probabilité = <strong>0</strong>.</li>
-        <li><strong>Événement contraire de A</strong> — tout ce qui n'est pas A. Se note <strong>A̅</strong> (A barre).</li>
+        <li><strong>Expérience aléatoire</strong> — une expérience qui a <strong>plusieurs résultats possibles</strong> et dont on ne peut pas prévoir avec certitude le résultat à l'avance.<br>
+          <em>Ex : lancer un dé, tirer une carte dans un jeu, faire tourner une roue de la fortune.</em></li>
+        <li><strong>Issue</strong> — un des résultats possibles d'une expérience aléatoire. On dit aussi « éventualité ».<br>
+          <em>Ex : sur un dé à 6 faces, « obtenir 4 » est une issue ; il y a 6 issues possibles en tout.</em></li>
+        <li><strong>Univers</strong> — l'ensemble de <strong>toutes</strong> les issues possibles d'une expérience aléatoire. Souvent noté <strong>Ω</strong> (oméga).<br>
+          <em>Ex : pour un dé à 6 faces, Ω = {1, 2, 3, 4, 5, 6}.</em></li>
+        <li><strong>Événement</strong> — un ensemble d'<strong>une ou plusieurs issues</strong> regroupées selon une condition donnée. Autrement dit, un événement est un sous-ensemble de l'univers.<br>
+          <em>Ex : « obtenir un nombre pair » sur un dé = {2, 4, 6} — cet événement regroupe 3 issues. « Obtenir 6 » est aussi un événement, il contient une seule issue.</em></li>
+        <li><strong>Équiprobabilité</strong> — situation dans laquelle <strong>toutes les issues ont la même chance</strong> de se réaliser. C'est la seule situation où la formule <em>favorables / total</em> peut s'appliquer directement.<br>
+          <em>Ex : dé équilibré, pièce non truquée, roue à secteurs égaux, tirage au hasard dans une urne. Une roue avec un secteur plus large n'est PAS équiprobable.</em></li>
+        <li><strong>Événement certain</strong> — un événement qui contient <strong>toutes</strong> les issues de l'univers : il se réalise à coup sûr. Sa probabilité vaut toujours <strong>1</strong>.<br>
+          <em>Ex : sur un dé à 6 faces, « obtenir un nombre entre 1 et 6 » est certain.</em></li>
+        <li><strong>Événement impossible</strong> — un événement qui ne contient <strong>aucune</strong> issue : il ne peut jamais se réaliser. Sa probabilité vaut toujours <strong>0</strong>.<br>
+          <em>Ex : sur un dé à 6 faces, « obtenir 7 » est impossible.</em></li>
+        <li><strong>Événement contraire de A</strong> — l'événement qui contient <strong>toutes les issues qui ne sont pas dans A</strong>. Se note <strong>A̅</strong> (« A barre »). Si A se réalise, alors A̅ ne se réalise pas, et inversement — l'un des deux se produit forcément.<br>
+          <em>Ex : si A = « obtenir un nombre pair » sur un dé, alors A̅ = « obtenir un nombre impair » = {1, 3, 5}.</em></li>
       </ul>
 
       <div class="callout tip">
@@ -1304,6 +1311,36 @@
         <span class="icon">×</span>
         <div>Oublier que la <strong>somme des branches d'un même point = 1</strong>.</div>
       </div>
+      <div class="callout warn">
+        <span class="icon">×</span>
+        <div><strong>« Strictement supérieur à »</strong> (&gt;) <strong>≠</strong> <strong>« supérieur ou égal à »</strong> (≥). Ex : « strictement supérieur à 4 » sur un dé, ce n'est PAS {4, 5, 6} → c'est <strong>{5, 6}</strong> (le 4 n'est pas inclus). Pareil pour « strictement inférieur » et « strictement compris entre ».</div>
+      </div>
+      <div class="callout warn">
+        <span class="icon">×</span>
+        <div><strong>Ne pas confondre « tirage avec ordre » et « tirage sans ordre »</strong>. « Un rouge <em>puis</em> un vert » ≠ « un rouge et un vert (peu importe l'ordre) ». Le premier = 1 chemin dans l'arbre. Le second = 2 chemins (RV et VR) → probas à additionner.</div>
+      </div>
+      <div class="callout warn">
+        <span class="icon">×</span>
+        <div><strong>Oublier de convertir</strong> si l'énoncé demande un pourcentage ou une écriture décimale. <span class="frac"><span class="num">1</span><span class="den">4</span></span> = 0,25 = 25 %. Toujours donner la forme que l'énoncé exige.</div>
+      </div>
+      <div class="callout warn">
+        <span class="icon">×</span>
+        <div><strong>Appliquer la formule « favorables / total » sans vérifier l'équiprobabilité</strong>. Sur une roue à secteurs de tailles différentes, la formule ne marche pas — il faut regarder les surfaces, pas compter les secteurs.</div>
+      </div>
+
+      <h3>Comment vérifier ta réponse</h3>
+      <div class="callout tip">
+        <span class="icon">✓</span>
+        <div>Avant d'écrire ta réponse, fais tourner ces 5 vérifications :
+          <ul>
+            <li><strong>0 ≤ P ≤ 1</strong> — si tu trouves une proba négative ou supérieure à 1, c'est faux. Refais le calcul.</li>
+            <li><strong>Somme des branches d'un nœud d'arbre = 1</strong> — sur chaque nœud, additionne les probas qui en partent, ça doit faire exactement 1 (ex : <span class="frac"><span class="num">3</span><span class="den">5</span></span> + <span class="frac"><span class="num">2</span><span class="den">5</span></span> = 1 ✓).</li>
+            <li><strong>Somme de tous les chemins d'un arbre = 1</strong> — calcule toutes les feuilles, additionne, tu dois retomber sur 1 (ex : <span class="frac"><span class="num">9</span><span class="den">25</span></span> + <span class="frac"><span class="num">6</span><span class="den">25</span></span> + <span class="frac"><span class="num">6</span><span class="den">25</span></span> + <span class="frac"><span class="num">4</span><span class="den">25</span></span> = 1 ✓).</li>
+            <li><strong>P(A) + P(A̅) = 1</strong> — la proba d'un événement et de son contraire s'additionnent toujours à 1. Si tu as trouvé P(A) = <span class="frac"><span class="num">3</span><span class="den">10</span></span>, ton contraire doit valoir <span class="frac"><span class="num">7</span><span class="den">10</span></span>.</li>
+            <li><strong>Test du bon sens</strong> — un événement rare doit avoir une <em>petite</em> proba (proche de 0), un événement « presque toujours » une proba <em>proche de 1</em>. Si ta réponse contredit ton intuition, revérifie l'énoncé.</li>
+          </ul>
+        </div>
+      </div>
 
       <label class="section-mark"><input type="checkbox" data-mark="s7"> Marquer comme lu</label>
     </section>
@@ -1333,7 +1370,7 @@
     <!-- QUIZ -->
     <div class="quiz" id="quiz">
       <h2>Quiz auto-corrigé</h2>
-      <p class="subtitle">Quatre questions type éval. Réponds, puis clique « Vérifier ».</p>
+      <p class="subtitle">Sept questions type éval — les 3 dernières portent sur les arbres à deux épreuves. Réponds, puis clique « Vérifier ».</p>
 
       <div class="qblock" data-answer="b">
         <div class="question"><span class="qnum">Q1.</span> On lance un dé à 6 faces. Quelle est P(obtenir un nombre supérieur à 4) ?</div>
@@ -1377,6 +1414,39 @@
           <label><input type="radio" name="q4" value="d"> <span><span class="frac"><span class="num">6</span><span class="den">10</span></span></span></label>
         </div>
         <div class="explain" hidden>1<sup>er</sup> tirage : <span class="frac"><span class="num">6</span><span class="den">10</span></span>. 2<sup>e</sup> tirage (sans remise, il reste 9 boules dont 5 noires) : <span class="frac"><span class="num">5</span><span class="den">9</span></span>. Produit : <span class="frac"><span class="num">6</span><span class="den">10</span></span> × <span class="frac"><span class="num">5</span><span class="den">9</span></span> = <span class="frac"><span class="num">30</span><span class="den">90</span></span> = <span class="frac"><span class="num">1</span><span class="den">3</span></span>.</div>
+      </div>
+
+      <div class="qblock" data-answer="d">
+        <div class="question"><span class="qnum">Q5.</span> Une pièce équilibrée est lancée <strong>3 fois de suite</strong>. Quelle est P(obtenir 3 fois pile) ?</div>
+        <div class="options">
+          <label><input type="radio" name="q5" value="a"> <span><span class="frac"><span class="num">1</span><span class="den">2</span></span></span></label>
+          <label><input type="radio" name="q5" value="b"> <span><span class="frac"><span class="num">1</span><span class="den">4</span></span></span></label>
+          <label><input type="radio" name="q5" value="c"> <span><span class="frac"><span class="num">1</span><span class="den">6</span></span></span></label>
+          <label><input type="radio" name="q5" value="d"> <span><span class="frac"><span class="num">1</span><span class="den">8</span></span></span></label>
+        </div>
+        <div class="explain" hidden>Trois épreuves indépendantes, « pile <strong>et</strong> pile <strong>et</strong> pile » → je multiplie : <span class="frac"><span class="num">1</span><span class="den">2</span></span> × <span class="frac"><span class="num">1</span><span class="den">2</span></span> × <span class="frac"><span class="num">1</span><span class="den">2</span></span> = <span class="frac"><span class="num">1</span><span class="den">8</span></span>. L'arbre a 8 chemins, un seul est « PPP ».</div>
+      </div>
+
+      <div class="qblock" data-answer="c">
+        <div class="question"><span class="qnum">Q6.</span> Une urne contient 3 boules rouges et 2 boules vertes. On tire une boule, on la remet, on retire une boule. Quelle est P(<strong>au moins</strong> une boule verte) ?</div>
+        <div class="options">
+          <label><input type="radio" name="q6" value="a"> <span><span class="frac"><span class="num">4</span><span class="den">25</span></span></span></label>
+          <label><input type="radio" name="q6" value="b"> <span><span class="frac"><span class="num">9</span><span class="den">25</span></span></span></label>
+          <label><input type="radio" name="q6" value="c"> <span><span class="frac"><span class="num">16</span><span class="den">25</span></span></span></label>
+          <label><input type="radio" name="q6" value="d"> <span><span class="frac"><span class="num">21</span><span class="den">25</span></span></span></label>
+        </div>
+        <div class="explain" hidden>Astuce du contraire : « au moins une verte » = contraire de « aucune verte » = contraire de « deux rouges ». P(RR) = <span class="frac"><span class="num">3</span><span class="den">5</span></span> × <span class="frac"><span class="num">3</span><span class="den">5</span></span> = <span class="frac"><span class="num">9</span><span class="den">25</span></span>. Donc P(au moins une verte) = 1 − <span class="frac"><span class="num">9</span><span class="den">25</span></span> = <span class="frac"><span class="num">16</span><span class="den">25</span></span>. Vérification par les chemins : RV + VR + VV = <span class="frac"><span class="num">6</span><span class="den">25</span></span> + <span class="frac"><span class="num">6</span><span class="den">25</span></span> + <span class="frac"><span class="num">4</span><span class="den">25</span></span> = <span class="frac"><span class="num">16</span><span class="den">25</span></span> ✓.</div>
+      </div>
+
+      <div class="qblock" data-answer="b">
+        <div class="question"><span class="qnum">Q7.</span> Un sac contient 5 bonbons bleus et 3 bonbons rouges. On tire un bonbon <strong>sans remise</strong>, puis un second. Quelle est P(un bleu <strong>puis</strong> un rouge, dans cet ordre) ?</div>
+        <div class="options">
+          <label><input type="radio" name="q7" value="a"> <span><span class="frac"><span class="num">15</span><span class="den">64</span></span></span></label>
+          <label><input type="radio" name="q7" value="b"> <span><span class="frac"><span class="num">15</span><span class="den">56</span></span></span></label>
+          <label><input type="radio" name="q7" value="c"> <span><span class="frac"><span class="num">5</span><span class="den">8</span></span></span></label>
+          <label><input type="radio" name="q7" value="d"> <span><span class="frac"><span class="num">3</span><span class="den">8</span></span></span></label>
+        </div>
+        <div class="explain" hidden>1<sup>er</sup> tirage (bleu) : <span class="frac"><span class="num">5</span><span class="den">8</span></span>. 2<sup>e</sup> tirage sans remise : il reste 7 bonbons dont 3 rouges → <span class="frac"><span class="num">3</span><span class="den">7</span></span>. « Bleu <strong>puis</strong> rouge » → je multiplie : <span class="frac"><span class="num">5</span><span class="den">8</span></span> × <span class="frac"><span class="num">3</span><span class="den">7</span></span> = <span class="frac"><span class="num">15</span><span class="den">56</span></span>. Attention : sans remise → le dénominateur du 2<sup>e</sup> tirage passe de 8 à 7.</div>
       </div>
 
       <div class="quiz-actions">
@@ -1519,11 +1589,13 @@
       explain.hidden = false;
     });
     const scoreEl = document.getElementById('quiz-score');
+    const total = quizBlocks.length;
     let msg;
-    if (score === 4) msg = '4/4 — parfait. Tu peux dormir tranquille jeudi soir.';
-    else if (score === 3) msg = '3/4 — presque parfait. Relis la section du piège.';
-    else if (score === 2) msg = '2/4 — moitié moitié. Refais les exemples pas à pas.';
-    else msg = score + '/4 — on reprend depuis la section 2. Pas de panique.';
+    if (score === total) msg = score + '/' + total + ' — parfait. Tu peux dormir tranquille jeudi soir.';
+    else if (score >= total - 1) msg = score + '/' + total + ' — presque parfait. Relis la question ratée.';
+    else if (score >= Math.ceil(total * 0.6)) msg = score + '/' + total + ' — pas mal. Revise les arbres et les cas sans remise.';
+    else if (score >= Math.ceil(total * 0.4)) msg = score + '/' + total + ' — moitié moitié. Refais les exemples pas à pas.';
+    else msg = score + '/' + total + ' — on reprend depuis la section 2. Pas de panique.';
     scoreEl.textContent = msg;
     scoreEl.hidden = false;
   });
