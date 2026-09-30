@@ -609,32 +609,61 @@
     <!-- §3 Ordre de grandeur -->
     <section class="lesson" id="s3">
       <h2><span class="num">03</span>L'ordre de grandeur</h2>
-      <p>L'<strong>ordre de grandeur</strong> d'un nombre est la puissance de 10 la plus proche. Ça permet de comparer rapidement des tailles très différentes et de vérifier qu'un résultat est cohérent.</p>
+
+      <div class="hook">
+        <strong>En clair.</strong> L'ordre de grandeur, c'est <strong>l'arrondi grossier</strong> d'un nombre à la puissance de 10 la plus proche. Ça sert à dire "environ combien de zéros" a une taille — pratique pour comparer une bactérie à une galaxie sans se noyer dans les chiffres.
+      </div>
+
+      <h3>Comprendre l'idée</h3>
+      <p>Chaque nombre en notation scientifique se trouve <strong>entre deux puissances de 10</strong>. Par exemple <span class="math">3,2 × 10<sup>4</sup></span> vaut 32 000, donc il est <strong>entre 10 000 (10<sup>4</sup>) et 100 000 (10<sup>5</sup>)</strong>. La question qu'on se pose : de laquelle est-il le plus proche ?</p>
+      <p>Le milieu entre <span class="math">10<sup>n</sup></span> et <span class="math">10<sup>n+1</sup></span>, c'est <strong>5 × 10<sup>n</sup></strong>. D'où la règle : on regarde le nombre <em>a</em> qui est devant.</p>
 
       <div class="formula simple">
-        <span class="formula-label">Règle</span>
-        <div style="text-align:left; max-width:460px; margin:0 auto;">
-          Un nombre écrit <span class="math"><em>a</em> × 10<sup><em>n</em></sup></span> a pour ordre de grandeur :
-          <ul style="margin-top:8px;">
-            <li>si <strong><em>a</em> &lt; 5</strong> → <span class="math">10<sup><em>n</em></sup></span></li>
-            <li>si <strong><em>a</em> ≥ 5</strong> → <span class="math">10<sup><em>n</em>+1</sup></span></li>
+        <span class="formula-label">La règle</span>
+        <div style="text-align:left; max-width:500px; margin:0 auto;">
+          Pour un nombre écrit <span class="math"><em>a</em> × 10<sup><em>n</em></sup></span> :
+          <ul style="margin-top:10px;">
+            <li>si <strong><em>a</em> &lt; 5</strong> (donc plus proche du bas) → ordre de grandeur = <span class="math">10<sup><em>n</em></sup></span></li>
+            <li>si <strong><em>a</em> ≥ 5</strong> (donc plus proche du haut) → ordre de grandeur = <span class="math">10<sup><em>n</em>+1</sup></span></li>
           </ul>
         </div>
       </div>
 
       <div class="example">
-        <span class="label">Exemples rapides</span>
-        <ul style="list-style:none; padding:0;">
-          <li>• <span class="math">3,2 × 10<sup>4</sup></span> → nombre devant &lt; 5 → ordre de grandeur = <strong>10<sup>4</sup></strong></li>
-          <li>• <span class="math">8,7 × 10<sup>5</sup></span> → nombre devant ≥ 5 → ordre de grandeur = <strong>10<sup>6</sup></strong></li>
-          <li>• <span class="math">4,999 × 10<sup>2</sup></span> → &lt; 5 → ordre de grandeur = <strong>10<sup>2</sup></strong></li>
-          <li>• <span class="math">5,0 × 10<sup>2</sup></span> → ≥ 5 → ordre de grandeur = <strong>10<sup>3</sup></strong></li>
+        <span class="label">Exemple 1 — nombre devant &lt; 5</span>
+        <div class="prompt">Quel est l'ordre de grandeur de <span class="math">3,2 × 10<sup>4</sup></span> ?</div>
+        <ol class="steps">
+          <li>Le nombre devant est <strong>3,2</strong>. On regarde s'il est plus petit ou plus grand que 5.</li>
+          <li>3,2 est plus petit que 5, donc notre nombre est plus <strong>proche de 10<sup>4</sup></strong> que de 10<sup>5</sup>.</li>
+          <li>On garde donc la puissance telle quelle.</li>
+        </ol>
+        <div class="answer">Ordre de grandeur = <strong>10<sup>4</sup></strong> (soit environ 10 000).</div>
+      </div>
+
+      <div class="example">
+        <span class="label">Exemple 2 — nombre devant ≥ 5</span>
+        <div class="prompt">Quel est l'ordre de grandeur de <span class="math">8,7 × 10<sup>5</sup></span> ?</div>
+        <ol class="steps">
+          <li>8,7 × 10<sup>5</sup> vaut 870 000. Il est entre 10<sup>5</sup> (100 000) et 10<sup>6</sup> (1 000 000).</li>
+          <li>Le nombre devant est <strong>8,7</strong> — plus grand que 5, donc notre nombre est plus <strong>proche de 10<sup>6</sup></strong>.</li>
+          <li>On monte d'une puissance : de 10<sup>5</sup> à 10<sup>6</sup>.</li>
+        </ol>
+        <div class="answer">Ordre de grandeur = <strong>10<sup>6</sup></strong> (soit environ 1 000 000).</div>
+      </div>
+
+      <div class="example">
+        <span class="label">Le cas limite exact : 5</span>
+        <div class="prompt">Que se passe-t-il si le nombre devant vaut pile <strong>5</strong> ?</div>
+        <ul style="list-style:none; padding:0; margin: 8px 0;">
+          <li>• <span class="math">4,999 × 10<sup>2</sup></span> → devant &lt; 5 → ordre de grandeur = <strong>10<sup>2</sup></strong></li>
+          <li>• <span class="math">5,0 × 10<sup>2</sup></span> → devant ≥ 5 → ordre de grandeur = <strong>10<sup>3</sup></strong></li>
         </ul>
+        <div class="answer">À partir de 5 exactement, on <strong>monte</strong> d'une puissance.</div>
       </div>
 
       <div class="callout tip">
         <span class="icon">i</span>
-        <div>Comparer deux ordres de grandeur : <span class="math">10<sup>15</sup></span> est <strong>10<sup>3</sup> = 1000 fois plus grand</strong> que <span class="math">10<sup>12</sup></span>. En astronomie on raisonne presque toujours en ordre de grandeur.</div>
+        <div><strong>À quoi ça sert.</strong> Comparer deux tailles : <span class="math">10<sup>15</sup></span> est <strong>1000 fois plus grand</strong> que <span class="math">10<sup>12</sup></span> (car 10<sup>15</sup> ÷ 10<sup>12</sup> = 10<sup>3</sup>). En astronomie on raisonne presque toujours comme ça — inutile de comparer 1,7 × 10<sup>15</sup> et 3,2 × 10<sup>12</sup> chiffre par chiffre, l'ordre de grandeur suffit.</div>
       </div>
 
       <div class="recap">
