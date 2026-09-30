@@ -1,0 +1,1623 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, minimum-scale=1">
+<meta name="theme-color" content="#D9503A">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-title" content="Hkm Probas">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="description" content="Fiche de révision complète sur les probabilités niveau 3e : vocabulaire, formules détaillées, arbres, exercices et quiz auto-corrigé.">
+
+<!-- Open Graph / Snap / Insta / iMessage preview -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Hkm — Révisions">
+<meta property="og:title" content="Probabilités 3e — Fiche de révision">
+<meta property="og:description" content="Vocabulaire, formules, arbres, exemples pas à pas et quiz auto-corrigé pour préparer l'éval de maths.">
+<meta property="og:url" content="https://iskim-77.github.io/">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Probabilités 3e — Fiche de révision">
+<meta name="twitter:description" content="Vocabulaire, formules, arbres, exemples pas à pas et quiz auto-corrigé pour préparer l'éval de maths.">
+
+<title>Hkm — Probabilités 3e</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=Source+Sans+3:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+  :root {
+    --ground: #FAF6EE;
+    --surface: #FFFFFF;
+    --surface-2: #F2EBDD;
+    --ink: #1B1C2E;
+    --ink-2: #43455C;
+    --muted: #8C8578;
+    --line: #E3DACA;
+    --accent: #D9503A;
+    --accent-2: #285E8C;
+    --highlight: #FFF1C8;
+    --highlight-line: #E8B94A;
+    --success: #3A7A4F;
+    --danger: #B23A3A;
+    --shadow: 0 1px 2px rgba(27,28,46,0.04), 0 4px 12px rgba(27,28,46,0.06);
+  }
+  :root:not([data-theme="light"]) {
+    @media (prefers-color-scheme: dark) {
+      --ground: #14151E;
+      --surface: #1D1F2B;
+      --surface-2: #262837;
+      --ink: #EEE8DB;
+      --ink-2: #B8B3A5;
+      --muted: #7A756A;
+      --line: #333446;
+      --accent: #FF7B65;
+      --accent-2: #7AB5E8;
+      --highlight: #35301B;
+      --highlight-line: #A87D2C;
+      --success: #6BC38A;
+      --danger: #E67373;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 4px 12px rgba(0,0,0,0.3);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground: #14151E;
+    --surface: #1D1F2B;
+    --surface-2: #262837;
+    --ink: #EEE8DB;
+    --ink-2: #B8B3A5;
+    --muted: #7A756A;
+    --line: #333446;
+    --accent: #FF7B65;
+    --accent-2: #7AB5E8;
+    --highlight: #35301B;
+    --highlight-line: #A87D2C;
+    --success: #6BC38A;
+    --danger: #E67373;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 4px 12px rgba(0,0,0,0.3);
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: 'Source Sans 3', system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    margin: 0;
+    padding-block: 0;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+  }
+  img, svg, video { max-width: 100%; }
+
+  /* Progress bar */
+  .progress-bar {
+    position: fixed;
+    top: env(safe-area-inset-top, 0px);
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: transparent;
+    z-index: 100;
+  }
+  .progress-bar::after {
+    content: '';
+    display: block;
+    height: 100%;
+    width: var(--progress, 0%);
+    background: var(--accent);
+    transition: width 0.15s ease-out;
+  }
+
+  /* Layout */
+  .page {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding-inline: 20px;
+    padding-block: 32px 80px;
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 48px;
+  }
+  @media (max-width: 900px) {
+    .page {
+      grid-template-columns: 1fr;
+      gap: 24px;
+      padding-block: 20px 60px;
+    }
+  }
+
+  /* Brand strip */
+  .brand-strip {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 4px 4px 4px;
+  }
+  .brand {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--ink);
+    font-family: 'Fraunces', Georgia, serif;
+  }
+  .brand-mark {
+    font-weight: 800;
+    font-size: 1.4rem;
+    letter-spacing: -0.02em;
+    color: var(--accent);
+  }
+  .brand-slash {
+    color: var(--muted);
+    font-weight: 400;
+    font-size: 1.2rem;
+  }
+  .brand-section {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-2);
+    font-weight: 500;
+  }
+
+  /* Header */
+  header.masthead {
+    grid-column: 1 / -1;
+    padding: 28px 32px;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  header.masthead h1 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 800;
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    line-height: 1.05;
+    margin: 0 0 6px 0;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+  header.masthead .subtitle {
+    color: var(--ink-2);
+    font-size: 1rem;
+    margin: 0;
+  }
+  header.masthead .kbd-hint {
+    color: var(--muted);
+    font-size: 0.85rem;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .theme-toggle {
+    background: var(--surface-2);
+    border: 1px solid var(--line);
+    color: var(--ink);
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 0.85rem;
+    cursor: pointer;
+  }
+  .theme-toggle:hover { background: var(--line); }
+
+  /* Sidebar TOC */
+  nav.toc {
+    position: sticky;
+    top: 24px;
+    align-self: start;
+    max-height: calc(100vh - 48px);
+    overflow-y: auto;
+  }
+  @media (max-width: 900px) {
+    nav.toc {
+      position: static;
+      max-height: none;
+    }
+  }
+  nav.toc h2 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 12px 0;
+    font-weight: 600;
+  }
+  nav.toc ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    counter-reset: toc;
+  }
+  nav.toc li {
+    counter-increment: toc;
+  }
+  nav.toc a {
+    display: flex;
+    gap: 10px;
+    padding: 8px 10px;
+    border-radius: 6px;
+    color: var(--ink-2);
+    text-decoration: none;
+    font-size: 0.92rem;
+    line-height: 1.35;
+    border-left: 2px solid transparent;
+    transition: background 0.15s;
+  }
+  nav.toc a::before {
+    content: counter(toc);
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--muted);
+    font-size: 0.82rem;
+    font-variant-numeric: tabular-nums;
+    min-width: 18px;
+  }
+  nav.toc a:hover {
+    background: var(--surface-2);
+    color: var(--ink);
+  }
+  nav.toc a.active {
+    background: var(--surface-2);
+    border-left-color: var(--accent);
+    color: var(--ink);
+    font-weight: 600;
+  }
+  nav.toc a.read::after {
+    content: '✓';
+    color: var(--success);
+    margin-left: auto;
+    font-weight: 700;
+  }
+
+  /* Main */
+  main { min-width: 0; }
+  section.lesson {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 32px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow);
+    scroll-margin-top: 16px;
+  }
+  @media (max-width: 600px) {
+    section.lesson { padding: 22px 18px; }
+  }
+  section.lesson h2 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 800;
+    font-size: 1.55rem;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin: 0 0 20px 0;
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    text-wrap: balance;
+  }
+  section.lesson h2 .num {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--accent);
+    font-size: 1rem;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    padding: 4px 8px;
+    background: var(--surface-2);
+    border-radius: 5px;
+    flex-shrink: 0;
+    align-self: center;
+  }
+  section.lesson h3 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 600;
+    font-size: 1.15rem;
+    margin: 22px 0 10px 0;
+    color: var(--ink);
+  }
+  section.lesson p { margin: 10px 0; }
+  section.lesson ul { padding-left: 22px; margin: 10px 0; }
+  section.lesson li { margin: 6px 0; }
+  section.lesson strong { color: var(--ink); font-weight: 600; }
+  section.lesson em { color: var(--ink-2); font-style: italic; }
+
+  code, .mono {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9em;
+  }
+
+  /* Fractions & math */
+  .frac {
+    display: inline-flex;
+    flex-direction: column;
+    vertical-align: middle;
+    text-align: center;
+    margin: 0 3px;
+    line-height: 1.1;
+    font-variant-numeric: tabular-nums;
+  }
+  .frac .num, .frac .den {
+    padding: 0 6px;
+    display: block;
+  }
+  .frac .num {
+    border-bottom: 1.5px solid currentColor;
+    padding-bottom: 2px;
+  }
+  .frac .den {
+    padding-top: 2px;
+  }
+  .frac.text .num, .frac.text .den {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82em;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  .math {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1rem;
+  }
+  .op { padding: 0 6px; }
+
+  /* Formula box */
+  .formula {
+    background: var(--highlight);
+    border-left: 4px solid var(--highlight-line);
+    padding: 18px 22px;
+    margin: 14px 0;
+    border-radius: 0 8px 8px 0;
+    text-align: center;
+    font-size: 1.1rem;
+  }
+  .formula .frac { font-size: 1.15em; }
+  .formula.simple { font-size: 1rem; padding: 14px 18px; }
+  .formula-label {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 0.72rem;
+    color: var(--muted);
+    margin-bottom: 8px;
+    text-align: left;
+  }
+
+  /* Example box */
+  .example {
+    background: var(--surface-2);
+    border-left: 3px solid var(--accent-2);
+    padding: 16px 20px;
+    margin: 16px 0;
+    border-radius: 0 8px 8px 0;
+  }
+  .example .label {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.72rem;
+    color: var(--accent-2);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .example .prompt {
+    font-style: italic;
+    color: var(--ink-2);
+    margin-bottom: 12px;
+  }
+  .example .steps {
+    list-style: none;
+    padding: 0;
+    counter-reset: step;
+  }
+  .example .steps > li {
+    counter-increment: step;
+    padding-left: 44px;
+    position: relative;
+    margin: 10px 0;
+  }
+  .example .steps > li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--accent-2);
+    color: #fff;
+    display: grid;
+    place-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+  .example .answer {
+    margin-top: 14px;
+    padding: 10px 14px;
+    background: var(--surface);
+    border-radius: 6px;
+    font-weight: 600;
+    border-left: 3px solid var(--success);
+  }
+
+  /* Callouts */
+  .callout {
+    display: flex;
+    gap: 14px;
+    padding: 14px 18px;
+    background: var(--surface-2);
+    border-radius: 8px;
+    margin: 14px 0;
+    align-items: flex-start;
+  }
+  .callout.warn {
+    background: color-mix(in srgb, var(--danger) 10%, var(--surface));
+    border-left: 3px solid var(--danger);
+  }
+  .callout.tip {
+    background: color-mix(in srgb, var(--accent) 8%, var(--surface));
+    border-left: 3px solid var(--accent);
+  }
+  .callout .icon {
+    font-family: 'Fraunces', serif;
+    font-weight: 800;
+    font-size: 1.2rem;
+    line-height: 1;
+    color: var(--accent);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .callout.warn .icon { color: var(--danger); }
+
+  /* Tree diagram — SVG */
+  .tree {
+    background: var(--ground);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 20px 16px;
+    margin: 16px 0;
+    overflow-x: auto;
+  }
+  .tree svg {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+    min-width: 460px;
+  }
+  .tree .branch-line {
+    stroke: var(--muted);
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    fill: none;
+  }
+  .tree .node-depart circle {
+    fill: var(--ink-2);
+    stroke: none;
+  }
+  .tree .node-depart .node-caption {
+    fill: var(--muted);
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    text-anchor: middle;
+  }
+  .tree .node-r circle {
+    fill: var(--surface);
+    stroke: var(--danger);
+    stroke-width: 2;
+  }
+  .tree .node-r .node-letter {
+    fill: var(--danger);
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 800;
+    font-size: 20px;
+    text-anchor: middle;
+  }
+  .tree .node-v circle {
+    fill: var(--surface);
+    stroke: var(--success);
+    stroke-width: 2;
+  }
+  .tree .node-v .node-letter {
+    fill: var(--success);
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 800;
+    font-size: 20px;
+    text-anchor: middle;
+  }
+  .tree .branch-label {
+    fill: var(--accent);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 700;
+    text-anchor: middle;
+  }
+  .tree .result-label {
+    fill: var(--ink);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 500;
+  }
+  .tree .result-frac {
+    fill: var(--accent-2);
+    font-weight: 700;
+  }
+  .tree .level-header {
+    fill: var(--muted);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    text-anchor: middle;
+  }
+
+  /* Section mark-as-read */
+  .section-mark {
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px dashed var(--line);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: var(--muted);
+    cursor: pointer;
+    user-select: none;
+  }
+  .section-mark input {
+    accent-color: var(--accent);
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+  }
+  .section-mark:hover { color: var(--ink-2); }
+
+  /* Dice roller */
+  .dice-widget {
+    background: var(--surface-2);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 18px;
+    margin: 16px 0;
+    text-align: center;
+  }
+  .dice-widget .label {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    text-transform: uppercase;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  .dice-face {
+    display: inline-grid;
+    place-items: center;
+    width: 68px;
+    height: 68px;
+    background: var(--surface);
+    border: 2px solid var(--ink);
+    border-radius: 12px;
+    font-family: 'Fraunces', serif;
+    font-weight: 800;
+    font-size: 2.4rem;
+    margin: 8px auto;
+    transition: transform 0.4s;
+  }
+  .dice-face.rolling { transform: rotate(360deg); }
+  .dice-btn {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin: 4px;
+  }
+  .dice-btn:hover { filter: brightness(1.05); }
+  .dice-btn.secondary {
+    background: transparent;
+    color: var(--ink-2);
+    border: 1px solid var(--line);
+  }
+  .dice-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-top: 14px;
+    font-size: 0.9rem;
+  }
+  .dice-stats > div {
+    padding: 8px;
+    background: var(--surface);
+    border-radius: 6px;
+  }
+  .dice-stats .stat-label {
+    color: var(--muted);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    display: block;
+    margin-bottom: 2px;
+  }
+  .dice-stats .stat-value {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Quiz */
+  .quiz {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 32px;
+    margin-top: 24px;
+    box-shadow: var(--shadow);
+  }
+  .quiz h2 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 800;
+    font-size: 1.6rem;
+    margin: 0 0 8px 0;
+  }
+  .quiz .subtitle {
+    color: var(--ink-2);
+    margin-bottom: 24px;
+  }
+  .qblock {
+    margin: 22px 0;
+    padding: 18px;
+    background: var(--surface-2);
+    border-radius: 8px;
+  }
+  .qblock .question {
+    font-weight: 600;
+    margin-bottom: 12px;
+    line-height: 1.4;
+  }
+  .qblock .qnum {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--accent);
+    margin-right: 8px;
+  }
+  .options { display: flex; flex-direction: column; gap: 6px; }
+  .options label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.12s;
+  }
+  .options label:hover { background: var(--ground); }
+  .options input { accent-color: var(--accent); }
+  .options label.correct {
+    background: color-mix(in srgb, var(--success) 15%, var(--surface));
+    border-color: var(--success);
+  }
+  .options label.wrong {
+    background: color-mix(in srgb, var(--danger) 12%, var(--surface));
+    border-color: var(--danger);
+  }
+  .explain {
+    margin-top: 10px;
+    padding: 10px 14px;
+    background: var(--surface);
+    border-left: 3px solid var(--accent-2);
+    border-radius: 0 6px 6px 0;
+    font-size: 0.92rem;
+    color: var(--ink-2);
+  }
+  .explain[hidden] { display: none; }
+  .quiz-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
+  .quiz-score {
+    padding: 16px 20px;
+    background: var(--highlight);
+    border-left: 4px solid var(--highlight-line);
+    border-radius: 0 8px 8px 0;
+    margin-top: 20px;
+    font-weight: 600;
+    text-align: center;
+    font-size: 1.05rem;
+  }
+  .quiz-score[hidden] { display: none; }
+
+  /* Footer */
+  footer {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 20px;
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-top: 20px;
+  }
+
+  /* Mobile improvements (≤640px) */
+  @media (max-width: 640px) {
+    body { font-size: 16px; line-height: 1.55; }
+
+    .page {
+      padding-inline: 12px;
+      padding-block: 12px 40px;
+      gap: 14px;
+    }
+
+    .brand-strip { padding: 4px 6px 0 6px; }
+    .brand-mark { font-size: 1.2rem; }
+    .brand-slash { font-size: 1rem; }
+    .brand-section { font-size: 0.7rem; letter-spacing: 0.08em; }
+    .theme-toggle { padding: 5px 10px; font-size: 0.8rem; }
+
+    header.masthead {
+      padding: 20px 18px;
+      border-radius: 10px;
+      gap: 10px;
+    }
+    header.masthead h1 { font-size: 1.85rem; }
+    header.masthead .subtitle { font-size: 0.92rem; line-height: 1.45; }
+    header.masthead .kbd-hint { display: none; }
+
+    /* TOC — horizontal scrolling chip strip */
+    nav.toc {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 12px 12px 8px 12px;
+      box-shadow: var(--shadow);
+    }
+    nav.toc h2 {
+      margin: 0 0 8px 0;
+      font-size: 0.72rem;
+    }
+    nav.toc ol {
+      flex-direction: row;
+      overflow-x: auto;
+      gap: 6px;
+      padding-bottom: 4px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+    }
+    nav.toc li { flex-shrink: 0; }
+    nav.toc a {
+      padding: 7px 12px;
+      font-size: 0.85rem;
+      background: var(--surface-2);
+      border-radius: 20px;
+      border-left: none;
+      white-space: nowrap;
+    }
+    nav.toc a::before {
+      color: var(--accent);
+      font-weight: 700;
+      min-width: 0;
+    }
+    nav.toc a.active {
+      background: var(--accent);
+      color: #fff;
+      border-left: none;
+    }
+    nav.toc a.active::before { color: #fff; }
+    nav.toc a.read::after { margin-left: 4px; margin-right: 0; }
+
+    section.lesson {
+      padding: 20px 16px;
+      border-radius: 10px;
+      margin-bottom: 14px;
+    }
+    section.lesson h2 {
+      font-size: 1.3rem;
+      gap: 10px;
+      margin: 0 0 16px 0;
+    }
+    section.lesson h2 .num {
+      font-size: 0.82rem;
+      padding: 3px 7px;
+    }
+    section.lesson h3 { font-size: 1.05rem; margin: 18px 0 8px 0; }
+    section.lesson ul { padding-left: 20px; }
+
+    /* Formulas — allow wrap, smaller padding */
+    .formula {
+      padding: 14px 16px;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+    .formula.simple { font-size: 0.95rem; padding: 12px 14px; }
+    .formula-label { font-size: 0.68rem; margin-bottom: 6px; }
+    .frac.text .num, .frac.text .den {
+      white-space: normal;
+      font-size: 0.76em;
+      line-height: 1.25;
+    }
+    .math { font-size: 0.95rem; }
+
+    /* Example — smaller step circles */
+    .example { padding: 14px 14px; }
+    .example .steps > li {
+      padding-left: 36px;
+      margin: 12px 0;
+    }
+    .example .steps > li::before {
+      width: 26px;
+      height: 26px;
+      font-size: 0.8rem;
+    }
+    .example .answer { padding: 10px 12px; font-size: 0.95rem; }
+    .example .prompt { font-size: 0.95rem; }
+
+    /* Callouts */
+    .callout { padding: 12px 14px; gap: 10px; font-size: 0.94rem; }
+    .callout ul { padding-left: 18px; }
+
+    /* Dice widget */
+    .dice-widget { padding: 14px; }
+    .dice-face { width: 58px; height: 58px; font-size: 2rem; }
+    .dice-btn { padding: 9px 14px; font-size: 0.88rem; margin: 3px; }
+    .dice-stats { grid-template-columns: repeat(3, 1fr); gap: 5px; }
+    .dice-stats > div { padding: 6px 4px; }
+    .dice-stats .stat-label { font-size: 0.62rem; letter-spacing: 0.04em; }
+    .dice-stats .stat-value { font-size: 0.95rem; }
+
+    /* Tree — tighter padding, keep SVG scrollable */
+    .tree {
+      padding: 14px 10px;
+    }
+    .tree svg { min-width: 440px; }
+
+    /* Quiz */
+    .quiz { padding: 20px 16px; border-radius: 10px; }
+    .quiz h2 { font-size: 1.35rem; }
+    .quiz .subtitle { font-size: 0.94rem; margin-bottom: 18px; }
+    .qblock { padding: 14px 12px; margin: 16px 0; }
+    .qblock .question { font-size: 0.98rem; }
+    .options label { padding: 9px 11px; font-size: 0.95rem; }
+    .quiz-score { padding: 14px 16px; font-size: 1rem; }
+
+    /* Section mark-as-read */
+    .section-mark { margin-top: 18px; padding-top: 12px; font-size: 0.85rem; }
+
+    footer { padding: 14px; font-size: 0.82rem; }
+  }
+
+  /* Very narrow phones (≤380px) */
+  @media (max-width: 380px) {
+    .page { padding-inline: 8px; }
+    header.masthead h1 { font-size: 1.65rem; }
+    header.masthead { padding: 18px 14px; }
+    section.lesson { padding: 18px 12px; }
+    section.lesson h2 { font-size: 1.2rem; gap: 8px; }
+    .dice-face { width: 52px; height: 52px; font-size: 1.75rem; }
+    .dice-stats { grid-template-columns: 1fr 1fr; }
+    .dice-stats > div:last-child { grid-column: 1 / -1; }
+    .quiz-actions { flex-direction: column; }
+    .quiz-actions .dice-btn { width: 100%; margin: 0; }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; }
+  }
+
+  /* Focus */
+  a:focus-visible, button:focus-visible, input:focus-visible, label:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+</style>
+
+<div class="progress-bar" id="progress" aria-hidden="true"></div>
+
+<div class="page">
+  <div class="brand-strip">
+    <a href="index.html" class="brand"><span class="brand-mark">Hkm</span><span class="brand-slash">/</span><span class="brand-section">maths</span></a>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Changer de thème">🌓 Thème</button>
+  </div>
+
+  <header class="masthead">
+    <div>
+      <h1>Probabilités <span style="color:var(--accent)">3<sup>e</sup></span></h1>
+      <p class="subtitle">Fiche de révision complète — vocabulaire, formules détaillées, arbres et exercices.</p>
+    </div>
+    <div style="display:flex; align-items:center; gap:12px;">
+      <span class="kbd-hint">éval vendredi</span>
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire">
+    <h2>Sommaire</h2>
+    <ol>
+      <li><a href="#s1" data-section="s1">Vocabulaire</a></li>
+      <li><a href="#s2" data-section="s2">Formule principale</a></li>
+      <li><a href="#s3" data-section="s3">Événement contraire</a></li>
+      <li><a href="#s4" data-section="s4">L'arbre (2 épreuves)</a></li>
+      <li><a href="#s5" data-section="s5">Avec / sans remise</a></li>
+      <li><a href="#s6" data-section="s6">Probabilité &amp; fréquence</a></li>
+      <li><a href="#s7" data-section="s7">Pièges à éviter</a></li>
+      <li><a href="#s8" data-section="s8">La méthode J</a></li>
+      <li><a href="#quiz" data-section="quiz">Quiz auto-corrigé</a></li>
+    </ol>
+  </nav>
+
+  <main>
+
+    <!-- SECTION 1 -->
+    <section class="lesson" id="s1">
+      <h2><span class="num">01</span>Le vocabulaire à connaître par cœur</h2>
+
+      <ul>
+        <li><strong>Expérience aléatoire</strong> — une expérience qui a <strong>plusieurs résultats possibles</strong> et dont on ne peut pas prévoir avec certitude le résultat à l'avance.<br>
+          <em>Ex : lancer un dé, tirer une carte dans un jeu, faire tourner une roue de la fortune.</em></li>
+        <li><strong>Issue</strong> — un des résultats possibles d'une expérience aléatoire. On dit aussi « éventualité ».<br>
+          <em>Ex : sur un dé à 6 faces, « obtenir 4 » est une issue ; il y a 6 issues possibles en tout.</em></li>
+        <li><strong>Univers</strong> — l'ensemble de <strong>toutes</strong> les issues possibles d'une expérience aléatoire. Souvent noté <strong>Ω</strong> (oméga).<br>
+          <em>Ex : pour un dé à 6 faces, Ω = {1, 2, 3, 4, 5, 6}.</em></li>
+        <li><strong>Événement</strong> — un ensemble d'<strong>une ou plusieurs issues</strong> regroupées selon une condition donnée.<br>
+          <em>Ex : « obtenir un nombre pair » sur un dé = {2, 4, 6} — cet événement regroupe 3 issues. « Obtenir 6 » est aussi un événement, il contient une seule issue.</em></li>
+        <li><strong>Équiprobabilité</strong> — situation dans laquelle <strong>toutes les issues ont la même chance</strong> de se réaliser. C'est le seul cas où on peut utiliser la formule <span class="frac text"><span class="num">favorables</span><span class="den">total</span></span> (voir §2).<br>
+          <em>Ex : dé équilibré, pièce non truquée, roue à secteurs égaux, tirage au hasard dans une urne. Une roue avec un secteur plus large n'est PAS équiprobable.</em></li>
+        <li><strong>Événement certain</strong> — un événement qui contient <strong>toutes</strong> les issues possibles de l'expérience (l'univers) : il se réalise à coup sûr. Sa probabilité vaut toujours <strong>1</strong>.<br>
+          <em>Ex : sur un dé à 6 faces, « obtenir un nombre entre 1 et 6 » est certain.</em></li>
+        <li><strong>Événement impossible</strong> — un événement qui ne contient <strong>aucune</strong> issue : il ne peut jamais se réaliser. Sa probabilité vaut toujours <strong>0</strong>.<br>
+          <em>Ex : sur un dé à 6 faces, « obtenir 7 » est impossible.</em></li>
+        <li><strong>Événement contraire de A</strong> — l'événement qui contient toutes les issues qui <strong>ne sont pas dans A</strong>. Se note <strong>A̅</strong> (« A barre »).<br>
+          <em>Ex : si A = « obtenir un nombre pair » sur un dé, alors A̅ = « obtenir un nombre impair » = {1, 3, 5}.</em></li>
+      </ul>
+
+      <div class="callout tip">
+        <span class="icon">!</span>
+        <div><strong>À retenir :</strong> une probabilité est toujours un nombre <strong>entre 0 et 1</strong>. Ni négative, ni supérieure à 1. Jamais.</div>
+      </div>
+
+      <label class="section-mark"><input type="checkbox" data-mark="s1"> Marquer comme lu</label>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section class="lesson" id="s2">
+      <h2><span class="num">02</span>La formule principale</h2>
+
+      <div class="formula">
+        <span class="formula-label">Formule détaillée</span>
+        <span class="math">P(événement) =</span>
+        <span class="frac text"><span class="num">nombre de résultats qui nous intéressent</span><span class="den">nombre total de résultats possibles</span></span>
+      </div>
+
+      <div class="formula simple">
+        <span class="formula-label">Formule simple</span>
+        <span class="math">P(A) =</span>
+        <span class="frac text"><span class="num">favorables</span><span class="den">total</span></span>
+      </div>
+
+      <div class="example">
+        <span class="label">Exemple pas à pas</span>
+        <p class="prompt">On lance un dé à 6 faces. Quelle est la probabilité d'obtenir un nombre pair ?</p>
+        <ol class="steps">
+          <li>Je compte les résultats possibles : <strong>1, 2, 3, 4, 5, 6</strong> → <strong>6 résultats en tout</strong>.</li>
+          <li>Je compte ceux qui m'intéressent (les pairs) : <strong>2, 4, 6</strong> → <strong>3 résultats favorables</strong>.</li>
+          <li>J'applique la formule :
+            <div style="text-align:center; margin:10px 0; font-size:1.1rem;">
+              <span class="math">P(pair) =</span>
+              <span class="frac"><span class="num">3</span><span class="den">6</span></span>
+            </div>
+          </li>
+          <li>Je simplifie :
+            <div style="text-align:center; margin:10px 0; font-size:1.15rem;">
+              <span class="math">P(pair) =</span>
+              <span class="frac"><span class="num">1</span><span class="den">2</span></span>
+            </div>
+          </li>
+        </ol>
+        <div class="answer">Réponse : <span class="math">P(pair) = </span><span class="frac"><span class="num">1</span><span class="den">2</span></span> = 0,5 = 50 %</div>
+      </div>
+
+      <h3>Essaie toi-même : le lanceur de dé</h3>
+      <div class="dice-widget">
+        <span class="label">Loi des grands nombres en direct</span>
+        <div class="dice-face" id="dice">?</div>
+        <div>
+          <button class="dice-btn" id="roll1">Lancer 1 fois</button>
+          <button class="dice-btn" id="roll20">Lancer 20 fois</button>
+          <button class="dice-btn secondary" id="reset-dice">Réinitialiser</button>
+        </div>
+        <div class="dice-stats">
+          <div><span class="stat-label">Total lancers</span><span class="stat-value" id="stat-total">0</span></div>
+          <div><span class="stat-label">Pairs obtenus</span><span class="stat-value" id="stat-pair">0</span></div>
+          <div><span class="stat-label">Fréquence pair</span><span class="stat-value" id="stat-freq">—</span></div>
+        </div>
+        <p style="margin-top:12px; color:var(--muted); font-size:0.88rem;">Plus tu lances, plus la fréquence se rapproche de <strong style="color:var(--accent)">0,5</strong>.</p>
+      </div>
+
+      <label class="section-mark"><input type="checkbox" data-mark="s2"> Marquer comme lu</label>
+    </section>
+
+    <!-- SECTION 3 -->
+    <section class="lesson" id="s3">
+      <h2><span class="num">03</span>L'événement contraire</h2>
+
+      <div class="formula">
+        <span class="formula-label">Formule détaillée</span>
+        <span class="math">P(contraire de A) = 1 − P(A)</span>
+      </div>
+
+      <div class="formula simple">
+        <span class="formula-label">Formule simple</span>
+        <span class="math">P(A̅) = 1 − P(A)</span>
+      </div>
+
+      <h3>Pourquoi ça marche ?</h3>
+      <p>Toutes les probabilités additionnées font toujours <strong>1</strong>. Donc si A a une probabilité de <span class="frac"><span class="num">1</span><span class="den">4</span></span>, tout le reste (le contraire) a une probabilité de 1 − <span class="frac"><span class="num">1</span><span class="den">4</span></span> = <span class="frac"><span class="num">3</span><span class="den">4</span></span>.</p>
+
+      <div class="example">
+        <span class="label">Exemple pas à pas</span>
+        <p class="prompt">Dans un jeu de 32 cartes, quelle est la probabilité de <strong>ne pas</strong> tirer un roi ?</p>
+        <ol class="steps">
+          <li>Combien de rois ? → <strong>4 rois</strong>.</li>
+          <li>Probabilité de tirer un roi :
+            <div style="text-align:center; margin:10px 0; font-size:1.1rem;">
+              <span class="math">P(roi) =</span>
+              <span class="frac"><span class="num">4</span><span class="den">32</span></span>
+              <span class="op">=</span>
+              <span class="frac"><span class="num">1</span><span class="den">8</span></span>
+            </div>
+          </li>
+          <li>Probabilité de <strong>ne pas</strong> tirer un roi :
+            <div style="text-align:center; margin:10px 0; font-size:1.1rem;">
+              <span class="math">P(pas roi) = 1 −</span>
+              <span class="frac"><span class="num">1</span><span class="den">8</span></span>
+              <span class="op">=</span>
+              <span class="frac"><span class="num">8</span><span class="den">8</span></span>
+              <span class="op">−</span>
+              <span class="frac"><span class="num">1</span><span class="den">8</span></span>
+              <span class="op">=</span>
+              <span class="frac"><span class="num">7</span><span class="den">8</span></span>
+            </div>
+          </li>
+        </ol>
+        <div class="answer">Réponse : <span class="frac"><span class="num">7</span><span class="den">8</span></span></div>
+      </div>
+
+      <label class="section-mark"><input type="checkbox" data-mark="s3"> Marquer comme lu</label>
+    </section>
+
+    <!-- SECTION 4 -->
+    <section class="lesson" id="s4">
+      <h2><span class="num">04</span>Deux expériences à la suite — l'arbre</h2>
+
+      <p>Quand tu fais <strong>deux tirages</strong> (ou deux lancers), tu dessines un <strong>arbre de probabilité</strong>.</p>
+
+      <h3>Les règles de l'arbre</h3>
+      <ol>
+        <li>Sur chaque branche, tu écris la probabilité.</li>
+        <li>La somme des probabilités qui partent d'un même point = <strong>1</strong>.</li>
+        <li>Pour la probabilité d'un chemin complet, tu <strong>multiplies</strong> le long du chemin.</li>
+        <li>Pour un événement en plusieurs chemins, tu <strong>additionnes</strong> les chemins.</li>
+      </ol>
+
+      <div class="callout tip">
+        <span class="icon">!</span>
+        <div><strong>Les deux mots-clés à repérer</strong> dans l'énoncé :
+          <ul style="margin:6px 0;">
+            <li>« <strong>et</strong> » (ex : « un rouge <em>et</em> un vert ») → <strong>je multiplie</strong></li>
+            <li>« <strong>ou</strong> » (ex : « deux rouges <em>ou</em> deux verts ») → <strong>j'additionne</strong></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="example">
+        <span class="label">Exemple pas à pas (avec remise)</span>
+        <p class="prompt">Une urne contient <strong>3 boules rouges</strong> et <strong>2 boules vertes</strong>. Je tire une boule, je la remets, je tire une deuxième boule. Quelle est la probabilité d'avoir <strong>deux boules de la même couleur</strong> ?</p>
+        <ol class="steps">
+          <li>Probabilités de départ :
+            <ul>
+              <li>P(Rouge) = <span class="frac"><span class="num">3</span><span class="den">5</span></span></li>
+              <li>P(Verte) = <span class="frac"><span class="num">2</span><span class="den">5</span></span></li>
+            </ul>
+          </li>
+          <li>Je dessine l'arbre :
+            <div class="tree" role="img" aria-label="Arbre de probabilité — deux tirages avec remise, urne 3 rouges 2 vertes">
+              <svg viewBox="0 0 540 360" xmlns="http://www.w3.org/2000/svg">
+                <!-- Column headers -->
+                <text x="30" y="18" class="level-header">Départ</text>
+                <text x="200" y="18" class="level-header">1er tirage</text>
+                <text x="370" y="18" class="level-header">2e tirage</text>
+                <text x="470" y="18" class="level-header">Résultat</text>
+
+                <!-- Branches: Départ to level 1 -->
+                <line x1="30" y1="180" x2="200" y2="95" class="branch-line"/>
+                <line x1="30" y1="180" x2="200" y2="265" class="branch-line"/>
+
+                <!-- Branches: level 1 R to level 2 -->
+                <line x1="200" y1="95" x2="370" y2="55" class="branch-line"/>
+                <line x1="200" y1="95" x2="370" y2="135" class="branch-line"/>
+
+                <!-- Branches: level 1 V to level 2 -->
+                <line x1="200" y1="265" x2="370" y2="225" class="branch-line"/>
+                <line x1="200" y1="265" x2="370" y2="305" class="branch-line"/>
+
+                <!-- Branch probability labels -->
+                <text x="100" y="128" class="branch-label">3/5</text>
+                <text x="100" y="240" class="branch-label">2/5</text>
+                <text x="285" y="65" class="branch-label">3/5</text>
+                <text x="285" y="128" class="branch-label">2/5</text>
+                <text x="285" y="232" class="branch-label">3/5</text>
+                <text x="285" y="295" class="branch-label">2/5</text>
+
+                <!-- Départ node -->
+                <g class="node-depart">
+                  <circle cx="30" cy="180" r="10"/>
+                </g>
+
+                <!-- Level 1 nodes -->
+                <g class="node-r">
+                  <circle cx="200" cy="95" r="18"/>
+                  <text x="200" y="102" class="node-letter">R</text>
+                </g>
+                <g class="node-v">
+                  <circle cx="200" cy="265" r="18"/>
+                  <text x="200" y="272" class="node-letter">V</text>
+                </g>
+
+                <!-- Level 2 nodes -->
+                <g class="node-r">
+                  <circle cx="370" cy="55" r="18"/>
+                  <text x="370" y="62" class="node-letter">R</text>
+                </g>
+                <g class="node-v">
+                  <circle cx="370" cy="135" r="18"/>
+                  <text x="370" y="142" class="node-letter">V</text>
+                </g>
+                <g class="node-r">
+                  <circle cx="370" cy="225" r="18"/>
+                  <text x="370" y="232" class="node-letter">R</text>
+                </g>
+                <g class="node-v">
+                  <circle cx="370" cy="305" r="18"/>
+                  <text x="370" y="312" class="node-letter">V</text>
+                </g>
+
+                <!-- Result labels -->
+                <text x="395" y="60" class="result-label">RR = <tspan class="result-frac">9/25</tspan></text>
+                <text x="395" y="140" class="result-label">RV = <tspan class="result-frac">6/25</tspan></text>
+                <text x="395" y="230" class="result-label">VR = <tspan class="result-frac">6/25</tspan></text>
+                <text x="395" y="310" class="result-label">VV = <tspan class="result-frac">4/25</tspan></text>
+              </svg>
+            </div>
+          </li>
+          <li>Je calcule chaque chemin (je <strong>multiplie</strong>) :
+            <div style="text-align:left; margin:10px 0; display:flex; flex-direction:column; gap:6px;">
+              <div>P(RR) = <span class="frac"><span class="num">3</span><span class="den">5</span></span> × <span class="frac"><span class="num">3</span><span class="den">5</span></span> = <span class="frac"><span class="num">9</span><span class="den">25</span></span></div>
+              <div>P(RV) = <span class="frac"><span class="num">3</span><span class="den">5</span></span> × <span class="frac"><span class="num">2</span><span class="den">5</span></span> = <span class="frac"><span class="num">6</span><span class="den">25</span></span></div>
+              <div>P(VR) = <span class="frac"><span class="num">2</span><span class="den">5</span></span> × <span class="frac"><span class="num">3</span><span class="den">5</span></span> = <span class="frac"><span class="num">6</span><span class="den">25</span></span></div>
+              <div>P(VV) = <span class="frac"><span class="num">2</span><span class="den">5</span></span> × <span class="frac"><span class="num">2</span><span class="den">5</span></span> = <span class="frac"><span class="num">4</span><span class="den">25</span></span></div>
+            </div>
+          </li>
+          <li>Vérification (la somme doit faire 1) :
+            <div style="text-align:center; margin:10px 0;">
+              <span class="frac"><span class="num">9</span><span class="den">25</span></span> + <span class="frac"><span class="num">6</span><span class="den">25</span></span> + <span class="frac"><span class="num">6</span><span class="den">25</span></span> + <span class="frac"><span class="num">4</span><span class="den">25</span></span> = <span class="frac"><span class="num">25</span><span class="den">25</span></span> = 1 ✓
+            </div>
+          </li>
+          <li>« Même couleur » = RR <strong>ou</strong> VV → j'<strong>additionne</strong> :
+            <div style="text-align:center; margin:10px 0; font-size:1.1rem;">
+              P(même couleur) = <span class="frac"><span class="num">9</span><span class="den">25</span></span> + <span class="frac"><span class="num">4</span><span class="den">25</span></span> = <span class="frac"><span class="num">13</span><span class="den">25</span></span>
+            </div>
+          </li>
+        </ol>
+        <div class="answer">Réponse : <span class="frac"><span class="num">13</span><span class="den">25</span></span></div>
+      </div>
+
+      <label class="section-mark"><input type="checkbox" data-mark="s4"> Marquer comme lu</label>
+    </section>
+
+    <!-- SECTION 5 -->
+    <section class="lesson" id="s5">
+      <h2><span class="num">05</span>Avec remise / Sans remise (attention piège)</h2>
+
+      <h3>Avec remise</h3>
+      <p>Tu remets la boule dans l'urne après le premier tirage.<br>
+        → Les probabilités du 2<sup>e</sup> tirage sont <strong>les mêmes</strong> qu'au premier.</p>
+
+      <h3>Sans remise</h3>
+      <p>Tu ne remets pas la boule.<br>
+        → Au 2<sup>e</sup> tirage, il y a <strong>une boule en moins</strong> → les probabilités changent.</p>
+
+      <div class="example">
+        <span class="label">Exemple sans remise, pas à pas</span>
+        <p class="prompt">Même urne (3 rouges, 2 vertes), <strong>sans remise</strong>. Quelle est P(tirer deux rouges) ?</p>
+        <ol class="steps">
+          <li>1<sup>er</sup> tirage : 3 rouges sur 5 boules → P = <span class="frac"><span class="num">3</span><span class="den">5</span></span></li>
+          <li>2<sup>e</sup> tirage : il reste <strong>4 boules</strong> (une est déjà sortie) dont <strong>2 rouges</strong> → P = <span class="frac"><span class="num">2</span><span class="den">4</span></span> = <span class="frac"><span class="num">1</span><span class="den">2</span></span></li>
+          <li>Je multiplie :
+            <div style="text-align:center; margin:10px 0; font-size:1.1rem;">
+              P(RR) = <span class="frac"><span class="num">3</span><span class="den">5</span></span> × <span class="frac"><span class="num">1</span><span class="den">2</span></span> = <span class="frac"><span class="num">3</span><span class="den">10</span></span>
+            </div>
+          </li>
+        </ol>
+        <div class="answer">Réponse : <span class="frac"><span class="num">3</span><span class="den">10</span></span></div>
+      </div>
+
+      <label class="section-mark"><input type="checkbox" data-mark="s5"> Marquer comme lu</label>
+    </section>
+
+    <!-- SECTION 6 -->
+    <section class="lesson" id="s6">
+      <h2><span class="num">06</span>Probabilité et fréquence</h2>
+
+      <p>Si tu répètes l'expérience <strong>beaucoup de fois</strong>, la <strong>fréquence</strong> observée se rapproche de la <strong>probabilité théorique</strong>.</p>
+
+      <div class="formula">
+        <span class="formula-label">Formule de la fréquence</span>
+        <span class="math">Fréquence =</span>
+        <span class="frac text"><span class="num">nombre de fois où A est arrivé</span><span class="den">nombre total d'essais</span></span>
+      </div>
+
+      <div class="example">
+        <span class="label">Exemple</span>
+        <p>Je lance une pièce <strong>1000 fois</strong>. Je devrais obtenir environ <strong>500 piles</strong>, parce que P(pile) = <span class="frac"><span class="num">1</span><span class="den">2</span></span>, et 1000 × <span class="frac"><span class="num">1</span><span class="den">2</span></span> = 500.</p>
+        <div class="answer">C'est la <strong>loi des grands nombres</strong>.</div>
+      </div>
+
+      <label class="section-mark"><input type="checkbox" data-mark="s6"> Marquer comme lu</label>
+    </section>
+
+    <!-- SECTION 7 -->
+    <section class="lesson" id="s7">
+      <h2><span class="num">07</span>Les pièges classiques à éviter</h2>
+
+      <div class="callout warn">
+        <span class="icon">×</span>
+        <div>Oublier de <strong>simplifier</strong> la fraction : <span class="frac"><span class="num">6</span><span class="den">8</span></span> → toujours écrire <span class="frac"><span class="num">3</span><span class="den">4</span></span> à la fin.</div>
+      </div>
+      <div class="callout warn">
+        <span class="icon">×</span>
+        <div><strong>« et » vs « ou »</strong> : « et » → multiplier ; « ou » → additionner. Ne pas confondre.</div>
+      </div>
+      <div class="callout warn">
+        <span class="icon">×</span>
+        <div><strong>Avec / sans remise</strong> : relis toujours l'énoncé avant de calculer.</div>
+      </div>
+      <div class="callout warn">
+        <span class="icon">×</span>
+        <div>Écrire une probabilité <strong>&gt; 1</strong> ou <strong>&lt; 0</strong> → c'est faux, refais le calcul.</div>
+      </div>
+      <div class="callout warn">
+        <span class="icon">×</span>
+        <div>Oublier que la <strong>somme des branches d'un même point = 1</strong>.</div>
+      </div>
+      <div class="callout warn">
+        <span class="icon">×</span>
+        <div><strong>« Strictement supérieur à »</strong> (&gt;) <strong>≠</strong> <strong>« supérieur ou égal à »</strong> (≥). Ex : « strictement supérieur à 4 » sur un dé, ce n'est PAS {4, 5, 6} → c'est <strong>{5, 6}</strong> (le 4 n'est pas inclus). Pareil pour « strictement inférieur » et « strictement compris entre ».</div>
+      </div>
+      <div class="callout warn">
+        <span class="icon">×</span>
+        <div><strong>Ne pas confondre « tirage avec ordre » et « tirage sans ordre »</strong>. « Un rouge <em>puis</em> un vert » ≠ « un rouge et un vert (peu importe l'ordre) ». Le premier = 1 chemin dans l'arbre. Le second = 2 chemins (RV et VR) → probas à additionner.</div>
+      </div>
+      <div class="callout warn">
+        <span class="icon">×</span>
+        <div><strong>Oublier de convertir</strong> si l'énoncé demande un pourcentage ou une écriture décimale. <span class="frac"><span class="num">1</span><span class="den">4</span></span> = 0,25 = 25 %. Toujours donner la forme que l'énoncé exige.</div>
+      </div>
+      <div class="callout warn">
+        <span class="icon">×</span>
+        <div><strong>Appliquer la formule « favorables / total » sans vérifier l'équiprobabilité</strong>. Sur une roue à secteurs de tailles différentes, la formule ne marche pas — il faut regarder les surfaces, pas compter les secteurs.</div>
+      </div>
+
+      <h3>Comment vérifier ta réponse</h3>
+      <div class="callout tip">
+        <span class="icon">✓</span>
+        <div>Avant d'écrire ta réponse, fais tourner ces 5 vérifications :
+          <ul>
+            <li><strong>0 ≤ P ≤ 1</strong> — si tu trouves une proba négative ou supérieure à 1, c'est faux. Refais le calcul.</li>
+            <li><strong>Somme des branches d'un nœud d'arbre = 1</strong> — sur chaque nœud, additionne les probas qui en partent, ça doit faire exactement 1 (ex : <span class="frac"><span class="num">3</span><span class="den">5</span></span> + <span class="frac"><span class="num">2</span><span class="den">5</span></span> = 1 ✓).</li>
+            <li><strong>Somme de tous les chemins d'un arbre = 1</strong> — calcule toutes les feuilles, additionne, tu dois retomber sur 1 (ex : <span class="frac"><span class="num">9</span><span class="den">25</span></span> + <span class="frac"><span class="num">6</span><span class="den">25</span></span> + <span class="frac"><span class="num">6</span><span class="den">25</span></span> + <span class="frac"><span class="num">4</span><span class="den">25</span></span> = 1 ✓).</li>
+            <li><strong>P(A) + P(A̅) = 1</strong> — la proba d'un événement et de son contraire s'additionnent toujours à 1. Si tu as trouvé P(A) = <span class="frac"><span class="num">3</span><span class="den">10</span></span>, ton contraire doit valoir <span class="frac"><span class="num">7</span><span class="den">10</span></span>.</li>
+            <li><strong>Test du bon sens</strong> — un événement rare doit avoir une <em>petite</em> proba (proche de 0), un événement « presque toujours » une proba <em>proche de 1</em>. Si ta réponse contredit ton intuition, revérifie l'énoncé.</li>
+          </ul>
+        </div>
+      </div>
+
+      <label class="section-mark"><input type="checkbox" data-mark="s7"> Marquer comme lu</label>
+    </section>
+
+    <!-- SECTION 8 -->
+    <section class="lesson" id="s8">
+      <h2><span class="num">08</span>La méthode pour n'importe quel exercice</h2>
+
+      <ol style="font-size:1.02rem; line-height:1.7;">
+        <li><strong>Lis l'énoncé deux fois</strong> — équiprobable ? Avec remise ?</li>
+        <li><strong>Compte le total</strong> de résultats possibles.</li>
+        <li><strong>Compte les favorables</strong> (ceux qui t'intéressent).</li>
+        <li><strong>Applique la formule</strong> : favorables / total.</li>
+        <li><strong>Simplifie</strong> la fraction.</li>
+        <li>Si deux épreuves → <strong>arbre obligatoire</strong> (même si l'énoncé ne le demande pas).</li>
+        <li><strong>Vérifie</strong> : ta probabilité est bien entre 0 et 1 ?</li>
+      </ol>
+
+      <div class="callout tip">
+        <span class="icon">→</span>
+        <div><strong>Le jour J :</strong> respire, lis lentement, dessine l'arbre. Un arbre bien fait = la moitié des points.</div>
+      </div>
+
+      <label class="section-mark"><input type="checkbox" data-mark="s8"> Marquer comme lu</label>
+    </section>
+
+    <!-- QUIZ -->
+    <div class="quiz" id="quiz">
+      <h2>Quiz auto-corrigé</h2>
+      <p class="subtitle">Sept questions type éval — les 3 dernières portent sur les arbres à deux épreuves. Réponds, puis clique « Vérifier ».</p>
+
+      <div class="qblock" data-answer="b">
+        <div class="question"><span class="qnum">Q1.</span> On lance un dé à 6 faces. Quelle est P(obtenir un nombre supérieur à 4) ?</div>
+        <div class="options">
+          <label><input type="radio" name="q1" value="a"> <span><span class="frac"><span class="num">1</span><span class="den">6</span></span></span></label>
+          <label><input type="radio" name="q1" value="b"> <span><span class="frac"><span class="num">1</span><span class="den">3</span></span></span></label>
+          <label><input type="radio" name="q1" value="c"> <span><span class="frac"><span class="num">2</span><span class="den">3</span></span></span></label>
+          <label><input type="radio" name="q1" value="d"> <span><span class="frac"><span class="num">4</span><span class="den">6</span></span></span></label>
+        </div>
+        <div class="explain" hidden>« Supérieur à 4 » = 5 et 6 → 2 favorables sur 6. <span class="frac"><span class="num">2</span><span class="den">6</span></span> = <span class="frac"><span class="num">1</span><span class="den">3</span></span>. Piège : « supérieur à 4 » n'inclut pas 4.</div>
+      </div>
+
+      <div class="qblock" data-answer="c">
+        <div class="question"><span class="qnum">Q2.</span> Dans un sac de 20 bonbons, il y a 8 bonbons à la fraise. Quelle est la probabilité de <strong>ne pas</strong> tirer un bonbon à la fraise ?</div>
+        <div class="options">
+          <label><input type="radio" name="q2" value="a"> <span><span class="frac"><span class="num">8</span><span class="den">20</span></span></span></label>
+          <label><input type="radio" name="q2" value="b"> <span><span class="frac"><span class="num">2</span><span class="den">5</span></span></span></label>
+          <label><input type="radio" name="q2" value="c"> <span><span class="frac"><span class="num">3</span><span class="den">5</span></span></span></label>
+          <label><input type="radio" name="q2" value="d"> <span><span class="frac"><span class="num">1</span><span class="den">2</span></span></span></label>
+        </div>
+        <div class="explain" hidden>P(fraise) = <span class="frac"><span class="num">8</span><span class="den">20</span></span> = <span class="frac"><span class="num">2</span><span class="den">5</span></span>. P(pas fraise) = 1 − <span class="frac"><span class="num">2</span><span class="den">5</span></span> = <span class="frac"><span class="num">3</span><span class="den">5</span></span>.</div>
+      </div>
+
+      <div class="qblock" data-answer="a">
+        <div class="question"><span class="qnum">Q3.</span> Une pièce est lancée deux fois de suite. Quelle est la probabilité d'obtenir <strong>deux fois pile</strong> ?</div>
+        <div class="options">
+          <label><input type="radio" name="q3" value="a"> <span><span class="frac"><span class="num">1</span><span class="den">4</span></span></span></label>
+          <label><input type="radio" name="q3" value="b"> <span><span class="frac"><span class="num">1</span><span class="den">2</span></span></span></label>
+          <label><input type="radio" name="q3" value="c"> <span><span class="frac"><span class="num">2</span><span class="den">4</span></span></span></label>
+          <label><input type="radio" name="q3" value="d"> <span>1</span></label>
+        </div>
+        <div class="explain" hidden>Deux épreuves indépendantes. « Pile <strong>et</strong> pile » → je multiplie : <span class="frac"><span class="num">1</span><span class="den">2</span></span> × <span class="frac"><span class="num">1</span><span class="den">2</span></span> = <span class="frac"><span class="num">1</span><span class="den">4</span></span>.</div>
+      </div>
+
+      <div class="qblock" data-answer="b">
+        <div class="question"><span class="qnum">Q4.</span> Une urne contient 4 boules rouges et 6 boules noires. On tire une boule <strong>sans remise</strong>, puis une seconde. Quelle est P(deux boules noires) ?</div>
+        <div class="options">
+          <label><input type="radio" name="q4" value="a"> <span><span class="frac"><span class="num">36</span><span class="den">100</span></span></span></label>
+          <label><input type="radio" name="q4" value="b"> <span><span class="frac"><span class="num">1</span><span class="den">3</span></span></span></label>
+          <label><input type="radio" name="q4" value="c"> <span><span class="frac"><span class="num">3</span><span class="den">5</span></span></span></label>
+          <label><input type="radio" name="q4" value="d"> <span><span class="frac"><span class="num">6</span><span class="den">10</span></span></span></label>
+        </div>
+        <div class="explain" hidden>1<sup>er</sup> tirage : <span class="frac"><span class="num">6</span><span class="den">10</span></span>. 2<sup>e</sup> tirage (sans remise, il reste 9 boules dont 5 noires) : <span class="frac"><span class="num">5</span><span class="den">9</span></span>. Produit : <span class="frac"><span class="num">6</span><span class="den">10</span></span> × <span class="frac"><span class="num">5</span><span class="den">9</span></span> = <span class="frac"><span class="num">30</span><span class="den">90</span></span> = <span class="frac"><span class="num">1</span><span class="den">3</span></span>.</div>
+      </div>
+
+      <div class="qblock" data-answer="d">
+        <div class="question"><span class="qnum">Q5.</span> Une pièce équilibrée est lancée <strong>3 fois de suite</strong>. Quelle est P(obtenir 3 fois pile) ?</div>
+        <div class="options">
+          <label><input type="radio" name="q5" value="a"> <span><span class="frac"><span class="num">1</span><span class="den">2</span></span></span></label>
+          <label><input type="radio" name="q5" value="b"> <span><span class="frac"><span class="num">1</span><span class="den">4</span></span></span></label>
+          <label><input type="radio" name="q5" value="c"> <span><span class="frac"><span class="num">1</span><span class="den">6</span></span></span></label>
+          <label><input type="radio" name="q5" value="d"> <span><span class="frac"><span class="num">1</span><span class="den">8</span></span></span></label>
+        </div>
+        <div class="explain" hidden>Trois épreuves indépendantes, « pile <strong>et</strong> pile <strong>et</strong> pile » → je multiplie : <span class="frac"><span class="num">1</span><span class="den">2</span></span> × <span class="frac"><span class="num">1</span><span class="den">2</span></span> × <span class="frac"><span class="num">1</span><span class="den">2</span></span> = <span class="frac"><span class="num">1</span><span class="den">8</span></span>. L'arbre a 8 chemins, un seul est « PPP ».</div>
+      </div>
+
+      <div class="qblock" data-answer="c">
+        <div class="question"><span class="qnum">Q6.</span> Une urne contient 3 boules rouges et 2 boules vertes. On tire une boule, on la remet, on retire une boule. Quelle est P(<strong>au moins</strong> une boule verte) ?</div>
+        <div class="options">
+          <label><input type="radio" name="q6" value="a"> <span><span class="frac"><span class="num">4</span><span class="den">25</span></span></span></label>
+          <label><input type="radio" name="q6" value="b"> <span><span class="frac"><span class="num">9</span><span class="den">25</span></span></span></label>
+          <label><input type="radio" name="q6" value="c"> <span><span class="frac"><span class="num">16</span><span class="den">25</span></span></span></label>
+          <label><input type="radio" name="q6" value="d"> <span><span class="frac"><span class="num">21</span><span class="den">25</span></span></span></label>
+        </div>
+        <div class="explain" hidden>Astuce du contraire : « au moins une verte » = contraire de « aucune verte » = contraire de « deux rouges ». P(RR) = <span class="frac"><span class="num">3</span><span class="den">5</span></span> × <span class="frac"><span class="num">3</span><span class="den">5</span></span> = <span class="frac"><span class="num">9</span><span class="den">25</span></span>. Donc P(au moins une verte) = 1 − <span class="frac"><span class="num">9</span><span class="den">25</span></span> = <span class="frac"><span class="num">16</span><span class="den">25</span></span>. Vérification par les chemins : RV + VR + VV = <span class="frac"><span class="num">6</span><span class="den">25</span></span> + <span class="frac"><span class="num">6</span><span class="den">25</span></span> + <span class="frac"><span class="num">4</span><span class="den">25</span></span> = <span class="frac"><span class="num">16</span><span class="den">25</span></span> ✓.</div>
+      </div>
+
+      <div class="qblock" data-answer="b">
+        <div class="question"><span class="qnum">Q7.</span> Un sac contient 5 bonbons bleus et 3 bonbons rouges. On tire un bonbon <strong>sans remise</strong>, puis un second. Quelle est P(un bleu <strong>puis</strong> un rouge, dans cet ordre) ?</div>
+        <div class="options">
+          <label><input type="radio" name="q7" value="a"> <span><span class="frac"><span class="num">15</span><span class="den">64</span></span></span></label>
+          <label><input type="radio" name="q7" value="b"> <span><span class="frac"><span class="num">15</span><span class="den">56</span></span></span></label>
+          <label><input type="radio" name="q7" value="c"> <span><span class="frac"><span class="num">5</span><span class="den">8</span></span></span></label>
+          <label><input type="radio" name="q7" value="d"> <span><span class="frac"><span class="num">3</span><span class="den">8</span></span></span></label>
+        </div>
+        <div class="explain" hidden>1<sup>er</sup> tirage (bleu) : <span class="frac"><span class="num">5</span><span class="den">8</span></span>. 2<sup>e</sup> tirage sans remise : il reste 7 bonbons dont 3 rouges → <span class="frac"><span class="num">3</span><span class="den">7</span></span>. « Bleu <strong>puis</strong> rouge » → je multiplie : <span class="frac"><span class="num">5</span><span class="den">8</span></span> × <span class="frac"><span class="num">3</span><span class="den">7</span></span> = <span class="frac"><span class="num">15</span><span class="den">56</span></span>. Attention : sans remise → le dénominateur du 2<sup>e</sup> tirage passe de 8 à 7.</div>
+      </div>
+
+      <div class="quiz-actions">
+        <button class="dice-btn" id="quiz-check">Vérifier mes réponses</button>
+        <button class="dice-btn secondary" id="quiz-reset">Recommencer</button>
+      </div>
+      <div class="quiz-score" id="quiz-score" hidden></div>
+    </div>
+
+  </main>
+
+  <footer>
+    <p><strong style="color:var(--accent); font-family:'Fraunces',serif; font-weight:800; font-size:1.05rem;">Hkm</strong> — fiches de révisions maths · 3<sup>e</sup></p>
+    <p style="margin-top:4px; font-size:0.78rem;">Bonne éval vendredi.</p>
+  </footer>
+</div>
+
+<script>
+  // Theme toggle
+  const themeToggle = document.getElementById('theme-toggle');
+  function getTheme() {
+    try { return localStorage.getItem('theme'); } catch { return null; }
+  }
+  function setTheme(t) {
+    if (t) document.documentElement.setAttribute('data-theme', t);
+    else document.documentElement.removeAttribute('data-theme');
+    try { if (t) localStorage.setItem('theme', t); else localStorage.removeItem('theme'); } catch {}
+  }
+  (function initTheme() {
+    const t = getTheme();
+    if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+  })();
+  themeToggle.addEventListener('click', () => {
+    const current = document.documentElement.getAttribute('data-theme');
+    const next = current === 'dark' ? 'light' : (current === 'light' ? null : 'dark');
+    setTheme(next);
+  });
+
+  // Progress bar
+  const progress = document.getElementById('progress');
+  function updateProgress() {
+    const scrolled = window.scrollY;
+    const total = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = total > 0 ? (scrolled / total) * 100 : 0;
+    progress.style.setProperty('--progress', pct + '%');
+  }
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  updateProgress();
+
+  // TOC active section highlight
+  const tocLinks = document.querySelectorAll('nav.toc a');
+  const sections = Array.from(document.querySelectorAll('section.lesson, #quiz'));
+  function updateActiveSection() {
+    const scrollPos = window.scrollY + 100;
+    let current = sections[0]?.id;
+    for (const s of sections) {
+      if (s.offsetTop <= scrollPos) current = s.id;
+    }
+    tocLinks.forEach(l => {
+      l.classList.toggle('active', l.dataset.section === current);
+    });
+  }
+  window.addEventListener('scroll', updateActiveSection, { passive: true });
+  updateActiveSection();
+
+  // Mark as read (per-viewer, localStorage)
+  function loadRead() {
+    try { return JSON.parse(localStorage.getItem('read') || '{}'); } catch { return {}; }
+  }
+  function saveRead(r) {
+    try { localStorage.setItem('read', JSON.stringify(r)); } catch {}
+  }
+  const readState = loadRead();
+  document.querySelectorAll('.section-mark input').forEach(cb => {
+    const key = cb.dataset.mark;
+    if (readState[key]) {
+      cb.checked = true;
+      document.querySelector(`nav.toc a[data-section="${key}"]`)?.classList.add('read');
+    }
+    cb.addEventListener('change', () => {
+      readState[key] = cb.checked;
+      saveRead(readState);
+      const link = document.querySelector(`nav.toc a[data-section="${key}"]`);
+      if (link) link.classList.toggle('read', cb.checked);
+    });
+  });
+
+  // Dice roller
+  const dice = document.getElementById('dice');
+  const statTotal = document.getElementById('stat-total');
+  const statPair = document.getElementById('stat-pair');
+  const statFreq = document.getElementById('stat-freq');
+  let total = 0, pairs = 0;
+  function updateStats() {
+    statTotal.textContent = total;
+    statPair.textContent = pairs;
+    statFreq.textContent = total > 0 ? (pairs / total).toFixed(3) : '—';
+  }
+  function roll() {
+    const v = 1 + Math.floor(Math.random() * 6);
+    dice.textContent = v;
+    dice.classList.add('rolling');
+    setTimeout(() => dice.classList.remove('rolling'), 400);
+    total += 1;
+    if (v % 2 === 0) pairs += 1;
+    updateStats();
+  }
+  document.getElementById('roll1').addEventListener('click', () => roll());
+  document.getElementById('roll20').addEventListener('click', () => {
+    let i = 0;
+    const interval = setInterval(() => {
+      roll();
+      i += 1;
+      if (i >= 20) clearInterval(interval);
+    }, 60);
+  });
+  document.getElementById('reset-dice').addEventListener('click', () => {
+    total = 0; pairs = 0; dice.textContent = '?';
+    updateStats();
+  });
+
+  // Quiz
+  const quizBlocks = document.querySelectorAll('.qblock');
+  document.getElementById('quiz-check').addEventListener('click', () => {
+    let score = 0;
+    quizBlocks.forEach(block => {
+      const correct = block.dataset.answer;
+      const inputs = block.querySelectorAll('input[type="radio"]');
+      const explain = block.querySelector('.explain');
+      let chosen = null;
+      inputs.forEach(i => {
+        i.parentElement.classList.remove('correct', 'wrong');
+        if (i.checked) chosen = i.value;
+      });
+      inputs.forEach(i => {
+        if (i.value === correct) i.parentElement.classList.add('correct');
+        else if (i.value === chosen && chosen !== correct) i.parentElement.classList.add('wrong');
+      });
+      if (chosen === correct) score += 1;
+      explain.hidden = false;
+    });
+    const scoreEl = document.getElementById('quiz-score');
+    const total = quizBlocks.length;
+    let msg;
+    if (score === total) msg = score + '/' + total + ' — parfait. Tu peux dormir tranquille jeudi soir.';
+    else if (score >= total - 1) msg = score + '/' + total + ' — presque parfait. Relis la question ratée.';
+    else if (score >= Math.ceil(total * 0.6)) msg = score + '/' + total + ' — pas mal. Revise les arbres et les cas sans remise.';
+    else if (score >= Math.ceil(total * 0.4)) msg = score + '/' + total + ' — moitié moitié. Refais les exemples pas à pas.';
+    else msg = score + '/' + total + ' — on reprend depuis la section 2. Pas de panique.';
+    scoreEl.textContent = msg;
+    scoreEl.hidden = false;
+  });
+  document.getElementById('quiz-reset').addEventListener('click', () => {
+    quizBlocks.forEach(block => {
+      block.querySelectorAll('input[type="radio"]').forEach(i => {
+        i.checked = false;
+        i.parentElement.classList.remove('correct', 'wrong');
+      });
+      block.querySelector('.explain').hidden = true;
+    });
+    document.getElementById('quiz-score').hidden = true;
+  });
+
+  // Smooth scroll for TOC
+  tocLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>

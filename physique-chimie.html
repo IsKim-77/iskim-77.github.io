@@ -1,0 +1,1020 @@
+<!doctype html>
+<html lang="fr">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, minimum-scale=1">
+<meta name="theme-color" content="#285E8C">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-title" content="Hkm Physique">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="description" content="Fiche de révision physique-chimie : nombres scientifiques, puissances de 10, célérité de la lumière, année-lumière, unité astronomique, univers et Big Bang.">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Hkm — Révisions">
+<meta property="og:title" content="Physique-Chimie — Univers & nombres scientifiques">
+<meta property="og:description" content="Puissances de 10, célérité, années-lumière, unités astronomiques, Big Bang et méthode pour tout exercice.">
+<meta property="og:url" content="https://iskim-77.github.io/physique-chimie.html">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary">
+
+<title>Hkm — Physique-Chimie · Univers</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=Source+Sans+3:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+  :root {
+    --ground: #FAF6EE;
+    --surface: #FFFFFF;
+    --surface-2: #F2EBDD;
+    --ink: #1B1C2E;
+    --ink-2: #43455C;
+    --muted: #8C8578;
+    --line: #E3DACA;
+    --accent: #285E8C;
+    --accent-2: #D9503A;
+    --highlight: #FFF1C8;
+    --highlight-line: #E8B94A;
+    --success: #3A7A4F;
+    --danger: #B23A3A;
+    --shadow: 0 1px 2px rgba(27,28,46,0.04), 0 4px 12px rgba(27,28,46,0.06);
+  }
+  :root:not([data-theme="light"]) {
+    @media (prefers-color-scheme: dark) {
+      --ground: #14151E;
+      --surface: #1D1F2B;
+      --surface-2: #262837;
+      --ink: #EEE8DB;
+      --ink-2: #B8B3A5;
+      --muted: #7A756A;
+      --line: #333446;
+      --accent: #7AB5E8;
+      --accent-2: #FF7B65;
+      --highlight: #35301B;
+      --highlight-line: #A87D2C;
+      --success: #6BC38A;
+      --danger: #E67373;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 4px 12px rgba(0,0,0,0.3);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground: #14151E; --surface: #1D1F2B; --surface-2: #262837;
+    --ink: #EEE8DB; --ink-2: #B8B3A5; --muted: #7A756A; --line: #333446;
+    --accent: #7AB5E8; --accent-2: #FF7B65; --highlight: #35301B; --highlight-line: #A87D2C;
+    --success: #6BC38A; --danger: #E67373;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 4px 12px rgba(0,0,0,0.3);
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  html, body { max-width: 100%; overflow-x: hidden; }
+  body {
+    background: var(--ground); color: var(--ink);
+    font-family: 'Source Sans 3', system-ui, sans-serif;
+    font-size: 17px; line-height: 1.6; margin: 0;
+    -webkit-text-size-adjust: 100%; text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .progress-bar {
+    position: fixed; top: env(safe-area-inset-top, 0px); left: 0; right: 0;
+    height: 3px; background: transparent; z-index: 100;
+  }
+  .progress-bar::after {
+    content: ''; display: block; height: 100%; width: var(--progress, 0%);
+    background: var(--accent); transition: width 0.15s ease-out;
+  }
+  .page {
+    max-width: 1180px; margin: 0 auto;
+    padding-inline: 20px; padding-block: 32px 80px;
+    display: grid; grid-template-columns: 260px 1fr; gap: 48px;
+  }
+  @media (max-width: 900px) {
+    .page { grid-template-columns: 1fr; gap: 24px; padding-block: 20px 60px; }
+  }
+  .brand-strip {
+    grid-column: 1 / -1;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0 4px 4px 4px;
+  }
+  .brand {
+    display: inline-flex; align-items: baseline; gap: 8px;
+    text-decoration: none; color: var(--ink);
+    font-family: 'Fraunces', Georgia, serif;
+  }
+  .brand-mark { font-weight: 800; font-size: 1.4rem; letter-spacing: -0.02em; color: var(--accent); }
+  .brand-slash { color: var(--muted); font-weight: 400; font-size: 1.2rem; }
+  .brand-section {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--ink-2); font-weight: 500;
+  }
+  .theme-toggle {
+    background: var(--surface-2); border: 1px solid var(--line); color: var(--ink);
+    padding: 6px 12px; border-radius: 6px; font-family: inherit; font-size: 0.85rem; cursor: pointer;
+  }
+  .theme-toggle:hover { background: var(--line); }
+
+  header.masthead {
+    grid-column: 1 / -1;
+    padding: 28px 32px;
+    background: var(--surface); border-radius: 12px;
+    border: 1px solid var(--line); box-shadow: var(--shadow);
+    display: flex; justify-content: space-between; align-items: flex-end;
+    flex-wrap: wrap; gap: 16px;
+  }
+  header.masthead h1 {
+    font-family: 'Fraunces', Georgia, serif; font-weight: 800;
+    font-size: clamp(2rem, 5vw, 2.8rem); line-height: 1.05;
+    margin: 0 0 6px 0; letter-spacing: -0.02em; text-wrap: balance;
+  }
+  header.masthead .subtitle { color: var(--ink-2); font-size: 1rem; margin: 0; }
+  header.masthead .kbd-hint { color: var(--muted); font-size: 0.85rem; font-family: 'JetBrains Mono', monospace; }
+
+  nav.toc {
+    position: sticky; top: 24px; align-self: start;
+    max-height: calc(100vh - 48px); overflow-y: auto;
+  }
+  @media (max-width: 900px) { nav.toc { position: static; max-height: none; } }
+  nav.toc h2 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--muted); margin: 0 0 12px 0; font-weight: 600;
+  }
+  nav.toc ol {
+    list-style: none; padding: 0; margin: 0;
+    display: flex; flex-direction: column; gap: 2px; counter-reset: toc;
+  }
+  nav.toc li { counter-increment: toc; }
+  nav.toc a {
+    display: flex; gap: 10px; padding: 8px 10px; border-radius: 6px;
+    color: var(--ink-2); text-decoration: none; font-size: 0.92rem; line-height: 1.35;
+    border-left: 2px solid transparent; transition: background 0.15s;
+  }
+  nav.toc a::before {
+    content: counter(toc); font-family: 'JetBrains Mono', monospace;
+    color: var(--muted); font-size: 0.82rem; font-variant-numeric: tabular-nums; min-width: 18px;
+  }
+  nav.toc a:hover { background: var(--surface-2); color: var(--ink); }
+  nav.toc a.active {
+    background: var(--surface-2); border-left-color: var(--accent);
+    color: var(--ink); font-weight: 600;
+  }
+  nav.toc a.read::after { content: '✓'; color: var(--success); margin-left: auto; font-weight: 700; }
+
+  main { min-width: 0; }
+  section.lesson {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
+    padding: 32px; margin-bottom: 20px; box-shadow: var(--shadow);
+    scroll-margin-top: 16px;
+  }
+  @media (max-width: 600px) { section.lesson { padding: 22px 18px; } }
+  section.lesson h2 {
+    font-family: 'Fraunces', Georgia, serif; font-weight: 800;
+    font-size: 1.55rem; line-height: 1.15; letter-spacing: -0.01em;
+    margin: 0 0 20px 0; display: flex; align-items: baseline; gap: 14px; text-wrap: balance;
+  }
+  section.lesson h2 .num {
+    font-family: 'JetBrains Mono', monospace; color: var(--accent);
+    font-size: 1rem; font-weight: 600; font-variant-numeric: tabular-nums;
+    padding: 4px 8px; background: var(--surface-2); border-radius: 5px;
+    flex-shrink: 0; align-self: center;
+  }
+  section.lesson h3 {
+    font-family: 'Fraunces', Georgia, serif; font-weight: 600;
+    font-size: 1.15rem; margin: 22px 0 10px 0; color: var(--ink);
+  }
+  section.lesson p { margin: 10px 0; }
+  section.lesson ul { padding-left: 22px; margin: 10px 0; }
+  section.lesson li { margin: 6px 0; }
+  section.lesson strong { color: var(--ink); font-weight: 600; }
+  section.lesson em { color: var(--ink-2); font-style: italic; }
+
+  code, .mono { font-family: 'JetBrains Mono', monospace; font-size: 0.9em; }
+
+  /* Puissance notation helper: 10<sup>n</sup> */
+  sup, sub { font-size: 0.72em; vertical-align: baseline; position: relative; }
+  sup { top: -0.5em; }
+  sub { bottom: -0.3em; }
+
+  .formula {
+    background: var(--highlight); border-left: 4px solid var(--highlight-line);
+    padding: 18px 22px; margin: 14px 0; border-radius: 0 8px 8px 0;
+    text-align: center; font-size: 1.1rem;
+  }
+  .formula.simple { font-size: 1rem; padding: 14px 18px; }
+  .formula-label {
+    display: block; font-family: 'JetBrains Mono', monospace;
+    text-transform: uppercase; letter-spacing: 0.06em;
+    font-size: 0.72rem; color: var(--muted); margin-bottom: 8px; text-align: left;
+  }
+  .math { font-family: 'JetBrains Mono', monospace; font-size: 1rem; }
+  .op { padding: 0 6px; }
+
+  .example {
+    background: var(--surface-2); border-left: 3px solid var(--accent-2);
+    padding: 16px 20px; margin: 16px 0; border-radius: 0 8px 8px 0;
+  }
+  .example .label {
+    display: block; font-family: 'JetBrains Mono', monospace;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.72rem;
+    color: var(--accent-2); font-weight: 600; margin-bottom: 8px;
+  }
+  .example .prompt { font-style: italic; color: var(--ink-2); margin-bottom: 12px; }
+  .example .steps { list-style: none; padding: 0; counter-reset: step; }
+  .example .steps > li {
+    counter-increment: step; padding-left: 44px; position: relative; margin: 10px 0;
+  }
+  .example .steps > li::before {
+    content: counter(step); position: absolute; left: 0; top: 0;
+    width: 30px; height: 30px; border-radius: 50%;
+    background: var(--accent-2); color: #fff;
+    display: grid; place-items: center;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.85rem;
+    font-weight: 600; font-variant-numeric: tabular-nums;
+  }
+  .example .answer {
+    margin-top: 14px; padding: 10px 14px; background: var(--surface);
+    border-radius: 6px; font-weight: 600; border-left: 3px solid var(--success);
+  }
+
+  .callout {
+    display: flex; gap: 14px; padding: 14px 18px;
+    background: var(--surface-2); border-radius: 8px; margin: 14px 0;
+    align-items: flex-start;
+  }
+  .callout.warn { background: color-mix(in srgb, var(--danger) 10%, var(--surface)); border-left: 3px solid var(--danger); }
+  .callout.tip { background: color-mix(in srgb, var(--accent) 8%, var(--surface)); border-left: 3px solid var(--accent); }
+  .callout .icon {
+    font-family: 'Fraunces', serif; font-weight: 800; font-size: 1.2rem; line-height: 1;
+    color: var(--accent); flex-shrink: 0; margin-top: 2px;
+  }
+  .callout.warn .icon { color: var(--danger); }
+
+  /* Data table (distances astronomiques) */
+  table.data {
+    width: 100%; border-collapse: collapse; margin: 14px 0;
+    font-size: 0.95rem;
+  }
+  table.data th, table.data td {
+    padding: 10px 12px; border-bottom: 1px solid var(--line); text-align: left;
+    vertical-align: top;
+  }
+  table.data th {
+    background: var(--surface-2); color: var(--ink);
+    font-family: 'JetBrains Mono', monospace; font-size: 0.78rem;
+    text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600;
+  }
+  table.data td.num, table.data td.dist {
+    font-family: 'JetBrains Mono', monospace; font-variant-numeric: tabular-nums;
+    color: var(--accent);
+  }
+  table.data tr:hover td { background: var(--surface-2); }
+
+  .section-mark {
+    margin-top: 24px; padding-top: 16px; border-top: 1px dashed var(--line);
+    display: flex; align-items: center; gap: 10px; font-size: 0.9rem;
+    color: var(--muted); cursor: pointer; user-select: none;
+  }
+  .section-mark input { accent-color: var(--accent); width: 18px; height: 18px; cursor: pointer; }
+  .section-mark:hover { color: var(--ink-2); }
+
+  .quiz {
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: 12px; padding: 32px; margin-top: 24px; box-shadow: var(--shadow);
+  }
+  .quiz h2 { font-family: 'Fraunces', Georgia, serif; font-weight: 800; font-size: 1.6rem; margin: 0 0 8px 0; }
+  .quiz .subtitle { color: var(--ink-2); margin-bottom: 24px; }
+  .qblock { margin: 22px 0; padding: 18px; background: var(--surface-2); border-radius: 8px; }
+  .qblock .question { font-weight: 600; margin-bottom: 12px; line-height: 1.4; }
+  .qblock .qnum { font-family: 'JetBrains Mono', monospace; color: var(--accent); margin-right: 8px; }
+  .options { display: flex; flex-direction: column; gap: 6px; }
+  .options label {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 12px; background: var(--surface); border: 1px solid var(--line);
+    border-radius: 6px; cursor: pointer; transition: background 0.12s;
+  }
+  .options label:hover { background: var(--ground); }
+  .options input { accent-color: var(--accent); }
+  .options label.correct { background: color-mix(in srgb, var(--success) 15%, var(--surface)); border-color: var(--success); }
+  .options label.wrong { background: color-mix(in srgb, var(--danger) 12%, var(--surface)); border-color: var(--danger); }
+  .explain {
+    margin-top: 10px; padding: 10px 14px; background: var(--surface);
+    border-left: 3px solid var(--accent-2); border-radius: 0 6px 6px 0;
+    font-size: 0.92rem; color: var(--ink-2);
+  }
+  .explain[hidden] { display: none; }
+  .quiz-actions { display: flex; gap: 12px; margin-top: 20px; flex-wrap: wrap; }
+  .btn {
+    background: var(--accent); color: #fff; border: none;
+    padding: 10px 22px; border-radius: 8px; font-family: inherit;
+    font-size: 0.95rem; font-weight: 600; cursor: pointer;
+  }
+  .btn:hover { filter: brightness(1.05); }
+  .btn.secondary { background: transparent; color: var(--ink-2); border: 1px solid var(--line); }
+  .quiz-score {
+    padding: 16px 20px; background: var(--highlight);
+    border-left: 4px solid var(--highlight-line); border-radius: 0 8px 8px 0;
+    margin-top: 20px; font-weight: 600; text-align: center; font-size: 1.05rem;
+  }
+  .quiz-score[hidden] { display: none; }
+
+  footer {
+    grid-column: 1 / -1; text-align: center; padding: 20px;
+    color: var(--muted); font-size: 0.85rem; margin-top: 20px;
+  }
+
+  @media (max-width: 640px) {
+    body { font-size: 16px; line-height: 1.55; }
+    .page { padding-inline: 12px; padding-block: 12px 40px; gap: 14px; }
+    .brand-strip { padding: 4px 6px 0 6px; }
+    .brand-mark { font-size: 1.2rem; }
+    .brand-slash { font-size: 1rem; }
+    .brand-section { font-size: 0.7rem; letter-spacing: 0.08em; }
+    .theme-toggle { padding: 5px 10px; font-size: 0.8rem; }
+    header.masthead { padding: 20px 18px; border-radius: 10px; gap: 10px; }
+    header.masthead h1 { font-size: 1.85rem; }
+    header.masthead .subtitle { font-size: 0.92rem; line-height: 1.45; }
+    header.masthead .kbd-hint { display: none; }
+    nav.toc {
+      background: var(--surface); border: 1px solid var(--line);
+      border-radius: 10px; padding: 12px 12px 8px 12px; box-shadow: var(--shadow);
+    }
+    nav.toc h2 { margin: 0 0 8px 0; font-size: 0.72rem; }
+    nav.toc ol {
+      flex-direction: row; overflow-x: auto; gap: 6px; padding-bottom: 4px;
+      -webkit-overflow-scrolling: touch; scrollbar-width: thin;
+    }
+    nav.toc li { flex-shrink: 0; }
+    nav.toc a {
+      padding: 7px 12px; font-size: 0.85rem;
+      background: var(--surface-2); border-radius: 20px; border-left: none; white-space: nowrap;
+    }
+    nav.toc a::before { color: var(--accent); font-weight: 700; min-width: 0; }
+    nav.toc a.active { background: var(--accent); color: #fff; border-left: none; }
+    nav.toc a.active::before { color: #fff; }
+    nav.toc a.read::after { margin-left: 4px; margin-right: 0; }
+    section.lesson { padding: 20px 16px; border-radius: 10px; margin-bottom: 14px; }
+    section.lesson h2 { font-size: 1.3rem; gap: 10px; margin: 0 0 16px 0; }
+    section.lesson h2 .num { font-size: 0.82rem; padding: 3px 7px; }
+    section.lesson h3 { font-size: 1.05rem; margin: 18px 0 8px 0; }
+    section.lesson ul { padding-left: 20px; }
+    .formula { padding: 14px 16px; font-size: 1rem; line-height: 1.5; }
+    .formula.simple { font-size: 0.95rem; padding: 12px 14px; }
+    .formula-label { font-size: 0.68rem; margin-bottom: 6px; }
+    .math { font-size: 0.95rem; }
+    .example { padding: 14px 14px; }
+    .example .steps > li { padding-left: 36px; margin: 12px 0; }
+    .example .steps > li::before { width: 26px; height: 26px; font-size: 0.8rem; }
+    .example .answer { padding: 10px 12px; font-size: 0.95rem; }
+    .example .prompt { font-size: 0.95rem; }
+    .callout { padding: 12px 14px; gap: 10px; font-size: 0.94rem; }
+    .callout ul { padding-left: 18px; }
+    table.data { font-size: 0.88rem; }
+    table.data th, table.data td { padding: 8px 8px; }
+    .quiz { padding: 20px 16px; border-radius: 10px; }
+    .quiz h2 { font-size: 1.35rem; }
+    .qblock { padding: 14px 12px; margin: 16px 0; }
+    .qblock .question { font-size: 0.98rem; }
+    .options label { padding: 9px 11px; font-size: 0.95rem; }
+    .quiz-score { padding: 14px 16px; font-size: 1rem; }
+    .section-mark { margin-top: 18px; padding-top: 12px; font-size: 0.85rem; }
+    footer { padding: 14px; font-size: 0.82rem; }
+  }
+  @media (max-width: 380px) {
+    .page { padding-inline: 8px; }
+    header.masthead h1 { font-size: 1.65rem; }
+    header.masthead { padding: 18px 14px; }
+    section.lesson { padding: 18px 12px; }
+    section.lesson h2 { font-size: 1.2rem; gap: 8px; }
+    .quiz-actions { flex-direction: column; }
+    .quiz-actions .btn { width: 100%; margin: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+  a:focus-visible, button:focus-visible, input:focus-visible, label:focus-visible {
+    outline: 2px solid var(--accent); outline-offset: 2px;
+  }
+</style>
+
+<div class="progress-bar" id="progress" aria-hidden="true"></div>
+
+<div class="page">
+  <div class="brand-strip">
+    <a href="index.html" class="brand"><span class="brand-mark">Hkm</span><span class="brand-slash">/</span><span class="brand-section">physique-chimie</span></a>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Changer de thème">🌓 Thème</button>
+  </div>
+
+  <header class="masthead">
+    <div>
+      <h1>Univers &amp; <span style="color:var(--accent)">nombres scientifiques</span></h1>
+      <p class="subtitle">Notation <em>a × 10<sup>n</sup></em>, célérité de la lumière, année-lumière, unités astronomiques et Big Bang — cours complet avec méthode.</p>
+    </div>
+    <div style="display:flex; align-items:center; gap:12px;">
+      <span class="kbd-hint">brevet / seconde</span>
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire">
+    <h2>Sommaire</h2>
+    <ol>
+      <li><a href="#s1" data-section="s1">Notation scientifique</a></li>
+      <li><a href="#s2" data-section="s2">Puissances de 10</a></li>
+      <li><a href="#s3" data-section="s3">Ordre de grandeur</a></li>
+      <li><a href="#s4" data-section="s4">Célérité de la lumière</a></li>
+      <li><a href="#s5" data-section="s5">Distance = v × t</a></li>
+      <li><a href="#s6" data-section="s6">Année-lumière</a></li>
+      <li><a href="#s7" data-section="s7">Unité astronomique</a></li>
+      <li><a href="#s8" data-section="s8">Distances dans l'univers</a></li>
+      <li><a href="#s9" data-section="s9">Big Bang &amp; âge</a></li>
+      <li><a href="#s10" data-section="s10">Méthode d'exercice</a></li>
+    </ol>
+  </nav>
+
+  <main>
+
+    <!-- §1 Notation scientifique -->
+    <section class="lesson" id="s1">
+      <h2><span class="num">01</span>La notation scientifique</h2>
+      <p>La <strong>notation scientifique</strong> sert à écrire proprement les très grands et très petits nombres. On l'utilise partout en physique parce que les distances dans l'univers ou les tailles d'un atome ne s'écrivent pas avec des zéros à la file.</p>
+
+      <div class="formula">
+        <span class="formula-label">Forme générale</span>
+        <span class="math"><em>a</em> × 10<sup><em>n</em></sup></span>
+        <div style="margin-top:8px; font-size:0.92rem; color:var(--ink-2);">
+          où <em>a</em> est un nombre décimal tel que <strong>1 ≤ |<em>a</em>| &lt; 10</strong>, et <em>n</em> un entier relatif (positif ou négatif).
+        </div>
+      </div>
+
+      <h3>Comment convertir un nombre en notation scientifique</h3>
+      <p>On déplace la virgule pour que la mantisse <em>a</em> ait un seul chiffre non nul avant la virgule. Le nombre de crans donne l'exposant <em>n</em>.</p>
+      <ul>
+        <li>Virgule décalée <strong>vers la gauche</strong> → <em>n</em> est <strong>positif</strong> (nombre grand).</li>
+        <li>Virgule décalée <strong>vers la droite</strong> → <em>n</em> est <strong>négatif</strong> (nombre petit).</li>
+      </ul>
+
+      <div class="example">
+        <span class="label">Exemple 1 — Grand nombre</span>
+        <div class="prompt">Écrire <strong>349 600</strong> en notation scientifique.</div>
+        <ol class="steps">
+          <li>On place la virgule après le premier chiffre non nul : <span class="math">3,496 00</span>.</li>
+          <li>On compte combien de crans on a déplacé la virgule : <strong>5 crans vers la gauche</strong>.</li>
+          <li>On écrit <span class="math">3,496 × 10<sup>5</sup></span>.</li>
+        </ol>
+        <div class="answer">349 600 = 3,496 × 10<sup>5</sup></div>
+      </div>
+
+      <div class="example">
+        <span class="label">Exemple 2 — Petit nombre</span>
+        <div class="prompt">Écrire <strong>0,000 042</strong> en notation scientifique.</div>
+        <ol class="steps">
+          <li>On place la virgule après le premier chiffre non nul (le 4) : <span class="math">4,2</span>.</li>
+          <li>On a déplacé la virgule de <strong>5 crans vers la droite</strong>, donc <em>n</em> est négatif.</li>
+          <li>On écrit <span class="math">4,2 × 10<sup>−5</sup></span>.</li>
+        </ol>
+        <div class="answer">0,000 042 = 4,2 × 10<sup>−5</sup></div>
+      </div>
+
+      <div class="callout warn">
+        <span class="icon">!</span>
+        <div><strong>Piège classique.</strong> La mantisse doit être <strong>strictement inférieure à 10</strong>. Donc <span class="math">42 × 10<sup>3</sup></span> <strong>n'est pas</strong> une notation scientifique. La forme correcte est <span class="math">4,2 × 10<sup>4</sup></span>.</div>
+      </div>
+
+      <label class="section-mark"><input type="checkbox" data-mark="s1"> Marquer comme lu</label>
+    </section>
+
+    <!-- §2 Puissances de 10 -->
+    <section class="lesson" id="s2">
+      <h2><span class="num">02</span>Opérations sur les puissances de 10</h2>
+      <p>Quand on multiplie ou divise des grands nombres écrits en notation scientifique, on applique les <strong>règles des puissances</strong>. C'est ce qui rend les calculs en physique tellement plus rapides que d'écrire tous les zéros.</p>
+
+      <div class="formula simple">
+        <span class="formula-label">Les 4 règles à connaître</span>
+        <div style="display:grid; grid-template-columns:1fr; gap:10px; text-align:left; max-width:520px; margin:0 auto;">
+          <div class="math">• 10<sup><em>a</em></sup> × 10<sup><em>b</em></sup> = 10<sup><em>a</em>+<em>b</em></sup></div>
+          <div class="math">• <span class="op">10<sup><em>a</em></sup> ÷ 10<sup><em>b</em></sup> = 10<sup><em>a</em>−<em>b</em></sup></span></div>
+          <div class="math">• (10<sup><em>a</em></sup>)<sup><em>b</em></sup> = 10<sup><em>a</em>×<em>b</em></sup></div>
+          <div class="math">• 10<sup>0</sup> = 1 &nbsp; · &nbsp; 10<sup>−<em>n</em></sup> = 1 ÷ 10<sup><em>n</em></sup></div>
+        </div>
+      </div>
+
+      <div class="example">
+        <span class="label">Exemple — Multiplier deux nombres scientifiques</span>
+        <div class="prompt">Calculer <span class="math">(3 × 10<sup>8</sup>) × (2,5 × 10<sup>4</sup>)</span> en notation scientifique.</div>
+        <ol class="steps">
+          <li>Regrouper les mantisses et les puissances de 10 : <span class="math">(3 × 2,5) × (10<sup>8</sup> × 10<sup>4</sup>)</span>.</li>
+          <li>Multiplier les mantisses : <span class="math">3 × 2,5 = 7,5</span>.</li>
+          <li>Additionner les exposants : <span class="math">10<sup>8</sup> × 10<sup>4</sup> = 10<sup>8+4</sup> = 10<sup>12</sup></span>.</li>
+          <li>Recomposer : <span class="math">7,5 × 10<sup>12</sup></span>.</li>
+        </ol>
+        <div class="answer">(3 × 10<sup>8</sup>) × (2,5 × 10<sup>4</sup>) = 7,5 × 10<sup>12</sup></div>
+      </div>
+
+      <div class="example">
+        <span class="label">Exemple — Diviser</span>
+        <div class="prompt">Calculer <span class="math">(6 × 10<sup>15</sup>) ÷ (2 × 10<sup>7</sup>)</span>.</div>
+        <ol class="steps">
+          <li>Diviser les mantisses : <span class="math">6 ÷ 2 = 3</span>.</li>
+          <li>Soustraire les exposants : <span class="math">10<sup>15</sup> ÷ 10<sup>7</sup> = 10<sup>15−7</sup> = 10<sup>8</sup></span>.</li>
+        </ol>
+        <div class="answer">(6 × 10<sup>15</sup>) ÷ (2 × 10<sup>7</sup>) = 3 × 10<sup>8</sup></div>
+      </div>
+
+      <div class="callout tip">
+        <span class="icon">i</span>
+        <div>Si après calcul ta mantisse dépasse 10 (par exemple 25 × 10<sup>6</sup>), tu la ré-écris en notation scientifique : <span class="math">25 × 10<sup>6</sup> = 2,5 × 10<sup>7</sup></span>. Toujours <strong>1 ≤ mantisse &lt; 10</strong>.</div>
+      </div>
+
+      <label class="section-mark"><input type="checkbox" data-mark="s2"> Marquer comme lu</label>
+    </section>
+
+    <!-- §3 Ordre de grandeur -->
+    <section class="lesson" id="s3">
+      <h2><span class="num">03</span>L'ordre de grandeur</h2>
+      <p>L'<strong>ordre de grandeur</strong> d'un nombre est la puissance de 10 la plus proche. Ça permet de comparer rapidement des tailles très différentes et de vérifier qu'un résultat est cohérent.</p>
+
+      <div class="formula simple">
+        <span class="formula-label">Règle</span>
+        <div style="text-align:left; max-width:460px; margin:0 auto;">
+          Un nombre écrit <span class="math"><em>a</em> × 10<sup><em>n</em></sup></span> a pour ordre de grandeur :
+          <ul style="margin-top:8px;">
+            <li>si <strong><em>a</em> &lt; 5</strong> → <span class="math">10<sup><em>n</em></sup></span></li>
+            <li>si <strong><em>a</em> ≥ 5</strong> → <span class="math">10<sup><em>n</em>+1</sup></span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="example">
+        <span class="label">Exemples rapides</span>
+        <ul style="list-style:none; padding:0;">
+          <li>• <span class="math">3,2 × 10<sup>4</sup></span> → mantisse &lt; 5 → ordre de grandeur = <strong>10<sup>4</sup></strong></li>
+          <li>• <span class="math">8,7 × 10<sup>5</sup></span> → mantisse ≥ 5 → ordre de grandeur = <strong>10<sup>6</sup></strong></li>
+          <li>• <span class="math">4,999 × 10<sup>2</sup></span> → &lt; 5 → ordre de grandeur = <strong>10<sup>2</sup></strong></li>
+          <li>• <span class="math">5,0 × 10<sup>2</sup></span> → ≥ 5 → ordre de grandeur = <strong>10<sup>3</sup></strong></li>
+        </ul>
+      </div>
+
+      <div class="callout tip">
+        <span class="icon">i</span>
+        <div>Comparer deux ordres de grandeur : <span class="math">10<sup>15</sup></span> est <strong>10<sup>3</sup> = 1000 fois plus grand</strong> que <span class="math">10<sup>12</sup></span>. En astronomie on raisonne presque toujours en ordre de grandeur.</div>
+      </div>
+
+      <label class="section-mark"><input type="checkbox" data-mark="s3"> Marquer comme lu</label>
+    </section>
+
+    <!-- §4 Célérité -->
+    <section class="lesson" id="s4">
+      <h2><span class="num">04</span>La célérité de la lumière</h2>
+      <p>La <strong>célérité de la lumière</strong>, notée <em>c</em>, est la vitesse à laquelle la lumière (et toute onde électromagnétique) se propage <strong>dans le vide</strong>. C'est une <strong>constante universelle</strong> : rien ne peut aller plus vite.</p>
+
+      <div class="formula">
+        <span class="formula-label">Valeur à retenir</span>
+        <span class="math"><em>c</em> = 299 792 458 m/s ≈ 3,00 × 10<sup>8</sup> m/s</span>
+        <div style="margin-top:8px; font-size:0.92rem; color:var(--ink-2);">
+          Soit environ <strong>300 000 km/s</strong> — assez pour faire 7,5 fois le tour de la Terre en une seconde.
+        </div>
+      </div>
+
+      <h3>Célérité dans un autre milieu</h3>
+      <p>Dans un milieu transparent (verre, eau, air), la lumière ralentit un peu. Au collège on garde la valeur du vide : <strong>3 × 10<sup>8</sup> m/s</strong> reste une bonne approximation aussi dans l'air.</p>
+
+      <div class="callout warn">
+        <span class="icon">!</span>
+        <div><strong>Attention aux unités.</strong> La vitesse en physique est presque toujours en <strong>mètres par seconde (m/s)</strong>. Si l'énoncé donne des km/h ou des km/s, convertir d'abord : 1 km/s = 10<sup>3</sup> m/s.</div>
+      </div>
+
+      <label class="section-mark"><input type="checkbox" data-mark="s4"> Marquer comme lu</label>
+    </section>
+
+    <!-- §5 d = v × t -->
+    <section class="lesson" id="s5">
+      <h2><span class="num">05</span>Distance = vitesse × temps</h2>
+      <p>La formule <strong>d = v × t</strong> est le lien fondamental entre distance, vitesse et durée. En astronomie on l'applique à la lumière : <em>d</em> = <em>c</em> × <em>t</em>.</p>
+
+      <div class="formula">
+        <span class="formula-label">Formule</span>
+        <span class="math"><em>d</em> = <em>c</em> × <em>t</em></span>
+        <div style="margin-top:10px; font-size:0.92rem; color:var(--ink-2); text-align:left; max-width:340px; margin-inline:auto;">
+          • <em>d</em> : distance en mètres (m)<br>
+          • <em>c</em> : célérité en m/s<br>
+          • <em>t</em> : durée en secondes (s)
+        </div>
+      </div>
+
+      <div class="example">
+        <span class="label">Exemple — Distance parcourue par la lumière en 1 minute</span>
+        <div class="prompt">Combien de mètres la lumière parcourt-elle en 1 minute ?</div>
+        <ol class="steps">
+          <li>Convertir la durée en secondes : <span class="math"><em>t</em> = 1 min = 60 s</span>.</li>
+          <li>Écrire la formule : <span class="math"><em>d</em> = <em>c</em> × <em>t</em></span>.</li>
+          <li>Remplacer : <span class="math"><em>d</em> = 3 × 10<sup>8</sup> × 60</span>.</li>
+          <li>Calculer : <span class="math"><em>d</em> = 180 × 10<sup>8</sup> = 1,8 × 10<sup>10</sup> m</span>.</li>
+        </ol>
+        <div class="answer">La lumière parcourt <strong>1,8 × 10<sup>10</sup> m</strong> (soit 18 millions de km) en 1 minute.</div>
+      </div>
+
+      <h3>Formules réciproques</h3>
+      <div class="formula simple">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; text-align:center;">
+          <div>
+            <div class="formula-label" style="text-align:center;">Temps</div>
+            <span class="math"><em>t</em> = <em>d</em> ÷ <em>c</em></span>
+          </div>
+          <div>
+            <div class="formula-label" style="text-align:center;">Vitesse</div>
+            <span class="math"><em>v</em> = <em>d</em> ÷ <em>t</em></span>
+          </div>
+        </div>
+      </div>
+
+      <label class="section-mark"><input type="checkbox" data-mark="s5"> Marquer comme lu</label>
+    </section>
+
+    <!-- §6 Année-lumière -->
+    <section class="lesson" id="s6">
+      <h2><span class="num">06</span>L'année-lumière</h2>
+      <p>Les distances entre étoiles sont tellement énormes qu'on invente une unité adaptée : l'<strong>année-lumière</strong> (symbole <strong>al</strong>). C'est la distance parcourue par la lumière <strong>en une année</strong>.</p>
+
+      <div class="formula">
+        <span class="formula-label">Définition</span>
+        <span class="math">1 al = <em>c</em> × (1 an en secondes)</span>
+      </div>
+
+      <div class="example">
+        <span class="label">Calcul de la valeur d'une année-lumière</span>
+        <div class="prompt">Combien vaut 1 année-lumière en mètres ?</div>
+        <ol class="steps">
+          <li>Convertir 1 an en secondes : <span class="math">1 an = 365,25 j × 24 h × 3600 s ≈ 3,156 × 10<sup>7</sup> s</span>.</li>
+          <li>Appliquer <em>d = c × t</em> : <span class="math"><em>d</em> = 3 × 10<sup>8</sup> × 3,156 × 10<sup>7</sup></span>.</li>
+          <li>Multiplier les mantisses : <span class="math">3 × 3,156 = 9,468</span>.</li>
+          <li>Additionner les exposants : <span class="math">10<sup>8</sup> × 10<sup>7</sup> = 10<sup>15</sup></span>.</li>
+        </ol>
+        <div class="answer">1 al ≈ <strong>9,46 × 10<sup>15</sup> m</strong> (soit environ 9 461 milliards de km)</div>
+      </div>
+
+      <div class="callout tip">
+        <span class="icon">i</span>
+        <div>Une <strong>année-lumière est une distance</strong>, pas une durée. Si quelqu'un dit « il y a 4 ans-lumière », il parle d'un trajet. Ce qui prend du temps c'est la lumière qui met 4 ans à faire ce trajet.</div>
+      </div>
+
+      <label class="section-mark"><input type="checkbox" data-mark="s6"> Marquer comme lu</label>
+    </section>
+
+    <!-- §7 UA -->
+    <section class="lesson" id="s7">
+      <h2><span class="num">07</span>L'unité astronomique</h2>
+      <p>À l'échelle du <strong>système solaire</strong>, l'année-lumière est trop grande. On utilise l'<strong>unité astronomique</strong> (symbole <strong>UA</strong> ou <strong>ua</strong>) : la distance moyenne entre la Terre et le Soleil.</p>
+
+      <div class="formula">
+        <span class="formula-label">Valeur</span>
+        <span class="math">1 UA ≈ 1,496 × 10<sup>11</sup> m ≈ 150 millions de km</span>
+      </div>
+
+      <h3>Quand on utilise quoi ?</h3>
+      <ul>
+        <li><strong>Kilomètres (km)</strong> pour la Terre et sa banlieue : Lune, satellites.</li>
+        <li><strong>Unité astronomique (UA)</strong> pour le système solaire : distance des planètes au Soleil.</li>
+        <li><strong>Année-lumière (al)</strong> pour les étoiles, galaxies et l'univers.</li>
+      </ul>
+
+      <div class="example">
+        <span class="label">Exemple — Convertir des UA en mètres</span>
+        <div class="prompt">Neptune est à 30 UA du Soleil. Combien de mètres cela fait-il ?</div>
+        <ol class="steps">
+          <li>Écrire la conversion : <span class="math"><em>d</em> = 30 × 1,496 × 10<sup>11</sup> m</span>.</li>
+          <li>Multiplier les mantisses : <span class="math">30 × 1,496 = 44,88</span>.</li>
+          <li>Recomposer en notation scientifique : <span class="math">44,88 × 10<sup>11</sup> = 4,488 × 10<sup>12</sup></span>.</li>
+        </ol>
+        <div class="answer">Neptune est à environ <strong>4,5 × 10<sup>12</sup> m</strong> du Soleil.</div>
+      </div>
+
+      <label class="section-mark"><input type="checkbox" data-mark="s7"> Marquer comme lu</label>
+    </section>
+
+    <!-- §8 Distances -->
+    <section class="lesson" id="s8">
+      <h2><span class="num">08</span>Distances dans l'univers</h2>
+      <p>Pour avoir une idée des ordres de grandeur, voici les principaux objets astronomiques et leur distance à nous. À retenir : chaque niveau change de plusieurs puissances de 10.</p>
+
+      <table class="data">
+        <thead>
+          <tr><th>Objet</th><th>Distance</th><th>En UA / al</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Terre → Lune</td>
+            <td class="dist">≈ 3,84 × 10<sup>8</sup> m</td>
+            <td>≈ 0,003 UA</td>
+          </tr>
+          <tr>
+            <td>Terre → Soleil</td>
+            <td class="dist">≈ 1,496 × 10<sup>11</sup> m</td>
+            <td>= 1 UA</td>
+          </tr>
+          <tr>
+            <td>Soleil → Neptune</td>
+            <td class="dist">≈ 4,5 × 10<sup>12</sup> m</td>
+            <td>≈ 30 UA</td>
+          </tr>
+          <tr>
+            <td>Nuage de Oort (bord système solaire)</td>
+            <td class="dist">≈ 1,5 × 10<sup>16</sup> m</td>
+            <td>≈ 100 000 UA ≈ 1,5 al</td>
+          </tr>
+          <tr>
+            <td>Étoile la plus proche (Proxima Centauri)</td>
+            <td class="dist">≈ 4,0 × 10<sup>16</sup> m</td>
+            <td>≈ 4,24 al</td>
+          </tr>
+          <tr>
+            <td>Centre de la Voie lactée</td>
+            <td class="dist">≈ 2,5 × 10<sup>20</sup> m</td>
+            <td>≈ 26 000 al</td>
+          </tr>
+          <tr>
+            <td>Voie lactée (diamètre)</td>
+            <td class="dist">≈ 9,5 × 10<sup>20</sup> m</td>
+            <td>≈ 100 000 al</td>
+          </tr>
+          <tr>
+            <td>Andromède (galaxie voisine)</td>
+            <td class="dist">≈ 2,4 × 10<sup>22</sup> m</td>
+            <td>≈ 2,5 millions al</td>
+          </tr>
+          <tr>
+            <td>Univers observable (rayon)</td>
+            <td class="dist">≈ 4,4 × 10<sup>26</sup> m</td>
+            <td>≈ 46,5 milliards al</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout tip">
+        <span class="icon">i</span>
+        <div>De la Lune à l'univers observable, on passe de <span class="math">10<sup>8</sup></span> à <span class="math">10<sup>26</sup></span> — <strong>18 ordres de grandeur</strong>. C'est pour ça que la notation scientifique est indispensable.</div>
+      </div>
+
+      <label class="section-mark"><input type="checkbox" data-mark="s8"> Marquer comme lu</label>
+    </section>
+
+    <!-- §9 Big Bang -->
+    <section class="lesson" id="s9">
+      <h2><span class="num">09</span>Le Big Bang et l'âge de l'univers</h2>
+      <p>La théorie du <strong>Big Bang</strong> décrit l'univers comme étant né il y a très longtemps d'un état extrêmement chaud et dense, puis en <strong>expansion</strong> depuis. Ce n'est pas une explosion dans l'espace, c'est l'espace lui-même qui se dilate.</p>
+
+      <div class="formula">
+        <span class="formula-label">Âge de l'univers</span>
+        <span class="math">≈ 13,8 × 10<sup>9</sup> années</span>
+        <div style="margin-top:8px; font-size:0.92rem; color:var(--ink-2);">
+          Soit environ <strong>13,8 milliards d'années</strong>.
+        </div>
+      </div>
+
+      <h3>Les preuves observationnelles</h3>
+      <ul>
+        <li><strong>Expansion (loi de Hubble)</strong> — plus une galaxie est loin, plus elle s'éloigne vite. C'est ce qu'a mesuré Edwin Hubble en 1929.</li>
+        <li><strong>Fond diffus cosmologique</strong> — un rayonnement micro-onde qui remplit tout l'espace, découvert en 1964. C'est la lumière la plus ancienne, émise ~380 000 ans après le Big Bang.</li>
+        <li><strong>Abondance des éléments légers</strong> — les proportions d'hydrogène et d'hélium dans l'univers correspondent à ce que prédit le modèle.</li>
+      </ul>
+
+      <h3>Chronologie simplifiée</h3>
+      <ul>
+        <li><strong>0 s</strong> — état initial : univers extrêmement dense et chaud.</li>
+        <li><strong>~380 000 ans</strong> — l'univers se refroidit assez pour que la lumière puisse voyager (émission du fond diffus).</li>
+        <li><strong>~200 millions d'années</strong> — formation des premières étoiles.</li>
+        <li><strong>~9 milliards d'années</strong> — formation du système solaire.</li>
+        <li><strong>13,8 milliards d'années (aujourd'hui)</strong> — nous.</li>
+      </ul>
+
+      <div class="callout tip">
+        <span class="icon">i</span>
+        <div><strong>Regarder loin = regarder dans le passé.</strong> Quand on observe une étoile à 100 al, on la voit telle qu'elle était il y a 100 ans. Le fond diffus, lui, nous montre l'univers tel qu'il était il y a 13,8 milliards d'années.</div>
+      </div>
+
+      <label class="section-mark"><input type="checkbox" data-mark="s9"> Marquer comme lu</label>
+    </section>
+
+    <!-- §10 Méthode -->
+    <section class="lesson" id="s10">
+      <h2><span class="num">10</span>La méthode pour tout exercice</h2>
+      <p>Un problème de physique se résout toujours dans le même ordre. Suivre la méthode évite les erreurs d'unité et les calculs faux.</p>
+
+      <ol class="steps" style="counter-reset: step; list-style: none; padding: 0;">
+        <li style="counter-increment: step; padding-left: 44px; position: relative; margin: 14px 0;">
+          <strong style="display:block; margin-bottom:4px;">Lire l'énoncé en entier.</strong>
+          Repérer la question exacte : que faut-il calculer, dans quelle unité ?
+          <span style="position:absolute; left:0; top:0; width:30px; height:30px; border-radius:50%; background:var(--accent-2); color:#fff; display:grid; place-items:center; font-family:'JetBrains Mono',monospace; font-size:0.85rem; font-weight:600;">1</span>
+        </li>
+        <li style="counter-increment: step; padding-left: 44px; position: relative; margin: 14px 0;">
+          <strong style="display:block; margin-bottom:4px;">Écrire les données.</strong>
+          Chaque grandeur avec son symbole, sa valeur et son unité. Ex : <span class="math"><em>c</em> = 3 × 10<sup>8</sup> m/s</span>, <span class="math"><em>t</em> = 60 s</span>.
+          <span style="position:absolute; left:0; top:0; width:30px; height:30px; border-radius:50%; background:var(--accent-2); color:#fff; display:grid; place-items:center; font-family:'JetBrains Mono',monospace; font-size:0.85rem; font-weight:600;">2</span>
+        </li>
+        <li style="counter-increment: step; padding-left: 44px; position: relative; margin: 14px 0;">
+          <strong style="display:block; margin-bottom:4px;">Choisir la formule.</strong>
+          <span class="math"><em>d</em> = <em>c</em> × <em>t</em></span>, <span class="math"><em>t</em> = <em>d</em> ÷ <em>c</em></span>, <span class="math">1 al = <em>c</em> × 1 an</span>, etc.
+          <span style="position:absolute; left:0; top:0; width:30px; height:30px; border-radius:50%; background:var(--accent-2); color:#fff; display:grid; place-items:center; font-family:'JetBrains Mono',monospace; font-size:0.85rem; font-weight:600;">3</span>
+        </li>
+        <li style="counter-increment: step; padding-left: 44px; position: relative; margin: 14px 0;">
+          <strong style="display:block; margin-bottom:4px;">Vérifier / convertir les unités.</strong>
+          Passer tout en <strong>unités SI</strong> : mètres (m), secondes (s), kilogrammes (kg). Ne jamais mélanger km et m dans une même formule.
+          <span style="position:absolute; left:0; top:0; width:30px; height:30px; border-radius:50%; background:var(--accent-2); color:#fff; display:grid; place-items:center; font-family:'JetBrains Mono',monospace; font-size:0.85rem; font-weight:600;">4</span>
+        </li>
+        <li style="counter-increment: step; padding-left: 44px; position: relative; margin: 14px 0;">
+          <strong style="display:block; margin-bottom:4px;">Substituer et calculer en notation scientifique.</strong>
+          Écrire l'application numérique : <em>d = 3 × 10<sup>8</sup> × 60</em> puis simplifier. Garder <strong>3 chiffres significatifs</strong> dans le résultat.
+          <span style="position:absolute; left:0; top:0; width:30px; height:30px; border-radius:50%; background:var(--accent-2); color:#fff; display:grid; place-items:center; font-family:'JetBrains Mono',monospace; font-size:0.85rem; font-weight:600;">5</span>
+        </li>
+        <li style="counter-increment: step; padding-left: 44px; position: relative; margin: 14px 0;">
+          <strong style="display:block; margin-bottom:4px;">Vérifier l'ordre de grandeur.</strong>
+          Une distance interstellaire en <span class="math">10<sup>16</sup></span> m, c'est cohérent. En <span class="math">10<sup>2</sup></span> m, non — reprendre le calcul.
+          <span style="position:absolute; left:0; top:0; width:30px; height:30px; border-radius:50%; background:var(--accent-2); color:#fff; display:grid; place-items:center; font-family:'JetBrains Mono',monospace; font-size:0.85rem; font-weight:600;">6</span>
+        </li>
+        <li style="counter-increment: step; padding-left: 44px; position: relative; margin: 14px 0;">
+          <strong style="display:block; margin-bottom:4px;">Rédiger la conclusion.</strong>
+          Une phrase claire avec le nombre, l'unité et le sens : <em>« La lumière parcourt 1,8 × 10<sup>10</sup> m en 1 minute. »</em>
+          <span style="position:absolute; left:0; top:0; width:30px; height:30px; border-radius:50%; background:var(--accent-2); color:#fff; display:grid; place-items:center; font-family:'JetBrains Mono',monospace; font-size:0.85rem; font-weight:600;">7</span>
+        </li>
+      </ol>
+
+      <div class="callout warn">
+        <span class="icon">!</span>
+        <div><strong>Erreurs les plus fréquentes.</strong>
+          <ul style="margin-top:6px;">
+            <li>Oublier de convertir les minutes en secondes.</li>
+            <li>Mélanger km et m dans la même formule.</li>
+            <li>Écrire <span class="math">42 × 10<sup>3</sup></span> au lieu de <span class="math">4,2 × 10<sup>4</sup></span>.</li>
+            <li>Additionner les exposants au lieu de les multiplier dans <span class="math">(10<sup>a</sup>)<sup>b</sup></span>.</li>
+            <li>Rendre un résultat sans unité.</li>
+          </ul>
+        </div>
+      </div>
+
+      <label class="section-mark"><input type="checkbox" data-mark="s10"> Marquer comme lu</label>
+    </section>
+
+    <!-- Quiz -->
+    <div class="quiz">
+      <h2>Quiz auto-corrigé</h2>
+      <p class="subtitle">7 questions pour valider le cours. Coche, valide, corrige.</p>
+
+      <div class="qblock" data-answer="b">
+        <div class="question"><span class="qnum">Q1.</span>Comment écrit-on <strong>4 500 000</strong> en notation scientifique ?</div>
+        <div class="options">
+          <label><input type="radio" name="q1" value="a"> 45 × 10<sup>5</sup></label>
+          <label><input type="radio" name="q1" value="b"> 4,5 × 10<sup>6</sup></label>
+          <label><input type="radio" name="q1" value="c"> 0,45 × 10<sup>7</sup></label>
+        </div>
+        <div class="explain" hidden>La mantisse doit être entre 1 et 10. <span class="math">4,5 × 10<sup>6</sup></span> respecte cette règle : virgule après le 4, six crans à gauche.</div>
+      </div>
+
+      <div class="qblock" data-answer="c">
+        <div class="question"><span class="qnum">Q2.</span>Combien vaut <span class="math">(2 × 10<sup>5</sup>) × (4 × 10<sup>3</sup>)</span> ?</div>
+        <div class="options">
+          <label><input type="radio" name="q2" value="a"> 6 × 10<sup>8</sup></label>
+          <label><input type="radio" name="q2" value="b"> 8 × 10<sup>15</sup></label>
+          <label><input type="radio" name="q2" value="c"> 8 × 10<sup>8</sup></label>
+        </div>
+        <div class="explain" hidden>On multiplie les mantisses (2 × 4 = 8) et on additionne les exposants (5 + 3 = 8). Résultat : <span class="math">8 × 10<sup>8</sup></span>.</div>
+      </div>
+
+      <div class="qblock" data-answer="a">
+        <div class="question"><span class="qnum">Q3.</span>Quel est l'ordre de grandeur de <span class="math">7,3 × 10<sup>12</sup></span> ?</div>
+        <div class="options">
+          <label><input type="radio" name="q3" value="a"> 10<sup>13</sup></label>
+          <label><input type="radio" name="q3" value="b"> 10<sup>12</sup></label>
+          <label><input type="radio" name="q3" value="c"> 10<sup>7</sup></label>
+        </div>
+        <div class="explain" hidden>La mantisse 7,3 est ≥ 5, donc on arrondit à la puissance supérieure : ordre de grandeur = <span class="math">10<sup>13</sup></span>.</div>
+      </div>
+
+      <div class="qblock" data-answer="b">
+        <div class="question"><span class="qnum">Q4.</span>Quelle est la <strong>célérité de la lumière</strong> dans le vide (valeur approchée) ?</div>
+        <div class="options">
+          <label><input type="radio" name="q4" value="a"> 3 × 10<sup>5</sup> m/s</label>
+          <label><input type="radio" name="q4" value="b"> 3 × 10<sup>8</sup> m/s</label>
+          <label><input type="radio" name="q4" value="c"> 3 × 10<sup>10</sup> m/s</label>
+        </div>
+        <div class="explain" hidden>La lumière parcourt <strong>≈ 300 000 km/s</strong>, soit <span class="math">3 × 10<sup>8</sup> m/s</span>. À apprendre par cœur.</div>
+      </div>
+
+      <div class="qblock" data-answer="c">
+        <div class="question"><span class="qnum">Q5.</span>Une étoile est à 10 années-lumière. Combien de temps a mis sa lumière pour nous parvenir ?</div>
+        <div class="options">
+          <label><input type="radio" name="q5" value="a"> 10 secondes</label>
+          <label><input type="radio" name="q5" value="b"> 10 minutes</label>
+          <label><input type="radio" name="q5" value="c"> 10 ans</label>
+        </div>
+        <div class="explain" hidden>1 année-lumière = distance parcourue par la lumière en 1 an. Donc 10 al = 10 ans de trajet pour la lumière. On voit l'étoile <strong>telle qu'elle était il y a 10 ans</strong>.</div>
+      </div>
+
+      <div class="qblock" data-answer="a">
+        <div class="question"><span class="qnum">Q6.</span>Quel objet est à environ <strong>1 UA</strong> de la Terre ?</div>
+        <div class="options">
+          <label><input type="radio" name="q6" value="a"> Le Soleil</label>
+          <label><input type="radio" name="q6" value="b"> La Lune</label>
+          <label><input type="radio" name="q6" value="c"> Proxima Centauri</label>
+        </div>
+        <div class="explain" hidden>L'unité astronomique est <strong>par définition</strong> la distance moyenne Terre–Soleil, soit ≈ 1,496 × 10<sup>11</sup> m.</div>
+      </div>
+
+      <div class="qblock" data-answer="b">
+        <div class="question"><span class="qnum">Q7.</span>Quel est l'<strong>âge de l'univers</strong> selon le modèle du Big Bang ?</div>
+        <div class="options">
+          <label><input type="radio" name="q7" value="a"> ≈ 4,5 milliards d'années</label>
+          <label><input type="radio" name="q7" value="b"> ≈ 13,8 milliards d'années</label>
+          <label><input type="radio" name="q7" value="c"> ≈ 100 000 années</label>
+        </div>
+        <div class="explain" hidden>13,8 milliards d'années — mesuré par le fond diffus cosmologique et la loi de Hubble. 4,5 milliards, c'est l'âge du <em>système solaire</em>.</div>
+      </div>
+
+      <div class="quiz-actions">
+        <button class="btn" id="quiz-check">Corriger</button>
+        <button class="btn secondary" id="quiz-reset">Recommencer</button>
+      </div>
+      <div class="quiz-score" id="quiz-score" hidden></div>
+    </div>
+
+  </main>
+
+  <footer>Hkm — physique-chimie / univers. Bon courage pour l'éval.</footer>
+</div>
+
+<script>
+  // Theme
+  const KEY = 'hkm-theme';
+  const root = document.documentElement;
+  const stored = localStorage.getItem(KEY);
+  if (stored === 'dark' || stored === 'light') root.setAttribute('data-theme', stored);
+  document.getElementById('theme-toggle').addEventListener('click', () => {
+    const cur = root.getAttribute('data-theme');
+    const dark = matchMedia('(prefers-color-scheme: dark)').matches;
+    const next = cur === 'dark' ? 'light' : cur === 'light' ? (dark ? 'light' : 'dark') : (dark ? 'light' : 'dark');
+    root.setAttribute('data-theme', next);
+    localStorage.setItem(KEY, next);
+  });
+
+  // Progress bar (scroll)
+  const bar = document.getElementById('progress');
+  const onScroll = () => {
+    const h = document.documentElement;
+    const scrolled = h.scrollTop / Math.max(1, h.scrollHeight - h.clientHeight);
+    bar.style.setProperty('--progress', (scrolled * 100).toFixed(1) + '%');
+  };
+  document.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // TOC active section
+  const sections = document.querySelectorAll('section.lesson');
+  const links = document.querySelectorAll('nav.toc a[data-section]');
+  const linkFor = id => document.querySelector(`nav.toc a[data-section="${id}"]`);
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        links.forEach(l => l.classList.remove('active'));
+        const l = linkFor(e.target.id);
+        if (l) l.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+  sections.forEach(s => io.observe(s));
+
+  // Section mark-as-read
+  const MARK = 'hkm-physique-marks';
+  const marks = JSON.parse(localStorage.getItem(MARK) || '{}');
+  document.querySelectorAll('.section-mark input').forEach(cb => {
+    const id = cb.dataset.mark;
+    if (marks[id]) { cb.checked = true; linkFor(id)?.classList.add('read'); }
+    cb.addEventListener('change', () => {
+      marks[id] = cb.checked;
+      localStorage.setItem(MARK, JSON.stringify(marks));
+      linkFor(id)?.classList.toggle('read', cb.checked);
+    });
+  });
+
+  // Quiz
+  const qblocks = document.querySelectorAll('.qblock');
+  const score = document.getElementById('quiz-score');
+  document.getElementById('quiz-check').addEventListener('click', () => {
+    let ok = 0, total = qblocks.length;
+    qblocks.forEach((q, i) => {
+      const ans = q.dataset.answer;
+      const picked = q.querySelector('input:checked');
+      q.querySelectorAll('.options label').forEach(l => l.classList.remove('correct','wrong'));
+      const explain = q.querySelector('.explain');
+      if (!picked) { if (explain) explain.hidden = false; return; }
+      const chosen = picked.parentElement;
+      const correctLabel = q.querySelector(`input[value="${ans}"]`).parentElement;
+      correctLabel.classList.add('correct');
+      if (picked.value === ans) { ok++; }
+      else { chosen.classList.add('wrong'); }
+      if (explain) explain.hidden = false;
+    });
+    score.hidden = false;
+    score.textContent = `Score : ${ok} / ${total}`;
+  });
+  document.getElementById('quiz-reset').addEventListener('click', () => {
+    qblocks.forEach(q => {
+      q.querySelectorAll('input').forEach(i => i.checked = false);
+      q.querySelectorAll('.options label').forEach(l => l.classList.remove('correct','wrong'));
+      const explain = q.querySelector('.explain');
+      if (explain) explain.hidden = true;
+    });
+    score.hidden = true;
+  });
+</script>
+</html>
