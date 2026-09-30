@@ -272,6 +272,54 @@
     padding: 14px 20px; border-radius: 0 10px 10px 0;
     margin: 24px 0 6px 0;
   }
+  /* "En clair" — a friendly hook right after each section title */
+  .hook {
+    background: var(--highlight);
+    border-left: 4px solid var(--highlight-line);
+    padding: 12px 18px; border-radius: 0 8px 8px 0;
+    margin: 0 0 18px 0;
+    font-size: 1rem; color: var(--ink);
+  }
+  .hook strong { color: var(--ink); }
+
+  /* Formula trio: 3 formulas side by side with a "when to use" tag */
+  .formula-trio {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px; margin: 18px 0;
+  }
+  @media (max-width: 640px) {
+    .formula-trio { grid-template-columns: 1fr; }
+  }
+  .formula-trio .cell {
+    background: var(--surface-2);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 16px 14px;
+    text-align: center;
+  }
+  .formula-trio .tag {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    font-size: 0.68rem; font-weight: 700;
+    color: var(--accent);
+    background: color-mix(in srgb, var(--accent) 12%, var(--surface));
+    padding: 3px 9px; border-radius: 999px;
+    margin-bottom: 10px;
+  }
+  .formula-trio .eq {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.35rem; font-weight: 700;
+    color: var(--ink); margin: 6px 0 8px 0;
+    letter-spacing: 0.01em;
+  }
+  .formula-trio .when {
+    display: block; font-size: 0.82rem;
+    color: var(--ink-2); font-style: italic;
+    line-height: 1.35;
+  }
   .recap .label {
     display: block; font-family: 'JetBrains Mono', monospace;
     text-transform: uppercase; letter-spacing: 0.09em;
@@ -432,7 +480,7 @@
       <li><a href="#s2" data-section="s2">Puissances de 10</a></li>
       <li><a href="#s3" data-section="s3">Ordre de grandeur</a></li>
       <li><a href="#s4" data-section="s4">Célérité de la lumière</a></li>
-      <li><a href="#s5" data-section="s5">Distance = v × t</a></li>
+      <li><a href="#s5" data-section="s5">Distance, vitesse, temps</a></li>
       <li><a href="#s6" data-section="s6">Année-lumière</a></li>
       <li><a href="#s7" data-section="s7">Unité astronomique</a></li>
       <li><a href="#s8" data-section="s8">Distances dans l'univers</a></li>
@@ -446,7 +494,8 @@
     <!-- §1 Notation scientifique -->
     <section class="lesson" id="s1">
       <h2><span class="num">01</span>La notation scientifique</h2>
-      <p>La <strong>notation scientifique</strong> sert à écrire proprement les très grands et très petits nombres. On l'utilise partout en physique parce que les distances dans l'univers ou les tailles d'un atome ne s'écrivent pas avec des zéros à la file.</p>
+      <div class="hook">
+        <strong>En clair.</strong> Au lieu d'écrire <em>349 600</em> ou <em>0,000 042</em>, on écrit <em>3,496 × 10<sup>5</sup></em> et <em>4,2 × 10<sup>−5</sup></em>. Plus court, plus lisible, et surtout : ça permet de calculer avec des tailles d'univers ou d'atomes sans se noyer dans les zéros.</div>
 
       <div class="formula">
         <span class="formula-label">Forme générale</span>
@@ -603,7 +652,9 @@
     <!-- §4 Célérité -->
     <section class="lesson" id="s4">
       <h2><span class="num">04</span>La célérité de la lumière</h2>
-      <p>La <strong>célérité de la lumière</strong>, notée <em>c</em>, est la vitesse à laquelle la lumière (et toute onde électromagnétique) se propage <strong>dans le vide</strong>. C'est une <strong>constante universelle</strong> : rien ne peut aller plus vite.</p>
+      <div class="hook">
+        <strong>En clair.</strong> La lumière file à <strong>300 000 km/s</strong> dans le vide — assez pour faire <strong>7,5 fois le tour de la Terre en une seconde</strong>. C'est la vitesse maximale possible dans l'univers, notée <em>c</em>. Rien ne va plus vite.
+      </div>
 
       <div class="formula">
         <span class="formula-label">Valeur à retenir</span>
@@ -633,53 +684,126 @@
       <label class="section-mark"><input type="checkbox" data-mark="s4"> Marquer comme lu</label>
     </section>
 
-    <!-- §5 d = v × t -->
+    <!-- §5 Distance, vitesse, temps -->
     <section class="lesson" id="s5">
-      <h2><span class="num">05</span>Distance = vitesse × temps</h2>
-      <p>La formule <strong>d = v × t</strong> est le lien fondamental entre distance, vitesse et durée. En astronomie on l'applique à la lumière : <em>d</em> = <em>c</em> × <em>t</em>.</p>
+      <h2><span class="num">05</span>Distance, vitesse, temps</h2>
 
-      <div class="formula">
-        <span class="formula-label">Formule</span>
-        <span class="math"><em>d</em> = <em>c</em> × <em>t</em></span>
-        <div style="margin-top:10px; font-size:0.92rem; color:var(--ink-2); text-align:left; max-width:340px; margin-inline:auto;">
-          • <em>d</em> : distance en mètres (m)<br>
-          • <em>c</em> : célérité en m/s<br>
-          • <em>t</em> : durée en secondes (s)
+      <div class="hook">
+        <strong>En clair.</strong> Quand tu roules à 100 km/h pendant 2 heures, tu parcours 200 km. C'est <strong>toute</strong> la formule. Elle marche pour une voiture, un TGV, un avion — et aussi pour la lumière. Il faut juste choisir les bonnes unités.
+      </div>
+
+      <h3>Les 3 formules à connaître</h3>
+      <p>À partir de <span class="math"><em>d</em> = <em>v</em> × <em>t</em></span>, on peut retrouver n'importe laquelle des trois grandeurs. Regarde ce que tu <strong>connais</strong> et choisis la formule qui donne ce que tu <strong>cherches</strong>.</p>
+
+      <div class="formula-trio">
+        <div class="cell">
+          <span class="tag">Distance</span>
+          <span class="eq"><em>d</em> = <em>v</em> × <em>t</em></span>
+          <span class="when">tu connais la vitesse et le temps</span>
         </div>
+        <div class="cell">
+          <span class="tag">Vitesse</span>
+          <span class="eq"><em>v</em> = <em>d</em> ÷ <em>t</em></span>
+          <span class="when">tu connais la distance et le temps</span>
+        </div>
+        <div class="cell">
+          <span class="tag">Temps</span>
+          <span class="eq"><em>t</em> = <em>d</em> ÷ <em>v</em></span>
+          <span class="when">tu connais la distance et la vitesse</span>
+        </div>
+      </div>
+
+      <div class="callout tip">
+        <span class="icon">i</span>
+        <div><strong>Astuce mémoire.</strong> Écris <em>d</em> tout en haut, <em>v</em> et <em>t</em> en dessous côte à côte. Cache celle que tu cherches avec ton doigt — la formule apparaît (<em>d</em> caché → il reste <em>v × t</em> ; <em>v</em> caché → il reste <em>d ÷ t</em>).</div>
+      </div>
+
+      <h3>Les unités qui vont ensemble</h3>
+      <p>Une formule ne marche que si toutes les grandeurs sont dans le même système. On utilise le <strong>système international (SI)</strong> :</p>
+
+      <table class="data">
+        <thead><tr><th>Grandeur</th><th>Unité SI</th><th>Autres unités courantes</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Distance</strong></td><td class="dist">mètre (m)</td><td>km · UA · année-lumière</td></tr>
+          <tr><td><strong>Vitesse</strong></td><td class="dist">m/s</td><td>km/h · km/s</td></tr>
+          <tr><td><strong>Temps</strong></td><td class="dist">seconde (s)</td><td>min · h · an</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Convertir une vitesse : km/h ↔ m/s</h3>
+      <div class="formula">
+        <span class="formula-label">Conversion</span>
+        <span class="math"><em>v</em> (m/s) = <em>v</em> (km/h) ÷ 3,6</span>
+        <div style="margin-top:8px; font-size:0.92rem; color:var(--ink-2);">
+          Et à l'envers : <span class="math"><em>v</em> (km/h) = <em>v</em> (m/s) × 3,6</span>
+        </div>
+      </div>
+
+      <div class="callout tip">
+        <span class="icon">i</span>
+        <div><strong>D'où vient 3,6 ?</strong> 1 km = 1000 m et 1 h = 3600 s. Donc 1 km/h = 1000/3600 m/s = 1/3,6 m/s.</div>
+      </div>
+
+      <h3>Exemples pas à pas</h3>
+
+      <div class="example">
+        <span class="label">Exemple 1 — Voiture (calcul de distance)</span>
+        <div class="prompt">Une voiture roule à 90 km/h pendant 3 heures. Quelle distance parcourt-elle ?</div>
+        <ol class="steps">
+          <li>Identifier ce qu'on cherche : la <strong>distance</strong>. On utilise <span class="math"><em>d</em> = <em>v</em> × <em>t</em></span>.</li>
+          <li>Vérifier les unités : v en km/h, t en h → on peut garder ces unités, le résultat sera en km.</li>
+          <li>Remplacer : <span class="math"><em>d</em> = 90 × 3</span>.</li>
+          <li>Calculer : <span class="math"><em>d</em> = 270</span>.</li>
+        </ol>
+        <div class="answer">La voiture parcourt <strong>270 km</strong>.</div>
       </div>
 
       <div class="example">
-        <span class="label">Exemple — Distance parcourue par la lumière en 1 minute</span>
-        <div class="prompt">Combien de mètres la lumière parcourt-elle en 1 minute ?</div>
+        <span class="label">Exemple 2 — TGV (calcul de vitesse en m/s)</span>
+        <div class="prompt">Un TGV parcourt 600 km en 2 heures. Quelle est sa vitesse en m/s ?</div>
         <ol class="steps">
-          <li>Convertir la durée en secondes : <span class="math"><em>t</em> = 1 min = 60 s</span>.</li>
-          <li>Écrire la formule : <span class="math"><em>d</em> = <em>c</em> × <em>t</em></span>.</li>
+          <li>Ce qu'on cherche : la <strong>vitesse</strong>. On utilise <span class="math"><em>v</em> = <em>d</em> ÷ <em>t</em></span>.</li>
+          <li>Calculer d'abord en km/h : <span class="math"><em>v</em> = 600 ÷ 2 = 300 km/h</span>.</li>
+          <li>Convertir en m/s : <span class="math">300 ÷ 3,6 ≈ 83,3 m/s</span>.</li>
+        </ol>
+        <div class="answer">Le TGV va à environ <strong>83 m/s</strong> (soit 300 km/h).</div>
+      </div>
+
+      <div class="example">
+        <span class="label">Exemple 3 — Avion (calcul de temps)</span>
+        <div class="prompt">Un avion vole à 900 km/h. Combien de temps met-il pour parcourir 4500 km ?</div>
+        <ol class="steps">
+          <li>Ce qu'on cherche : le <strong>temps</strong>. On utilise <span class="math"><em>t</em> = <em>d</em> ÷ <em>v</em></span>.</li>
+          <li>Remplacer : <span class="math"><em>t</em> = 4500 ÷ 900</span>.</li>
+          <li>Calculer : <span class="math"><em>t</em> = 5</span> (heures, car v est en km/h et d en km).</li>
+        </ol>
+        <div class="answer">Le vol dure <strong>5 heures</strong>.</div>
+      </div>
+
+      <div class="example">
+        <span class="label">Exemple 4 — La lumière (distance en 1 minute)</span>
+        <div class="prompt">Quelle distance la lumière parcourt-elle en 1 minute ? (<em>c</em> = 3 × 10<sup>8</sup> m/s)</div>
+        <ol class="steps">
+          <li>Ce qu'on cherche : la <strong>distance</strong>. On utilise <span class="math"><em>d</em> = <em>c</em> × <em>t</em></span>.</li>
+          <li>Convertir le temps en secondes : <span class="math"><em>t</em> = 1 min = 60 s</span>.</li>
           <li>Remplacer : <span class="math"><em>d</em> = 3 × 10<sup>8</sup> × 60</span>.</li>
           <li>Calculer : <span class="math"><em>d</em> = 180 × 10<sup>8</sup> = 1,8 × 10<sup>10</sup> m</span>.</li>
         </ol>
-        <div class="answer">La lumière parcourt <strong>1,8 × 10<sup>10</sup> m</strong> (soit 18 millions de km) en 1 minute.</div>
+        <div class="answer">La lumière parcourt <strong>1,8 × 10<sup>10</sup> m</strong> (18 millions de km) en 1 minute.</div>
       </div>
 
-      <h3>Formules réciproques</h3>
-      <div class="formula simple">
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; text-align:center;">
-          <div>
-            <div class="formula-label" style="text-align:center;">Temps</div>
-            <span class="math"><em>t</em> = <em>d</em> ÷ <em>c</em></span>
-          </div>
-          <div>
-            <div class="formula-label" style="text-align:center;">Vitesse</div>
-            <span class="math"><em>v</em> = <em>d</em> ÷ <em>t</em></span>
-          </div>
-        </div>
+      <div class="callout warn">
+        <span class="icon">!</span>
+        <div><strong>Piège à éviter.</strong> Ne jamais mélanger km/h avec des secondes, ou km avec des minutes. Si les unités ne sont pas cohérentes, le résultat est faux même si le calcul est juste. Convertir <strong>avant</strong> de remplacer dans la formule.</div>
       </div>
 
       <div class="recap">
         <span class="label">À retenir</span>
         <ul>
-          <li>Formule : <span class="math"><em>d</em> = <em>c</em> × <em>t</em></span> — unités : m, m/s, s.</li>
-          <li>Réciproques : <span class="math"><em>t</em> = <em>d</em> ÷ <em>c</em></span> et <span class="math"><em>v</em> = <em>d</em> ÷ <em>t</em></span>.</li>
-          <li>Toutes les grandeurs doivent être dans le même système d'unités (SI).</li>
+          <li>Les <strong>3 formes</strong> : <span class="math"><em>d</em> = <em>v</em> × <em>t</em></span> · <span class="math"><em>v</em> = <em>d</em> ÷ <em>t</em></span> · <span class="math"><em>t</em> = <em>d</em> ÷ <em>v</em></span>.</li>
+          <li>Unités SI : mètre (m) · m/s · seconde (s).</li>
+          <li>Conversion vitesse : <strong>÷ 3,6</strong> pour passer de km/h à m/s, <strong>× 3,6</strong> dans l'autre sens.</li>
+          <li>Toujours convertir <strong>avant</strong> de calculer.</li>
         </ul>
       </div>
 
@@ -689,7 +813,9 @@
     <!-- §6 Année-lumière -->
     <section class="lesson" id="s6">
       <h2><span class="num">06</span>L'année-lumière</h2>
-      <p>Les distances entre étoiles sont tellement énormes qu'on invente une unité adaptée : l'<strong>année-lumière</strong> (symbole <strong>al</strong>). C'est la distance parcourue par la lumière <strong>en une année</strong>.</p>
+      <div class="hook">
+        <strong>En clair.</strong> Les kilomètres, c'est bon pour la Terre. Mais pour l'étoile la plus proche à 40 milliards de milliards de km, ça devient illisible. On mesure alors en <strong>années-lumière</strong> : la distance que la lumière parcourt en 1 an. Pratique et lisible.
+      </div>
 
       <div class="formula">
         <span class="formula-label">Définition</span>
@@ -843,7 +969,9 @@
     <!-- §9 Big Bang -->
     <section class="lesson" id="s9">
       <h2><span class="num">09</span>Le Big Bang et l'âge de l'univers</h2>
-      <p>La théorie du <strong>Big Bang</strong> décrit l'univers comme étant né il y a très longtemps d'un état extrêmement chaud et dense, puis en <strong>expansion</strong> depuis. Ce n'est pas une explosion dans l'espace, c'est l'espace lui-même qui se dilate.</p>
+      <div class="hook">
+        <strong>En clair.</strong> Il y a <strong>13,8 milliards d'années</strong>, l'univers était minuscule et brûlant. Depuis, il s'étend — et il continue en ce moment même. Le Big Bang, ce n'est pas une explosion dans l'espace : c'est <strong>l'espace lui-même qui grandit</strong>.
+      </div>
 
       <div class="formula">
         <span class="formula-label">Âge de l'univers</span>
