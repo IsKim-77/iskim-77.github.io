@@ -501,12 +501,12 @@
         <span class="formula-label">Forme générale</span>
         <span class="math"><em>a</em> × 10<sup><em>n</em></sup></span>
         <div style="margin-top:8px; font-size:0.92rem; color:var(--ink-2);">
-          où <em>a</em> est un nombre décimal tel que <strong>1 ≤ |<em>a</em>| &lt; 10</strong>, et <em>n</em> un entier relatif (positif ou négatif).
+          où <em>a</em> est un nombre décimal tel que <strong>1 ≤ <em>a</em> &lt; 10</strong>, et <em>n</em> est un nombre entier (positif ou négatif).
         </div>
       </div>
 
       <h3>Comment convertir un nombre en notation scientifique</h3>
-      <p>On déplace la virgule pour que la mantisse <em>a</em> ait un seul chiffre non nul avant la virgule. Le nombre de crans donne l'exposant <em>n</em>.</p>
+      <p>On déplace la virgule pour que le nombre <em>a</em> n'ait qu'un seul chiffre non nul avant la virgule. Le nombre de crans dont on a bougé la virgule donne l'exposant <em>n</em>.</p>
       <ul>
         <li>Virgule décalée <strong>vers la gauche</strong> → <em>n</em> est <strong>positif</strong> (nombre grand).</li>
         <li>Virgule décalée <strong>vers la droite</strong> → <em>n</em> est <strong>négatif</strong> (nombre petit).</li>
@@ -536,13 +536,13 @@
 
       <div class="callout warn">
         <span class="icon">!</span>
-        <div><strong>Piège classique.</strong> La mantisse doit être <strong>strictement inférieure à 10</strong>. Donc <span class="math">42 × 10<sup>3</sup></span> <strong>n'est pas</strong> une notation scientifique. La forme correcte est <span class="math">4,2 × 10<sup>4</sup></span>.</div>
+        <div><strong>Piège classique.</strong> Le nombre <em>a</em> doit être <strong>strictement inférieur à 10</strong>. Donc <span class="math">42 × 10<sup>3</sup></span> <strong>n'est pas</strong> une notation scientifique (42 est trop grand). La forme correcte est <span class="math">4,2 × 10<sup>4</sup></span>.</div>
       </div>
 
       <div class="recap">
         <span class="label">À retenir</span>
         <ul>
-          <li>Forme : <span class="math"><em>a</em> × 10<sup><em>n</em></sup></span> avec <strong>1 ≤ mantisse &lt; 10</strong>.</li>
+          <li>Forme : <span class="math"><em>a</em> × 10<sup><em>n</em></sup></span> avec <strong>1 ≤ <em>a</em> &lt; 10</strong>.</li>
           <li>Grand nombre → <em>n</em> positif. Petit nombre (&lt; 1) → <em>n</em> négatif.</li>
           <li>Le nombre de crans que la virgule bouge = valeur de <em>n</em>.</li>
         </ul>
@@ -570,8 +570,8 @@
         <span class="label">Exemple — Multiplier deux nombres scientifiques</span>
         <div class="prompt">Calculer <span class="math">(3 × 10<sup>8</sup>) × (2,5 × 10<sup>4</sup>)</span> en notation scientifique.</div>
         <ol class="steps">
-          <li>Regrouper les mantisses et les puissances de 10 : <span class="math">(3 × 2,5) × (10<sup>8</sup> × 10<sup>4</sup>)</span>.</li>
-          <li>Multiplier les mantisses : <span class="math">3 × 2,5 = 7,5</span>.</li>
+          <li>Regrouper les nombres et les puissances de 10 : <span class="math">(3 × 2,5) × (10<sup>8</sup> × 10<sup>4</sup>)</span>.</li>
+          <li>Multiplier les nombres devant : <span class="math">3 × 2,5 = 7,5</span>.</li>
           <li>Additionner les exposants : <span class="math">10<sup>8</sup> × 10<sup>4</sup> = 10<sup>8+4</sup> = 10<sup>12</sup></span>.</li>
           <li>Recomposer : <span class="math">7,5 × 10<sup>12</sup></span>.</li>
         </ol>
@@ -582,7 +582,7 @@
         <span class="label">Exemple — Diviser</span>
         <div class="prompt">Calculer <span class="math">(6 × 10<sup>15</sup>) ÷ (2 × 10<sup>7</sup>)</span>.</div>
         <ol class="steps">
-          <li>Diviser les mantisses : <span class="math">6 ÷ 2 = 3</span>.</li>
+          <li>Diviser les nombres devant : <span class="math">6 ÷ 2 = 3</span>.</li>
           <li>Soustraire les exposants : <span class="math">10<sup>15</sup> ÷ 10<sup>7</sup> = 10<sup>15−7</sup> = 10<sup>8</sup></span>.</li>
         </ol>
         <div class="answer">(6 × 10<sup>15</sup>) ÷ (2 × 10<sup>7</sup>) = 3 × 10<sup>8</sup></div>
@@ -590,7 +590,7 @@
 
       <div class="callout tip">
         <span class="icon">i</span>
-        <div>Si après calcul ta mantisse dépasse 10 (par exemple 25 × 10<sup>6</sup>), tu la ré-écris en notation scientifique : <span class="math">25 × 10<sup>6</sup> = 2,5 × 10<sup>7</sup></span>. Toujours <strong>1 ≤ mantisse &lt; 10</strong>.</div>
+        <div>Si après le calcul le nombre devant dépasse 10 (par exemple 25 × 10<sup>6</sup>), tu le ré-écris en notation scientifique : <span class="math">25 × 10<sup>6</sup> = 2,5 × 10<sup>7</sup></span>. Toujours <strong>1 ≤ <em>a</em> &lt; 10</strong>.</div>
       </div>
 
       <div class="recap">
@@ -599,7 +599,7 @@
           <li><strong>Multiplier</strong> : on additionne les exposants.</li>
           <li><strong>Diviser</strong> : on soustrait les exposants.</li>
           <li><strong>Puissance de puissance</strong> : on multiplie les exposants.</li>
-          <li>Toujours ranger le résultat en notation scientifique (mantisse entre 1 et 10).</li>
+          <li>Toujours ranger le résultat en notation scientifique (le nombre devant entre 1 et 10).</li>
         </ul>
       </div>
 
@@ -625,8 +625,8 @@
       <div class="example">
         <span class="label">Exemples rapides</span>
         <ul style="list-style:none; padding:0;">
-          <li>• <span class="math">3,2 × 10<sup>4</sup></span> → mantisse &lt; 5 → ordre de grandeur = <strong>10<sup>4</sup></strong></li>
-          <li>• <span class="math">8,7 × 10<sup>5</sup></span> → mantisse ≥ 5 → ordre de grandeur = <strong>10<sup>6</sup></strong></li>
+          <li>• <span class="math">3,2 × 10<sup>4</sup></span> → nombre devant &lt; 5 → ordre de grandeur = <strong>10<sup>4</sup></strong></li>
+          <li>• <span class="math">8,7 × 10<sup>5</sup></span> → nombre devant ≥ 5 → ordre de grandeur = <strong>10<sup>6</sup></strong></li>
           <li>• <span class="math">4,999 × 10<sup>2</sup></span> → &lt; 5 → ordre de grandeur = <strong>10<sup>2</sup></strong></li>
           <li>• <span class="math">5,0 × 10<sup>2</sup></span> → ≥ 5 → ordre de grandeur = <strong>10<sup>3</sup></strong></li>
         </ul>
@@ -641,7 +641,7 @@
         <span class="label">À retenir</span>
         <ul>
           <li>Ordre de grandeur = la puissance de 10 la plus proche.</li>
-          <li>Mantisse <strong>&lt; 5</strong> → 10<sup><em>n</em></sup>. Mantisse <strong>≥ 5</strong> → 10<sup><em>n</em>+1</sup>.</li>
+          <li>Nombre <em>a</em> <strong>&lt; 5</strong> → 10<sup><em>n</em></sup>. Nombre <em>a</em> <strong>≥ 5</strong> → 10<sup><em>n</em>+1</sup>.</li>
           <li>Sert à comparer deux tailles et à vérifier qu'un résultat est cohérent.</li>
         </ul>
       </div>
@@ -653,7 +653,7 @@
     <section class="lesson" id="s4">
       <h2><span class="num">04</span>La célérité de la lumière</h2>
       <div class="hook">
-        <strong>En clair.</strong> La lumière file à <strong>300 000 km/s</strong> dans le vide — assez pour faire <strong>7,5 fois le tour de la Terre en une seconde</strong>. C'est la vitesse maximale possible dans l'univers, notée <em>c</em>. Rien ne va plus vite.
+        <strong>En clair.</strong> "Célérité" est juste un mot savant pour la <strong>vitesse de la lumière dans le vide</strong>. Elle file à <strong>300 000 km/s</strong> — assez pour faire 7,5 fois le tour de la Terre en une seconde. On la note <em>c</em>, et rien ne va plus vite dans l'univers.
       </div>
 
       <div class="formula">
@@ -828,7 +828,7 @@
         <ol class="steps">
           <li>Convertir 1 an en secondes : <span class="math">1 an = 365,25 j × 24 h × 3600 s ≈ 3,156 × 10<sup>7</sup> s</span>.</li>
           <li>Appliquer <em>d = c × t</em> : <span class="math"><em>d</em> = 3 × 10<sup>8</sup> × 3,156 × 10<sup>7</sup></span>.</li>
-          <li>Multiplier les mantisses : <span class="math">3 × 3,156 = 9,468</span>.</li>
+          <li>Multiplier les nombres devant : <span class="math">3 × 3,156 = 9,468</span>.</li>
           <li>Additionner les exposants : <span class="math">10<sup>8</sup> × 10<sup>7</sup> = 10<sup>15</sup></span>.</li>
         </ol>
         <div class="answer">1 al ≈ <strong>9,46 × 10<sup>15</sup> m</strong> (soit environ 9 461 milliards de km)</div>
@@ -873,7 +873,7 @@
         <div class="prompt">Neptune est à 30 UA du Soleil. Combien de mètres cela fait-il ?</div>
         <ol class="steps">
           <li>Écrire la conversion : <span class="math"><em>d</em> = 30 × 1,496 × 10<sup>11</sup> m</span>.</li>
-          <li>Multiplier les mantisses : <span class="math">30 × 1,496 = 44,88</span>.</li>
+          <li>Multiplier les nombres devant : <span class="math">30 × 1,496 = 44,88</span>.</li>
           <li>Recomposer en notation scientifique : <span class="math">44,88 × 10<sup>11</sup> = 4,488 × 10<sup>12</sup></span>.</li>
         </ol>
         <div class="answer">Neptune est à environ <strong>4,5 × 10<sup>12</sup> m</strong> du Soleil.</div>
@@ -981,11 +981,11 @@
         </div>
       </div>
 
-      <h3>Les preuves observationnelles</h3>
+      <h3>Les preuves qu'on peut observer</h3>
       <ul>
         <li><strong>Expansion (loi de Hubble)</strong> — plus une galaxie est loin, plus elle s'éloigne vite. C'est ce qu'a mesuré Edwin Hubble en 1929.</li>
         <li><strong>Fond diffus cosmologique</strong> — un rayonnement micro-onde qui remplit tout l'espace, découvert en 1964. C'est la lumière la plus ancienne, émise ~380 000 ans après le Big Bang.</li>
-        <li><strong>Abondance des éléments légers</strong> — les proportions d'hydrogène et d'hélium dans l'univers correspondent à ce que prédit le modèle.</li>
+        <li><strong>Proportion d'hydrogène et d'hélium</strong> — la quantité de ces deux gaz dans l'univers correspond exactement à ce que la théorie du Big Bang avait prévu.</li>
       </ul>
 
       <h3>Chronologie simplifiée</h3>
@@ -1006,7 +1006,7 @@
         <span class="label">À retenir</span>
         <ul>
           <li>Univers en <strong>expansion</strong> depuis <strong>≈ 13,8 milliards d'années</strong>.</li>
-          <li>3 preuves : loi de Hubble · fond diffus cosmologique · abondance H/He.</li>
+          <li>3 preuves : galaxies qui s'éloignent · fond diffus (lumière la plus ancienne) · quantité d'hydrogène et d'hélium.</li>
           <li>Regarder loin dans l'espace = regarder loin dans le passé.</li>
         </ul>
       </div>
@@ -1098,7 +1098,7 @@
           <label><input type="radio" name="q1" value="b"> 4,5 × 10<sup>6</sup></label>
           <label><input type="radio" name="q1" value="c"> 0,45 × 10<sup>7</sup></label>
         </div>
-        <div class="explain" hidden>La mantisse doit être entre 1 et 10. <span class="math">4,5 × 10<sup>6</sup></span> respecte cette règle : virgule après le 4, six crans à gauche.</div>
+        <div class="explain" hidden>Le nombre devant doit être entre 1 et 10. <span class="math">4,5 × 10<sup>6</sup></span> respecte cette règle : virgule après le 4, six crans à gauche.</div>
       </div>
 
       <div class="qblock" data-answer="c">
@@ -1108,7 +1108,7 @@
           <label><input type="radio" name="q2" value="b"> 8 × 10<sup>15</sup></label>
           <label><input type="radio" name="q2" value="c"> 8 × 10<sup>8</sup></label>
         </div>
-        <div class="explain" hidden>On multiplie les mantisses (2 × 4 = 8) et on additionne les exposants (5 + 3 = 8). Résultat : <span class="math">8 × 10<sup>8</sup></span>.</div>
+        <div class="explain" hidden>On multiplie les nombres devant (2 × 4 = 8) et on additionne les exposants (5 + 3 = 8). Résultat : <span class="math">8 × 10<sup>8</sup></span>.</div>
       </div>
 
       <div class="qblock" data-answer="a">
@@ -1118,7 +1118,7 @@
           <label><input type="radio" name="q3" value="b"> 10<sup>12</sup></label>
           <label><input type="radio" name="q3" value="c"> 10<sup>7</sup></label>
         </div>
-        <div class="explain" hidden>La mantisse 7,3 est ≥ 5, donc on arrondit à la puissance supérieure : ordre de grandeur = <span class="math">10<sup>13</sup></span>.</div>
+        <div class="explain" hidden>Le nombre 7,3 devant × 10 est ≥ 5, donc on arrondit à la puissance supérieure : ordre de grandeur = <span class="math">10<sup>13</sup></span>.</div>
       </div>
 
       <div class="qblock" data-answer="b">
