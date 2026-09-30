@@ -478,7 +478,6 @@
     <ol>
       <li><a href="#s1" data-section="s1">Notation scientifique</a></li>
       <li><a href="#s2" data-section="s2">Puissances de 10</a></li>
-      <li><a href="#s3" data-section="s3">Ordre de grandeur</a></li>
       <li><a href="#s4" data-section="s4">Célérité de la lumière</a></li>
       <li><a href="#s5" data-section="s5">Distance, vitesse, temps</a></li>
       <li><a href="#s6" data-section="s6">Année-lumière</a></li>
@@ -606,81 +605,9 @@
       <label class="section-mark"><input type="checkbox" data-mark="s2"> Marquer comme lu</label>
     </section>
 
-    <!-- §3 Ordre de grandeur -->
-    <section class="lesson" id="s3">
-      <h2><span class="num">03</span>L'ordre de grandeur</h2>
-
-      <div class="hook">
-        <strong>En clair.</strong> L'ordre de grandeur, c'est <strong>l'arrondi grossier</strong> d'un nombre à la puissance de 10 la plus proche. Ça sert à dire "environ combien de zéros" a une taille — pratique pour comparer une bactérie à une galaxie sans se noyer dans les chiffres.
-      </div>
-
-      <h3>Comprendre l'idée</h3>
-      <p>Chaque nombre en notation scientifique se trouve <strong>entre deux puissances de 10</strong>. Par exemple <span class="math">3,2 × 10<sup>4</sup></span> vaut 32 000, donc il est <strong>entre 10 000 (10<sup>4</sup>) et 100 000 (10<sup>5</sup>)</strong>. La question qu'on se pose : de laquelle est-il le plus proche ?</p>
-      <p>Le milieu entre <span class="math">10<sup>n</sup></span> et <span class="math">10<sup>n+1</sup></span>, c'est <strong>5 × 10<sup>n</sup></strong>. D'où la règle : on regarde le nombre <em>a</em> qui est devant.</p>
-
-      <div class="formula simple">
-        <span class="formula-label">La règle</span>
-        <div style="text-align:left; max-width:500px; margin:0 auto;">
-          Pour un nombre écrit <span class="math"><em>a</em> × 10<sup><em>n</em></sup></span> :
-          <ul style="margin-top:10px;">
-            <li>si <strong><em>a</em> &lt; 5</strong> (donc plus proche du bas) → ordre de grandeur = <span class="math">10<sup><em>n</em></sup></span></li>
-            <li>si <strong><em>a</em> ≥ 5</strong> (donc plus proche du haut) → ordre de grandeur = <span class="math">10<sup><em>n</em>+1</sup></span></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="example">
-        <span class="label">Exemple 1 — nombre devant &lt; 5</span>
-        <div class="prompt">Quel est l'ordre de grandeur de <span class="math">3,2 × 10<sup>4</sup></span> ?</div>
-        <ol class="steps">
-          <li>Le nombre devant est <strong>3,2</strong>. On regarde s'il est plus petit ou plus grand que 5.</li>
-          <li>3,2 est plus petit que 5, donc notre nombre est plus <strong>proche de 10<sup>4</sup></strong> que de 10<sup>5</sup>.</li>
-          <li>On garde donc la puissance telle quelle.</li>
-        </ol>
-        <div class="answer">Ordre de grandeur = <strong>10<sup>4</sup></strong> (soit environ 10 000).</div>
-      </div>
-
-      <div class="example">
-        <span class="label">Exemple 2 — nombre devant ≥ 5</span>
-        <div class="prompt">Quel est l'ordre de grandeur de <span class="math">8,7 × 10<sup>5</sup></span> ?</div>
-        <ol class="steps">
-          <li>8,7 × 10<sup>5</sup> vaut 870 000. Il est entre 10<sup>5</sup> (100 000) et 10<sup>6</sup> (1 000 000).</li>
-          <li>Le nombre devant est <strong>8,7</strong> — plus grand que 5, donc notre nombre est plus <strong>proche de 10<sup>6</sup></strong>.</li>
-          <li>On monte d'une puissance : de 10<sup>5</sup> à 10<sup>6</sup>.</li>
-        </ol>
-        <div class="answer">Ordre de grandeur = <strong>10<sup>6</sup></strong> (soit environ 1 000 000).</div>
-      </div>
-
-      <div class="example">
-        <span class="label">Le cas limite exact : 5</span>
-        <div class="prompt">Que se passe-t-il si le nombre devant vaut pile <strong>5</strong> ?</div>
-        <ul style="list-style:none; padding:0; margin: 8px 0;">
-          <li>• <span class="math">4,999 × 10<sup>2</sup></span> → devant &lt; 5 → ordre de grandeur = <strong>10<sup>2</sup></strong></li>
-          <li>• <span class="math">5,0 × 10<sup>2</sup></span> → devant ≥ 5 → ordre de grandeur = <strong>10<sup>3</sup></strong></li>
-        </ul>
-        <div class="answer">À partir de 5 exactement, on <strong>monte</strong> d'une puissance.</div>
-      </div>
-
-      <div class="callout tip">
-        <span class="icon">i</span>
-        <div><strong>À quoi ça sert.</strong> Comparer deux tailles : <span class="math">10<sup>15</sup></span> est <strong>1000 fois plus grand</strong> que <span class="math">10<sup>12</sup></span> (car 10<sup>15</sup> ÷ 10<sup>12</sup> = 10<sup>3</sup>). En astronomie on raisonne presque toujours comme ça — inutile de comparer 1,7 × 10<sup>15</sup> et 3,2 × 10<sup>12</sup> chiffre par chiffre, l'ordre de grandeur suffit.</div>
-      </div>
-
-      <div class="recap">
-        <span class="label">À retenir</span>
-        <ul>
-          <li>Ordre de grandeur = la puissance de 10 la plus proche.</li>
-          <li>Nombre <em>a</em> <strong>&lt; 5</strong> → 10<sup><em>n</em></sup>. Nombre <em>a</em> <strong>≥ 5</strong> → 10<sup><em>n</em>+1</sup>.</li>
-          <li>Sert à comparer deux tailles et à vérifier qu'un résultat est cohérent.</li>
-        </ul>
-      </div>
-
-      <label class="section-mark"><input type="checkbox" data-mark="s3"> Marquer comme lu</label>
-    </section>
-
-    <!-- §4 Célérité -->
+    <!-- §3 Célérité -->
     <section class="lesson" id="s4">
-      <h2><span class="num">04</span>La célérité de la lumière</h2>
+      <h2><span class="num">03</span>La célérité de la lumière</h2>
       <div class="hook">
         <strong>En clair.</strong> "Célérité" est juste un mot savant pour la <strong>vitesse de la lumière dans le vide</strong>. Elle file à <strong>300 000 km/s</strong> — assez pour faire 7,5 fois le tour de la Terre en une seconde. On la note <em>c</em>, et rien ne va plus vite dans l'univers.
       </div>
@@ -715,7 +642,7 @@
 
     <!-- §5 Distance, vitesse, temps -->
     <section class="lesson" id="s5">
-      <h2><span class="num">05</span>Distance, vitesse, temps</h2>
+      <h2><span class="num">04</span>Distance, vitesse, temps</h2>
 
       <div class="hook">
         <strong>En clair.</strong> Quand tu roules à 100 km/h pendant 2 heures, tu parcours 200 km. C'est <strong>toute</strong> la formule. Elle marche pour une voiture, un TGV, un avion — et aussi pour la lumière. Il faut juste choisir les bonnes unités.
@@ -841,7 +768,7 @@
 
     <!-- §6 Année-lumière -->
     <section class="lesson" id="s6">
-      <h2><span class="num">06</span>L'année-lumière</h2>
+      <h2><span class="num">05</span>L'année-lumière</h2>
       <div class="hook">
         <strong>En clair.</strong> Les kilomètres, c'est bon pour la Terre. Mais pour l'étoile la plus proche à 40 milliards de milliards de km, ça devient illisible. On mesure alors en <strong>années-lumière</strong> : la distance que la lumière parcourt en 1 an. Pratique et lisible.
       </div>
@@ -882,7 +809,7 @@
 
     <!-- §7 UA -->
     <section class="lesson" id="s7">
-      <h2><span class="num">07</span>L'unité astronomique</h2>
+      <h2><span class="num">06</span>L'unité astronomique</h2>
       <p>À l'échelle du <strong>système solaire</strong>, l'année-lumière est trop grande. On utilise l'<strong>unité astronomique</strong> (symbole <strong>UA</strong> ou <strong>ua</strong>) : la distance moyenne entre la Terre et le Soleil.</p>
 
       <div class="formula">
@@ -922,7 +849,7 @@
 
     <!-- §8 Distances -->
     <section class="lesson" id="s8">
-      <h2><span class="num">08</span>Distances dans l'univers</h2>
+      <h2><span class="num">07</span>Distances dans l'univers</h2>
       <p>Pour avoir une idée des ordres de grandeur, voici les principaux objets astronomiques et leur distance à nous. À retenir : chaque niveau change de plusieurs puissances de 10.</p>
 
       <table class="data">
@@ -997,7 +924,7 @@
 
     <!-- §9 Big Bang -->
     <section class="lesson" id="s9">
-      <h2><span class="num">09</span>Le Big Bang et l'âge de l'univers</h2>
+      <h2><span class="num">08</span>Le Big Bang et l'âge de l'univers</h2>
       <div class="hook">
         <strong>En clair.</strong> Il y a <strong>13,8 milliards d'années</strong>, l'univers était minuscule et brûlant. Depuis, il s'étend — et il continue en ce moment même. Le Big Bang, ce n'est pas une explosion dans l'espace : c'est <strong>l'espace lui-même qui grandit</strong>.
       </div>
@@ -1045,7 +972,7 @@
 
     <!-- §10 Méthode -->
     <section class="lesson" id="s10">
-      <h2><span class="num">10</span>La méthode pour tout exercice</h2>
+      <h2><span class="num">09</span>La méthode pour tout exercice</h2>
       <p>Un problème de physique se résout toujours dans le même ordre. Suivre la méthode évite les erreurs d'unité et les calculs faux.</p>
 
       <ol class="steps" style="counter-reset: step; list-style: none; padding: 0;">
@@ -1075,8 +1002,8 @@
           <span style="position:absolute; left:0; top:0; width:30px; height:30px; border-radius:50%; background:var(--accent-2); color:#fff; display:grid; place-items:center; font-family:'JetBrains Mono',monospace; font-size:0.85rem; font-weight:600;">5</span>
         </li>
         <li style="counter-increment: step; padding-left: 44px; position: relative; margin: 14px 0;">
-          <strong style="display:block; margin-bottom:4px;">Vérifier l'ordre de grandeur.</strong>
-          Une distance interstellaire en <span class="math">10<sup>16</sup></span> m, c'est cohérent. En <span class="math">10<sup>2</sup></span> m, non — reprendre le calcul.
+          <strong style="display:block; margin-bottom:4px;">Vérifier que le résultat est cohérent.</strong>
+          Le nombre a-t-il l'air raisonnable ? Une distance entre étoiles ne peut pas donner quelques mètres. Si le résultat paraît absurde, reprendre le calcul.
           <span style="position:absolute; left:0; top:0; width:30px; height:30px; border-radius:50%; background:var(--accent-2); color:#fff; display:grid; place-items:center; font-family:'JetBrains Mono',monospace; font-size:0.85rem; font-weight:600;">6</span>
         </li>
         <li style="counter-increment: step; padding-left: 44px; position: relative; margin: 14px 0;">
@@ -1107,7 +1034,7 @@
           <li>Choisir la formule.</li>
           <li>Convertir en unités SI (m, s, kg).</li>
           <li>Substituer et calculer en notation scientifique.</li>
-          <li>Vérifier l'ordre de grandeur.</li>
+          <li>Vérifier que le résultat est cohérent (nombre pas absurde).</li>
           <li>Rédiger avec l'unité et le sens physique.</li>
         </ol>
       </div>
@@ -1141,13 +1068,13 @@
       </div>
 
       <div class="qblock" data-answer="a">
-        <div class="question"><span class="qnum">Q3.</span>Quel est l'ordre de grandeur de <span class="math">7,3 × 10<sup>12</sup></span> ?</div>
+        <div class="question"><span class="qnum">Q3.</span>Un TGV roule à <strong>216 km/h</strong>. Sa vitesse en m/s est :</div>
         <div class="options">
-          <label><input type="radio" name="q3" value="a"> 10<sup>13</sup></label>
-          <label><input type="radio" name="q3" value="b"> 10<sup>12</sup></label>
-          <label><input type="radio" name="q3" value="c"> 10<sup>7</sup></label>
+          <label><input type="radio" name="q3" value="a"> 60 m/s</label>
+          <label><input type="radio" name="q3" value="b"> 6 m/s</label>
+          <label><input type="radio" name="q3" value="c"> 600 m/s</label>
         </div>
-        <div class="explain" hidden>Le nombre 7,3 devant × 10 est ≥ 5, donc on arrondit à la puissance supérieure : ordre de grandeur = <span class="math">10<sup>13</sup></span>.</div>
+        <div class="explain" hidden>Pour convertir km/h en m/s, on divise par 3,6. Donc <span class="math">216 ÷ 3,6 = 60 m/s</span>.</div>
       </div>
 
       <div class="qblock" data-answer="b">
