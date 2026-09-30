@@ -266,6 +266,22 @@
   }
   table.data tr:hover td { background: var(--surface-2); }
 
+  .recap {
+    background: color-mix(in srgb, var(--accent) 8%, var(--surface));
+    border-left: 4px solid var(--accent);
+    padding: 14px 20px; border-radius: 0 10px 10px 0;
+    margin: 24px 0 6px 0;
+  }
+  .recap .label {
+    display: block; font-family: 'JetBrains Mono', monospace;
+    text-transform: uppercase; letter-spacing: 0.09em;
+    font-size: 0.72rem; color: var(--accent); font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .recap ul, .recap ol { margin: 0; padding-left: 22px; }
+  .recap li { margin: 4px 0; }
+  .recap p { margin: 0; }
+
   .section-mark {
     margin-top: 24px; padding-top: 16px; border-top: 1px dashed var(--line);
     display: flex; align-items: center; gap: 10px; font-size: 0.9rem;
@@ -474,6 +490,15 @@
         <div><strong>Piège classique.</strong> La mantisse doit être <strong>strictement inférieure à 10</strong>. Donc <span class="math">42 × 10<sup>3</sup></span> <strong>n'est pas</strong> une notation scientifique. La forme correcte est <span class="math">4,2 × 10<sup>4</sup></span>.</div>
       </div>
 
+      <div class="recap">
+        <span class="label">À retenir</span>
+        <ul>
+          <li>Forme : <span class="math"><em>a</em> × 10<sup><em>n</em></sup></span> avec <strong>1 ≤ mantisse &lt; 10</strong>.</li>
+          <li>Grand nombre → <em>n</em> positif. Petit nombre (&lt; 1) → <em>n</em> négatif.</li>
+          <li>Le nombre de crans que la virgule bouge = valeur de <em>n</em>.</li>
+        </ul>
+      </div>
+
       <label class="section-mark"><input type="checkbox" data-mark="s1"> Marquer comme lu</label>
     </section>
 
@@ -519,6 +544,16 @@
         <div>Si après calcul ta mantisse dépasse 10 (par exemple 25 × 10<sup>6</sup>), tu la ré-écris en notation scientifique : <span class="math">25 × 10<sup>6</sup> = 2,5 × 10<sup>7</sup></span>. Toujours <strong>1 ≤ mantisse &lt; 10</strong>.</div>
       </div>
 
+      <div class="recap">
+        <span class="label">À retenir</span>
+        <ul>
+          <li><strong>Multiplier</strong> : on additionne les exposants.</li>
+          <li><strong>Diviser</strong> : on soustrait les exposants.</li>
+          <li><strong>Puissance de puissance</strong> : on multiplie les exposants.</li>
+          <li>Toujours ranger le résultat en notation scientifique (mantisse entre 1 et 10).</li>
+        </ul>
+      </div>
+
       <label class="section-mark"><input type="checkbox" data-mark="s2"> Marquer comme lu</label>
     </section>
 
@@ -553,6 +588,15 @@
         <div>Comparer deux ordres de grandeur : <span class="math">10<sup>15</sup></span> est <strong>10<sup>3</sup> = 1000 fois plus grand</strong> que <span class="math">10<sup>12</sup></span>. En astronomie on raisonne presque toujours en ordre de grandeur.</div>
       </div>
 
+      <div class="recap">
+        <span class="label">À retenir</span>
+        <ul>
+          <li>Ordre de grandeur = la puissance de 10 la plus proche.</li>
+          <li>Mantisse <strong>&lt; 5</strong> → 10<sup><em>n</em></sup>. Mantisse <strong>≥ 5</strong> → 10<sup><em>n</em>+1</sup>.</li>
+          <li>Sert à comparer deux tailles et à vérifier qu'un résultat est cohérent.</li>
+        </ul>
+      </div>
+
       <label class="section-mark"><input type="checkbox" data-mark="s3"> Marquer comme lu</label>
     </section>
 
@@ -575,6 +619,15 @@
       <div class="callout warn">
         <span class="icon">!</span>
         <div><strong>Attention aux unités.</strong> La vitesse en physique est presque toujours en <strong>mètres par seconde (m/s)</strong>. Si l'énoncé donne des km/h ou des km/s, convertir d'abord : 1 km/s = 10<sup>3</sup> m/s.</div>
+      </div>
+
+      <div class="recap">
+        <span class="label">À retenir</span>
+        <ul>
+          <li><em>c</em> ≈ <strong>3 × 10<sup>8</sup> m/s</strong> = 300 000 km/s.</li>
+          <li>Constante universelle : rien ne va plus vite dans le vide.</li>
+          <li>Toujours convertir la vitesse en <strong>m/s</strong> avant tout calcul.</li>
+        </ul>
       </div>
 
       <label class="section-mark"><input type="checkbox" data-mark="s4"> Marquer comme lu</label>
@@ -621,6 +674,15 @@
         </div>
       </div>
 
+      <div class="recap">
+        <span class="label">À retenir</span>
+        <ul>
+          <li>Formule : <span class="math"><em>d</em> = <em>c</em> × <em>t</em></span> — unités : m, m/s, s.</li>
+          <li>Réciproques : <span class="math"><em>t</em> = <em>d</em> ÷ <em>c</em></span> et <span class="math"><em>v</em> = <em>d</em> ÷ <em>t</em></span>.</li>
+          <li>Toutes les grandeurs doivent être dans le même système d'unités (SI).</li>
+        </ul>
+      </div>
+
       <label class="section-mark"><input type="checkbox" data-mark="s5"> Marquer comme lu</label>
     </section>
 
@@ -649,6 +711,15 @@
       <div class="callout tip">
         <span class="icon">i</span>
         <div>Une <strong>année-lumière est une distance</strong>, pas une durée. Si quelqu'un dit « il y a 4 ans-lumière », il parle d'un trajet. Ce qui prend du temps c'est la lumière qui met 4 ans à faire ce trajet.</div>
+      </div>
+
+      <div class="recap">
+        <span class="label">À retenir</span>
+        <ul>
+          <li><strong>1 al ≈ 9,46 × 10<sup>15</sup> m</strong> ≈ 9 461 milliards de km.</li>
+          <li>L'année-lumière est une <strong>distance</strong>, pas une durée.</li>
+          <li>Formule : <span class="math">1 al = <em>c</em> × (1 an en s)</span> avec 1 an ≈ 3,156 × 10<sup>7</sup> s.</li>
+        </ul>
       </div>
 
       <label class="section-mark"><input type="checkbox" data-mark="s6"> Marquer comme lu</label>
@@ -680,6 +751,15 @@
           <li>Recomposer en notation scientifique : <span class="math">44,88 × 10<sup>11</sup> = 4,488 × 10<sup>12</sup></span>.</li>
         </ol>
         <div class="answer">Neptune est à environ <strong>4,5 × 10<sup>12</sup> m</strong> du Soleil.</div>
+      </div>
+
+      <div class="recap">
+        <span class="label">À retenir</span>
+        <ul>
+          <li><strong>1 UA ≈ 1,5 × 10<sup>11</sup> m</strong> ≈ 150 millions de km.</li>
+          <li>= distance moyenne Terre → Soleil.</li>
+          <li>Règle simple : <strong>km</strong> pour la Terre · <strong>UA</strong> pour le système solaire · <strong>al</strong> pour les étoiles.</li>
+        </ul>
       </div>
 
       <label class="section-mark"><input type="checkbox" data-mark="s7"> Marquer comme lu</label>
@@ -748,6 +828,15 @@
         <div>De la Lune à l'univers observable, on passe de <span class="math">10<sup>8</sup></span> à <span class="math">10<sup>26</sup></span> — <strong>18 ordres de grandeur</strong>. C'est pour ça que la notation scientifique est indispensable.</div>
       </div>
 
+      <div class="recap">
+        <span class="label">À retenir</span>
+        <ul>
+          <li>Terre-Lune : 10<sup>8</sup> m · Terre-Soleil : 10<sup>11</sup> m (1 UA).</li>
+          <li>Étoile la plus proche : ≈ 10<sup>16</sup> m (~4 al) · Voie lactée : ≈ 10<sup>21</sup> m.</li>
+          <li>Univers observable : 10<sup>26</sup> m (~46 milliards d'al de rayon).</li>
+        </ul>
+      </div>
+
       <label class="section-mark"><input type="checkbox" data-mark="s8"> Marquer comme lu</label>
     </section>
 
@@ -783,6 +872,15 @@
       <div class="callout tip">
         <span class="icon">i</span>
         <div><strong>Regarder loin = regarder dans le passé.</strong> Quand on observe une étoile à 100 al, on la voit telle qu'elle était il y a 100 ans. Le fond diffus, lui, nous montre l'univers tel qu'il était il y a 13,8 milliards d'années.</div>
+      </div>
+
+      <div class="recap">
+        <span class="label">À retenir</span>
+        <ul>
+          <li>Univers en <strong>expansion</strong> depuis <strong>≈ 13,8 milliards d'années</strong>.</li>
+          <li>3 preuves : loi de Hubble · fond diffus cosmologique · abondance H/He.</li>
+          <li>Regarder loin dans l'espace = regarder loin dans le passé.</li>
+        </ul>
       </div>
 
       <label class="section-mark"><input type="checkbox" data-mark="s9"> Marquer comme lu</label>
@@ -842,6 +940,19 @@
             <li>Rendre un résultat sans unité.</li>
           </ul>
         </div>
+      </div>
+
+      <div class="recap">
+        <span class="label">À retenir — les 7 étapes</span>
+        <ol>
+          <li>Lire l'énoncé + repérer la question.</li>
+          <li>Écrire les données avec leurs unités.</li>
+          <li>Choisir la formule.</li>
+          <li>Convertir en unités SI (m, s, kg).</li>
+          <li>Substituer et calculer en notation scientifique.</li>
+          <li>Vérifier l'ordre de grandeur.</li>
+          <li>Rédiger avec l'unité et le sens physique.</li>
+        </ol>
       </div>
 
       <label class="section-mark"><input type="checkbox" data-mark="s10"> Marquer comme lu</label>
