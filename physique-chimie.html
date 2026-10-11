@@ -265,6 +265,7 @@
     color: var(--accent);
   }
   table.data tr:hover td { background: var(--surface-2); }
+  table.data.memo td.num { white-space: nowrap; }
 
   .recap {
     background: color-mix(in srgb, var(--accent) 8%, var(--surface));
@@ -467,6 +468,8 @@
     header.masthead { padding: 18px 14px; }
     section.lesson { padding: 18px 12px; }
     section.lesson h2 { font-size: 1.2rem; gap: 8px; }
+    table.data.memo th, table.data.memo td { padding: 8px 5px; }
+    table.data.memo td.num { font-size: 0.78rem; }
     .quiz-actions { flex-direction: column; }
     .quiz-actions .btn { width: 100%; margin: 0; }
   }
@@ -993,6 +996,72 @@
         <p><span class="term">Univers</span> : <strong>ensemble de tout ce qui existe</strong> — matière, espace et temps. On ne peut observer que la partie dont la lumière a eu le temps de nous parvenir : c'est <strong>l'univers observable</strong>, un rayon d'environ <strong>46 milliards d'années-lumière</strong>.</p>
       </div>
 
+      <h3>Mémo : les grands nombres en puissances de 10</h3>
+      <p>Dans les énoncés, les distances sont souvent écrites en mots : « 150 millions de km », « 46 milliards d'al »… Il faut savoir les traduire en notation scientifique.</p>
+
+      <table class="data memo">
+        <thead>
+          <tr><th>En mots</th><th>En chiffres</th><th>Puissance de 10</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>mille</strong></td><td class="num">1 000</td><td class="num">10<sup>3</sup></td></tr>
+          <tr><td><strong>un million</strong></td><td class="num">1 000 000</td><td class="num">10<sup>6</sup></td></tr>
+          <tr><td><strong>un milliard</strong></td><td class="num">1 000 000 000</td><td class="num">10<sup>9</sup></td></tr>
+          <tr><td><strong>mille milliards</strong> (un billion)</td><td class="num">1 000 000 000 000</td><td class="num">10<sup>12</sup></td></tr>
+        </tbody>
+      </table>
+
+      <div class="formula-trio">
+        <div class="cell">
+          <span class="tag">Compte les zéros</span>
+          <span class="eq">6 zéros → 10<sup>6</sup></span>
+          <span class="when">le nombre de zéros = l'exposant</span>
+        </div>
+        <div class="cell">
+          <span class="tag">Palier de 3</span>
+          <span class="eq">+3</span>
+          <span class="when">mille → million → milliard → billion : à chaque palier on ajoute 3 à l'exposant (3, 6, 9, 12)</span>
+        </div>
+        <div class="cell">
+          <span class="tag">Comme ton tél</span>
+          <span class="eq">k · M · G · T</span>
+          <span class="when">ko, Mo, Go, To : kilo = 10<sup>3</sup>, méga = 10<sup>6</sup>, giga = 10<sup>9</sup>, téra = 10<sup>12</sup></span>
+        </div>
+      </div>
+
+      <div class="callout tip">
+        <span class="icon">i</span>
+        <div><strong>Petits nombres : « -ième » = exposant négatif.</strong> Un millième = 0,001 = 10<sup>−3</sup> · un millionième = 10<sup>−6</sup> · un milliardième = 10<sup>−9</sup>.</div>
+      </div>
+
+      <div class="example">
+        <span class="label">Exemple 1 — « 150 millions de km »</span>
+        <div class="prompt">Écrire 150 millions de km en notation scientifique.</div>
+        <ol class="steps">
+          <li>Remplacer le mot par sa puissance de 10 : <span class="math">150 millions = 150 × 10<sup>6</sup></span>.</li>
+          <li>Mettre 150 en notation scientifique : <span class="math">150 = 1,5 × 10<sup>2</sup></span>.</li>
+          <li>Additionner les exposants : <span class="math">1,5 × 10<sup>2</sup> × 10<sup>6</sup> = 1,5 × 10<sup>8</sup></span>.</li>
+        </ol>
+        <div class="answer">150 millions de km = <strong>1,5 × 10<sup>8</sup> km</strong> — c'est exactement 1 UA !</div>
+      </div>
+
+      <div class="example">
+        <span class="label">Exemple 2 — « 46 milliards d'al »</span>
+        <div class="prompt">Écrire 46 milliards d'années-lumière en notation scientifique.</div>
+        <ol class="steps">
+          <li>Remplacer le mot : <span class="math">46 milliards = 46 × 10<sup>9</sup></span>.</li>
+          <li>Mettre 46 en notation scientifique : <span class="math">46 = 4,6 × 10<sup>1</sup></span>.</li>
+          <li>Additionner les exposants : <span class="math">4,6 × 10<sup>1</sup> × 10<sup>9</sup> = 4,6 × 10<sup>10</sup></span>.</li>
+        </ol>
+        <div class="answer">46 milliards d'al = <strong>4,6 × 10<sup>10</sup> al</strong> (rayon de l'univers observable).</div>
+      </div>
+
+      <div class="callout warn">
+        <span class="icon">!</span>
+        <div><strong>Piège du « billion ».</strong> En anglais, <em>a billion</em> = un <strong>milliard</strong> (10<sup>9</sup>). En français, un billion = <strong>mille milliards</strong> (10<sup>12</sup>). Donc « 13.8 billion years » dans une vidéo en anglais = 13,8 <strong>milliards</strong> d'années.</div>
+      </div>
+
+      <h3>Les distances dans l'univers</h3>
       <p>Voici les principaux objets astronomiques et leur distance à nous. Chaque niveau change de plusieurs puissances de 10.</p>
 
       <table class="data">
@@ -1059,6 +1128,7 @@
           <li>Terre-Lune : 10<sup>5</sup> km · Terre-Soleil : 10<sup>8</sup> km (1 UA).</li>
           <li>Étoile la plus proche : ≈ 10<sup>13</sup> km (~4 al) · Voie lactée : ≈ 10<sup>18</sup> km.</li>
           <li>Univers observable : 10<sup>23</sup> km (~46 milliards d'al de rayon).</li>
+          <li>Mille = 10<sup>3</sup> · million = 10<sup>6</sup> · milliard = 10<sup>9</sup> · billion = 10<sup>12</sup> (+3 à chaque palier).</li>
         </ul>
       </div>
 
