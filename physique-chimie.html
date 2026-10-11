@@ -282,6 +282,27 @@
   }
   .hook strong { color: var(--ink); }
 
+  /* Definition card — for key terms the eval will test (al, UA, Big Bang, univers) */
+  .def {
+    background: var(--surface-2);
+    border: 1px solid var(--accent);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 14px 0 18px 0;
+  }
+  .def .label {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    font-size: 0.72rem; font-weight: 700;
+    color: var(--accent); margin-bottom: 8px;
+  }
+  .def .term {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 700; font-size: 1.1rem;
+    color: var(--ink); margin-right: 8px;
+  }
+
   /* Formula trio: 3 formulas side by side with a "when to use" tag */
   .formula-trio {
     display: grid;
@@ -770,12 +791,17 @@
     <section class="lesson" id="s6">
       <h2><span class="num">05</span>L'année-lumière</h2>
       <div class="hook">
-        <strong>En clair.</strong> Les kilomètres, c'est bon pour la Terre. Mais pour l'étoile la plus proche à 40 milliards de milliards de km, ça devient illisible. On mesure alors en <strong>années-lumière</strong> : la distance que la lumière parcourt en 1 an. Pratique et lisible.
+        <strong>En clair.</strong> Les kilomètres, c'est bon pour la Terre. Mais pour l'étoile la plus proche à 40 milliards de milliards de km, ça devient illisible. On mesure alors en <strong>années-lumière</strong>. Pratique et lisible.
+      </div>
+
+      <div class="def">
+        <span class="label">Définition</span>
+        <p><span class="term">Année-lumière (al)</span> : <strong>distance</strong> que la lumière parcourt dans le vide pendant <strong>une année</strong>. Ce n'est pas une durée, c'est une longueur.</p>
       </div>
 
       <div class="formula">
-        <span class="formula-label">Définition</span>
-        <span class="math">1 al = <em>c</em> × (1 an en secondes)</span>
+        <span class="formula-label">Formule</span>
+        <span class="math">1 al = <em>c</em> × (1 an en secondes) ≈ 9,46 × 10<sup>15</sup> m</span>
       </div>
 
       <div class="example">
@@ -810,10 +836,15 @@
     <!-- §7 UA -->
     <section class="lesson" id="s7">
       <h2><span class="num">06</span>L'unité astronomique</h2>
-      <p>À l'échelle du <strong>système solaire</strong>, l'année-lumière est trop grande. On utilise l'<strong>unité astronomique</strong> (symbole <strong>UA</strong> ou <strong>ua</strong>) : la distance moyenne entre la Terre et le Soleil.</p>
+      <p>À l'échelle du <strong>système solaire</strong>, l'année-lumière est trop grande. Il faut une unité adaptée à ce qui se passe autour de notre Soleil.</p>
+
+      <div class="def">
+        <span class="label">Définition</span>
+        <p><span class="term">Unité astronomique (UA)</span> : <strong>distance moyenne entre la Terre et le Soleil</strong>. Sert à mesurer les distances à l'intérieur du système solaire.</p>
+      </div>
 
       <div class="formula">
-        <span class="formula-label">Valeur</span>
+        <span class="formula-label">Valeur à retenir</span>
         <span class="math">1 UA ≈ 1,496 × 10<sup>11</sup> m ≈ 150 millions de km</span>
       </div>
 
@@ -850,7 +881,13 @@
     <!-- §8 Distances -->
     <section class="lesson" id="s8">
       <h2><span class="num">07</span>Distances dans l'univers</h2>
-      <p>Pour avoir une idée des ordres de grandeur, voici les principaux objets astronomiques et leur distance à nous. À retenir : chaque niveau change de plusieurs puissances de 10.</p>
+
+      <div class="def">
+        <span class="label">Définition</span>
+        <p><span class="term">Univers</span> : <strong>ensemble de tout ce qui existe</strong> — matière, espace et temps. On ne peut observer que la partie dont la lumière a eu le temps de nous parvenir : c'est <strong>l'univers observable</strong>, un rayon d'environ <strong>46 milliards d'années-lumière</strong>.</p>
+      </div>
+
+      <p>Voici les principaux objets astronomiques et leur distance à nous. Chaque niveau change de plusieurs puissances de 10.</p>
 
       <table class="data">
         <thead>
@@ -927,6 +964,11 @@
       <h2><span class="num">08</span>Le Big Bang et l'âge de l'univers</h2>
       <div class="hook">
         <strong>En clair.</strong> Il y a <strong>13,8 milliards d'années</strong>, l'univers était minuscule et brûlant. Depuis, il s'étend — et il continue en ce moment même. Le Big Bang, ce n'est pas une explosion dans l'espace : c'est <strong>l'espace lui-même qui grandit</strong>.
+      </div>
+
+      <div class="def">
+        <span class="label">Définition</span>
+        <p><span class="term">Big Bang</span> : <strong>théorie scientifique</strong> qui décrit l'univers comme étant né il y a environ <strong>13,8 milliards d'années</strong> d'un état extrêmement <strong>chaud et dense</strong>, puis en <strong>expansion</strong> continue depuis.</p>
       </div>
 
       <div class="formula">
