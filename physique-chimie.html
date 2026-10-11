@@ -503,6 +503,7 @@
       <li><a href="#s5" data-section="s5">Distance, vitesse, temps</a></li>
       <li><a href="#s6" data-section="s6">Année-lumière</a></li>
       <li><a href="#s7" data-section="s7">Unité astronomique</a></li>
+      <li><a href="#s7b" data-section="s7b">Conversions al ↔ UA</a></li>
       <li><a href="#s8" data-section="s8">Distances dans l'univers</a></li>
       <li><a href="#s9" data-section="s9">Big Bang &amp; âge</a></li>
       <li><a href="#s10" data-section="s10">Méthode d'exercice</a></li>
@@ -929,9 +930,105 @@
       <label class="section-mark"><input type="checkbox" data-mark="s7"> Marquer comme lu</label>
     </section>
 
+    <!-- §7 Conversions al ↔ UA -->
+    <section class="lesson" id="s7b">
+      <h2><span class="num">07</span>Conversions al ↔ UA</h2>
+      <div class="hook">
+        <strong>En clair.</strong> Les années-lumière et les unités astronomiques sont deux unités de <strong>distance</strong>. Pour passer de l'une à l'autre, on <strong>passe par les mètres</strong> — c'est le seul langage commun entre les deux.
+      </div>
+
+      <h3>La formule de conversion</h3>
+      <p>Comme 1 al et 1 UA sont tous les deux connus en mètres, on peut faire le rapport entre les deux :</p>
+
+      <div class="formula">
+        <span class="formula-label">Formule de conversion</span>
+        <span class="math">1 al = (9,46 × 10<sup>15</sup>) ÷ (1,496 × 10<sup>11</sup>) UA ≈ 6,32 × 10<sup>4</sup> UA</span>
+        <div style="margin-top:8px; font-size:0.92rem; color:var(--ink-2);">
+          Autrement dit : <strong>1 al ≈ 63 240 UA</strong>.
+        </div>
+      </div>
+
+      <div class="formula-trio">
+        <div class="cell">
+          <span class="tag">al → UA</span>
+          <span class="eq">× 6,32 × 10<sup>4</sup></span>
+          <span class="when">on multiplie le nombre d'al</span>
+        </div>
+        <div class="cell">
+          <span class="tag">UA → al</span>
+          <span class="eq">÷ 6,32 × 10<sup>4</sup></span>
+          <span class="when">on divise le nombre d'UA</span>
+        </div>
+        <div class="cell">
+          <span class="tag">Pont</span>
+          <span class="eq">mètres (m)</span>
+          <span class="when">1 al et 1 UA sont connus en m</span>
+        </div>
+      </div>
+
+      <h3>Exemples pas à pas</h3>
+
+      <div class="example">
+        <span class="label">Exemple 1 — Convertir des al en UA</span>
+        <div class="prompt">Proxima Centauri est à <strong>4,24 al</strong> du Soleil. Combien d'UA cela fait-il ?</div>
+        <ol class="steps">
+          <li>Écrire la distance en mètres : <span class="math">4,24 × (9,46 × 10<sup>15</sup>) ≈ 4,01 × 10<sup>16</sup> m</span>.</li>
+          <li>Poser la division par la valeur de 1 UA : <span class="math">(4,01 × 10<sup>16</sup>) ÷ (1,496 × 10<sup>11</sup>)</span>.</li>
+          <li>Diviser les nombres devant : <span class="math">4,01 ÷ 1,496 ≈ 2,68</span>.</li>
+          <li>Soustraire les exposants : <span class="math">10<sup>16</sup> ÷ 10<sup>11</sup> = 10<sup>5</sup></span>.</li>
+        </ol>
+        <div class="answer">Proxima Centauri est à environ <strong>2,68 × 10<sup>5</sup> UA</strong> ≈ 268 000 UA du Soleil.</div>
+      </div>
+
+      <div class="example">
+        <span class="label">Exemple 2 — Astuce rapide avec le facteur</span>
+        <div class="prompt">Même calcul mais directement avec <strong>1 al ≈ 6,32 × 10<sup>4</sup> UA</strong>.</div>
+        <ol class="steps">
+          <li>Multiplier directement : <span class="math">4,24 × (6,32 × 10<sup>4</sup>)</span>.</li>
+          <li>Multiplier les nombres devant : <span class="math">4,24 × 6,32 ≈ 26,8</span>.</li>
+          <li>Recomposer en notation scientifique : <span class="math">26,8 × 10<sup>4</sup> = 2,68 × 10<sup>5</sup></span>.</li>
+        </ol>
+        <div class="answer">On retrouve <strong>2,68 × 10<sup>5</sup> UA</strong> — plus rapide quand on connaît le facteur.</div>
+      </div>
+
+      <div class="example">
+        <span class="label">Exemple 3 — Convertir des UA en al</span>
+        <div class="prompt">Le nuage de Oort s'étend jusqu'à environ <strong>100 000 UA</strong>. Combien d'al cela fait-il ?</div>
+        <ol class="steps">
+          <li>Écrire 100 000 en notation scientifique : <span class="math">1 × 10<sup>5</sup> UA</span>.</li>
+          <li>Diviser par 6,32 × 10<sup>4</sup> : <span class="math">(1 × 10<sup>5</sup>) ÷ (6,32 × 10<sup>4</sup>)</span>.</li>
+          <li>Diviser les nombres devant : <span class="math">1 ÷ 6,32 ≈ 0,158</span>, puis soustraire les exposants : <span class="math">10<sup>5</sup> ÷ 10<sup>4</sup> = 10<sup>1</sup></span>.</li>
+          <li>Recomposer : <span class="math">0,158 × 10<sup>1</sup> ≈ 1,58</span>.</li>
+        </ol>
+        <div class="answer">Le nuage de Oort s'étend jusqu'à environ <strong>1,58 al</strong>.</div>
+      </div>
+
+      <div class="callout warn">
+        <span class="icon">!</span>
+        <div><strong>À ne pas confondre.</strong> L'<strong>UA</strong> sert pour le système solaire, l'<strong>al</strong> pour les étoiles. Si tu obtiens 0,0001 al pour une distance entre planètes, c'est juste mal choisi : repasse en UA pour un chiffre lisible. Inversement, utiliser des UA pour une étoile donne des nombres énormes et illisibles.</div>
+      </div>
+
+      <div class="callout tip">
+        <span class="icon">i</span>
+        <div><strong>À quoi correspond ce facteur ?</strong> <span class="math">6,32 × 10<sup>4</sup></span>, c'est le nombre de fois que la lumière met la distance Terre–Soleil dans une année. La lumière met ≈ 8 min 20 s pour aller du Soleil à la Terre, et il y a environ 63 240 "trajets Soleil–Terre" dans une année de lumière.</div>
+      </div>
+
+      <div class="recap">
+        <span class="label">À retenir</span>
+        <ul>
+          <li><strong>1 al ≈ 6,32 × 10<sup>4</sup> UA</strong> ≈ 63 240 UA.</li>
+          <li><strong>al → UA</strong> : on <strong>multiplie</strong> par 6,32 × 10<sup>4</sup>.</li>
+          <li><strong>UA → al</strong> : on <strong>divise</strong> par 6,32 × 10<sup>4</sup>.</li>
+          <li>Pont commun : les <strong>mètres</strong> (1 al ≈ 9,46 × 10<sup>15</sup> m · 1 UA ≈ 1,496 × 10<sup>11</sup> m).</li>
+        </ul>
+      </div>
+
+      <label class="section-mark"><input type="checkbox" data-mark="s7b"> Marquer comme lu</label>
+    </section>
+
     <!-- §8 Distances -->
     <section class="lesson" id="s8">
-      <h2><span class="num">07</span>Distances dans l'univers</h2>
+      <h2><span class="num">08</span>Distances dans l'univers</h2>
 
       <div class="def">
         <span class="label">Définition</span>
@@ -1012,7 +1109,7 @@
 
     <!-- §9 Big Bang -->
     <section class="lesson" id="s9">
-      <h2><span class="num">08</span>Le Big Bang et l'âge de l'univers</h2>
+      <h2><span class="num">09</span>Le Big Bang et l'âge de l'univers</h2>
       <div class="hook">
         <strong>En clair.</strong> Il y a <strong>13,8 milliards d'années</strong>, l'univers était minuscule et brûlant. Depuis, il s'étend — et il continue en ce moment même. Le Big Bang, ce n'est pas une explosion dans l'espace : c'est <strong>l'espace lui-même qui grandit</strong>.
       </div>
@@ -1065,7 +1162,7 @@
 
     <!-- §10 Méthode -->
     <section class="lesson" id="s10">
-      <h2><span class="num">09</span>La méthode pour tout exercice</h2>
+      <h2><span class="num">10</span>La méthode pour tout exercice</h2>
       <p>Un problème de physique se résout toujours dans le même ordre. Suivre la méthode évite les erreurs d'unité et les calculs faux.</p>
 
       <ol class="steps" style="counter-reset: step; list-style: none; padding: 0;">
