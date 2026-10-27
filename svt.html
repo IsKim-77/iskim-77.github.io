@@ -1,0 +1,859 @@
+<!doctype html>
+<html lang="fr">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, minimum-scale=1">
+<meta name="theme-color" content="#3A7A4F">
+<meta name="description" content="Fiche de révision SVT 3e : gènes, allèles, génome, génotype — définitions, dominance, croisements, quiz.">
+<title>Hkm — SVT · Génétique 3e</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=Source+Sans+3:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+  :root {
+    --ground: #FAF6EE; --surface: #FFFFFF; --surface-2: #F2EBDD;
+    --ink: #1B1C2E; --ink-2: #43455C; --muted: #8C8578; --line: #E3DACA;
+    --accent: #3A7A4F; --accent-2: #B23A3A;
+    --highlight: #FFF1C8; --highlight-line: #E8B94A;
+    --success: #3A7A4F; --danger: #B23A3A;
+    --shadow: 0 1px 2px rgba(27,28,46,0.04), 0 4px 12px rgba(27,28,46,0.06);
+  }
+  :root:not([data-theme="light"]) {
+    @media (prefers-color-scheme: dark) {
+      --ground: #14151E; --surface: #1D1F2B; --surface-2: #262837;
+      --ink: #EEE8DB; --ink-2: #B8B3A5; --muted: #7A756A; --line: #333446;
+      --accent: #6BC38A; --accent-2: #FF7B65;
+      --highlight: #35301B; --highlight-line: #A87D2C;
+      --success: #6BC38A; --danger: #E67373;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 4px 12px rgba(0,0,0,0.3);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground: #14151E; --surface: #1D1F2B; --surface-2: #262837;
+    --ink: #EEE8DB; --ink-2: #B8B3A5; --muted: #7A756A; --line: #333446;
+    --accent: #6BC38A; --accent-2: #FF7B65; --highlight: #35301B; --highlight-line: #A87D2C;
+    --success: #6BC38A; --danger: #E67373;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 4px 12px rgba(0,0,0,0.3);
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  html, body { max-width: 100%; overflow-x: hidden; }
+  body {
+    background: var(--ground); color: var(--ink);
+    font-family: 'Source Sans 3', system-ui, sans-serif;
+    font-size: 17px; line-height: 1.6; margin: 0;
+    -webkit-text-size-adjust: 100%;
+  }
+  .page {
+    max-width: 1180px; margin: 0 auto;
+    padding-inline: 20px; padding-block: 32px 80px;
+    display: grid; grid-template-columns: 240px 1fr; gap: 44px;
+  }
+  @media (max-width: 900px) {
+    .page { grid-template-columns: 1fr; gap: 20px; padding-block: 20px 60px; }
+  }
+  .brand-strip {
+    grid-column: 1 / -1;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0 4px 4px 4px;
+  }
+  .brand {
+    display: inline-flex; align-items: baseline; gap: 8px;
+    text-decoration: none; color: var(--ink);
+    font-family: 'Fraunces', Georgia, serif;
+  }
+  .brand-mark { font-weight: 800; font-size: 1.4rem; letter-spacing: -0.02em; color: var(--accent); }
+  .brand-slash { color: var(--muted); font-weight: 400; font-size: 1.2rem; }
+  .brand-section {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--ink-2); font-weight: 500;
+  }
+  .theme-toggle {
+    background: var(--surface-2); border: 1px solid var(--line); color: var(--ink);
+    padding: 6px 12px; border-radius: 6px; font-family: inherit; font-size: 0.85rem; cursor: pointer;
+  }
+  .theme-toggle:hover { background: var(--line); }
+
+  header.masthead {
+    grid-column: 1 / -1;
+    padding: 28px 32px;
+    background: var(--surface); border-radius: 12px;
+    border: 1px solid var(--line); box-shadow: var(--shadow);
+    display: flex; justify-content: space-between; align-items: flex-end;
+    flex-wrap: wrap; gap: 16px;
+  }
+  header.masthead h1 {
+    font-family: 'Fraunces', Georgia, serif; font-weight: 800;
+    font-size: clamp(2rem, 5vw, 2.8rem); line-height: 1.05;
+    margin: 0 0 6px 0; letter-spacing: -0.02em;
+  }
+  header.masthead .subtitle { color: var(--ink-2); font-size: 1rem; margin: 0; }
+  header.masthead .kbd-hint { color: var(--muted); font-size: 0.85rem; font-family: 'JetBrains Mono', monospace; }
+
+  nav.toc {
+    position: sticky; top: 24px; align-self: start;
+    max-height: calc(100vh - 48px); overflow-y: auto;
+  }
+  @media (max-width: 900px) { nav.toc { position: static; max-height: none; } }
+  nav.toc h2 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--muted); margin: 0 0 12px 0; font-weight: 600;
+  }
+  nav.toc ol {
+    list-style: none; padding: 0; margin: 0;
+    display: flex; flex-direction: column; gap: 2px; counter-reset: toc;
+  }
+  nav.toc li { counter-increment: toc; }
+  nav.toc a {
+    display: flex; gap: 10px; padding: 8px 10px; border-radius: 6px;
+    color: var(--ink-2); text-decoration: none; font-size: 0.92rem; line-height: 1.35;
+    border-left: 2px solid transparent;
+  }
+  nav.toc a::before {
+    content: counter(toc); font-family: 'JetBrains Mono', monospace;
+    color: var(--muted); font-size: 0.82rem; min-width: 18px;
+  }
+  nav.toc a:hover { background: var(--surface-2); color: var(--ink); }
+  nav.toc a.active {
+    background: var(--surface-2); border-left-color: var(--accent);
+    color: var(--ink); font-weight: 600;
+  }
+
+  main { min-width: 0; }
+  section.lesson {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
+    padding: 32px; margin-bottom: 20px; box-shadow: var(--shadow);
+    scroll-margin-top: 16px;
+  }
+  @media (max-width: 600px) { section.lesson { padding: 22px 18px; } }
+  section.lesson h2 {
+    font-family: 'Fraunces', Georgia, serif; font-weight: 800;
+    font-size: 1.55rem; line-height: 1.15;
+    margin: 0 0 20px 0; display: flex; align-items: baseline; gap: 14px;
+  }
+  section.lesson h2 .num {
+    font-family: 'JetBrains Mono', monospace; color: var(--accent);
+    font-size: 1rem; font-weight: 600;
+    padding: 4px 8px; background: var(--surface-2); border-radius: 5px;
+    flex-shrink: 0; align-self: center;
+  }
+  section.lesson h3 {
+    font-family: 'Fraunces', Georgia, serif; font-weight: 600;
+    font-size: 1.15rem; margin: 22px 0 10px 0; color: var(--ink);
+  }
+  section.lesson p { margin: 10px 0; }
+  section.lesson ul { padding-left: 22px; margin: 10px 0; }
+  section.lesson li { margin: 6px 0; }
+  section.lesson strong { color: var(--ink); font-weight: 600; }
+  section.lesson em { color: var(--ink-2); font-style: italic; }
+
+  code, .mono { font-family: 'JetBrains Mono', monospace; font-size: 0.9em; }
+
+  .hook {
+    background: var(--highlight);
+    border-left: 4px solid var(--highlight-line);
+    padding: 12px 18px; border-radius: 0 8px 8px 0;
+    margin: 0 0 18px 0;
+  }
+
+  .def {
+    background: var(--surface-2);
+    border: 1px solid var(--accent);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 14px 0 18px 0;
+  }
+  .def .label {
+    display: block; font-family: 'JetBrains Mono', monospace;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    font-size: 0.72rem; font-weight: 700;
+    color: var(--accent); margin-bottom: 8px;
+  }
+  .def .term {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 700; font-size: 1.1rem;
+    color: var(--ink); margin-right: 8px;
+  }
+  .def p { margin: 0; }
+
+  .example {
+    background: var(--surface-2); border-left: 3px solid var(--accent-2);
+    padding: 16px 20px; margin: 16px 0; border-radius: 0 8px 8px 0;
+  }
+  .example .label {
+    display: block; font-family: 'JetBrains Mono', monospace;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.72rem;
+    color: var(--accent-2); font-weight: 600; margin-bottom: 8px;
+  }
+  .example .prompt { font-style: italic; color: var(--ink-2); margin-bottom: 12px; }
+  .example .steps { list-style: none; padding: 0; counter-reset: step; }
+  .example .steps > li {
+    counter-increment: step; padding-left: 44px; position: relative; margin: 10px 0;
+  }
+  .example .steps > li::before {
+    content: counter(step); position: absolute; left: 0; top: 0;
+    width: 30px; height: 30px; border-radius: 50%;
+    background: var(--accent-2); color: #fff;
+    display: grid; place-items: center;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; font-weight: 600;
+  }
+  .example .answer {
+    margin-top: 14px; padding: 10px 14px; background: var(--surface);
+    border-radius: 6px; font-weight: 600; border-left: 3px solid var(--success);
+  }
+
+  .callout {
+    display: flex; gap: 14px; padding: 14px 18px;
+    background: var(--surface-2); border-radius: 8px; margin: 14px 0;
+    align-items: flex-start;
+  }
+  .callout.warn { background: color-mix(in srgb, var(--danger) 10%, var(--surface)); border-left: 3px solid var(--danger); }
+  .callout.tip { background: color-mix(in srgb, var(--accent) 8%, var(--surface)); border-left: 3px solid var(--accent); }
+  .callout .icon {
+    font-family: 'Fraunces', serif; font-weight: 800; font-size: 1.2rem; line-height: 1;
+    color: var(--accent); flex-shrink: 0; margin-top: 2px;
+  }
+  .callout.warn .icon { color: var(--danger); }
+
+  table.data {
+    width: 100%; border-collapse: collapse; margin: 14px 0;
+    font-size: 0.95rem;
+  }
+  table.data th, table.data td {
+    padding: 10px 12px; border-bottom: 1px solid var(--line); text-align: left;
+  }
+  table.data th {
+    background: var(--surface-2); color: var(--ink);
+    font-family: 'JetBrains Mono', monospace; font-size: 0.78rem;
+    text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600;
+  }
+  table.data tr:hover td { background: var(--surface-2); }
+
+  /* Croisement grid */
+  .cross {
+    display: grid; grid-template-columns: auto repeat(2, 1fr); gap: 4px;
+    margin: 14px 0; max-width: 420px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1rem; text-align: center;
+  }
+  .cross > div {
+    padding: 12px; background: var(--surface-2); border-radius: 6px;
+    font-weight: 600;
+  }
+  .cross > .corner { background: transparent; }
+  .cross > .hdr { background: var(--accent); color: #fff; }
+  .cross > .cell {
+    background: color-mix(in srgb, var(--accent) 10%, var(--surface));
+    font-weight: 700; color: var(--accent);
+  }
+
+  .recap {
+    background: color-mix(in srgb, var(--accent) 8%, var(--surface));
+    border-left: 4px solid var(--accent);
+    padding: 14px 20px; border-radius: 0 10px 10px 0;
+    margin: 24px 0 6px 0;
+  }
+  .recap .label {
+    display: block; font-family: 'JetBrains Mono', monospace;
+    text-transform: uppercase; letter-spacing: 0.09em;
+    font-size: 0.72rem; color: var(--accent); font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .recap ul, .recap ol { margin: 0; padding-left: 22px; }
+  .recap li { margin: 4px 0; }
+
+  .section-mark {
+    margin-top: 24px; padding-top: 16px; border-top: 1px dashed var(--line);
+    display: flex; align-items: center; gap: 10px; font-size: 0.9rem;
+    color: var(--muted); cursor: pointer; user-select: none;
+  }
+  .section-mark input { accent-color: var(--accent); width: 18px; height: 18px; cursor: pointer; }
+
+  .quiz {
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: 12px; padding: 32px; margin-top: 24px; box-shadow: var(--shadow);
+  }
+  .quiz h2 { font-family: 'Fraunces', Georgia, serif; font-weight: 800; font-size: 1.6rem; margin: 0 0 8px 0; }
+  .quiz .subtitle { color: var(--ink-2); margin-bottom: 24px; }
+  .qblock { margin: 22px 0; padding: 18px; background: var(--surface-2); border-radius: 8px; }
+  .qblock .question { font-weight: 600; margin-bottom: 12px; }
+  .qblock .qnum { font-family: 'JetBrains Mono', monospace; color: var(--accent); margin-right: 8px; }
+  .options { display: flex; flex-direction: column; gap: 6px; }
+  .options label {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 12px; background: var(--surface); border: 1px solid var(--line);
+    border-radius: 6px; cursor: pointer;
+  }
+  .options label:hover { background: var(--ground); }
+  .options input { accent-color: var(--accent); }
+  .options label.correct { background: color-mix(in srgb, var(--success) 15%, var(--surface)); border-color: var(--success); }
+  .options label.wrong { background: color-mix(in srgb, var(--danger) 12%, var(--surface)); border-color: var(--danger); }
+  .explain {
+    margin-top: 10px; padding: 10px 14px; background: var(--surface);
+    border-left: 3px solid var(--accent); border-radius: 0 6px 6px 0;
+    font-size: 0.92rem; color: var(--ink-2);
+  }
+  .explain[hidden] { display: none; }
+  .quiz-actions { display: flex; gap: 12px; margin-top: 20px; flex-wrap: wrap; }
+  .btn {
+    background: var(--accent); color: #fff; border: none;
+    padding: 10px 22px; border-radius: 8px; font-family: inherit;
+    font-size: 0.95rem; font-weight: 600; cursor: pointer;
+  }
+  .btn:hover { filter: brightness(1.05); }
+  .btn.secondary { background: transparent; color: var(--ink-2); border: 1px solid var(--line); }
+  .quiz-score {
+    padding: 16px 20px; background: var(--highlight);
+    border-left: 4px solid var(--highlight-line); border-radius: 0 8px 8px 0;
+    margin-top: 20px; font-weight: 600; text-align: center; font-size: 1.05rem;
+  }
+  .quiz-score[hidden] { display: none; }
+
+  footer {
+    grid-column: 1 / -1; text-align: center; padding: 20px;
+    color: var(--muted); font-size: 0.85rem; margin-top: 20px;
+  }
+
+  @media (max-width: 640px) {
+    body { font-size: 16px; }
+    .page { padding-inline: 12px; padding-block: 12px 40px; gap: 14px; }
+    header.masthead { padding: 20px 18px; border-radius: 10px; }
+    header.masthead h1 { font-size: 1.85rem; }
+    header.masthead .kbd-hint { display: none; }
+    nav.toc {
+      background: var(--surface); border: 1px solid var(--line);
+      border-radius: 10px; padding: 12px 12px 8px 12px; box-shadow: var(--shadow);
+    }
+    nav.toc h2 { margin: 0 0 8px 0; font-size: 0.72rem; }
+    nav.toc ol {
+      flex-direction: row; overflow-x: auto; gap: 6px; padding-bottom: 4px;
+      -webkit-overflow-scrolling: touch;
+    }
+    nav.toc li { flex-shrink: 0; }
+    nav.toc a {
+      padding: 7px 12px; font-size: 0.85rem;
+      background: var(--surface-2); border-radius: 20px; border-left: none; white-space: nowrap;
+    }
+    nav.toc a::before { color: var(--accent); font-weight: 700; min-width: 0; }
+    nav.toc a.active { background: var(--accent); color: #fff; border-left: none; }
+    section.lesson { padding: 20px 16px; border-radius: 10px; margin-bottom: 14px; }
+    section.lesson h2 { font-size: 1.3rem; gap: 10px; }
+    section.lesson h2 .num { font-size: 0.82rem; padding: 3px 7px; }
+    .cross { font-size: 0.9rem; }
+    .quiz { padding: 20px 16px; }
+    .quiz h2 { font-size: 1.35rem; }
+  }
+</style>
+
+<div class="page">
+  <div class="brand-strip">
+    <a href="index.html" class="brand" style="text-decoration:none;"><span class="brand-mark">Hkm</span><span class="brand-slash">/</span><span class="brand-section">svt · génétique</span></a>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Thème">🌓 Thème</button>
+  </div>
+
+  <header class="masthead">
+    <div>
+      <h1>Génétique <span style="color:var(--accent)">3<sup>e</sup></span></h1>
+      <p class="subtitle">Gènes, allèles, génome, génotype — définitions, dominance et croisements pour l'évaluation.</p>
+    </div>
+    <span class="kbd-hint">éval SVT</span>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire">
+    <h2>Sommaire</h2>
+    <ol>
+      <li><a href="#s1" data-section="s1">Les 4 définitions</a></li>
+      <li><a href="#s2" data-section="s2">ADN &amp; chromosomes</a></li>
+      <li><a href="#s3" data-section="s3">Dominant / récessif</a></li>
+      <li><a href="#s4" data-section="s4">Génotype vs phénotype</a></li>
+      <li><a href="#s5" data-section="s5">Exemples en classe</a></li>
+      <li><a href="#s6" data-section="s6">Tableau de croisement</a></li>
+      <li><a href="#s7" data-section="s7">Méthode d'exercice</a></li>
+    </ol>
+  </nav>
+
+  <main>
+
+    <!-- §1 Définitions -->
+    <section class="lesson" id="s1">
+      <h2><span class="num">01</span>Les 4 définitions à connaître par cœur</h2>
+      <div class="hook">
+        <strong>En clair.</strong> Toute la génétique de 3<sup>e</sup> tourne autour de 4 mots : <strong>gène, allèle, génome, génotype</strong>. Si tu les sais, tu as la moitié de l'éval.
+      </div>
+
+      <div class="def">
+        <span class="label">Définition 1</span>
+        <p><span class="term">Gène</span> : <strong>portion d'ADN</strong> qui porte une information héréditaire précise (ex : la forme du lobe de l'oreille, le groupe sanguin, la couleur des yeux). Chaque gène est situé à un endroit précis sur un chromosome.</p>
+      </div>
+
+      <div class="def">
+        <span class="label">Définition 2</span>
+        <p><span class="term">Allèle</span> : <strong>une version possible d'un gène</strong>. Pour un même gène, il peut exister plusieurs allèles. Exemple : le gène du groupe sanguin a 3 allèles possibles — <em>A</em>, <em>B</em>, <em>O</em>.</p>
+      </div>
+
+      <div class="def">
+        <span class="label">Définition 3</span>
+        <p><span class="term">Génome</span> : <strong>ensemble de l'information génétique</strong> d'un individu, portée par la totalité de son ADN. Chez l'humain, le génome tient dans <strong>46 chromosomes</strong> (23 paires).</p>
+      </div>
+
+      <div class="def">
+        <span class="label">Définition 4</span>
+        <p><span class="term">Génotype</span> : <strong>la combinaison d'allèles</strong> qu'un individu possède pour un gène (ou plusieurs). Exemple : pour le groupe sanguin, un génotype peut être <em>AA</em>, <em>AO</em>, <em>AB</em>, <em>BB</em>, <em>BO</em> ou <em>OO</em>.</p>
+      </div>
+
+      <div class="callout tip">
+        <span class="icon">i</span>
+        <div><strong>Astuce mémoire.</strong>
+          <ul style="margin-top:4px;">
+            <li><strong>Gène</strong> = la question (ex : couleur des yeux ?)</li>
+            <li><strong>Allèle</strong> = une réponse possible (bleu / marron / vert)</li>
+            <li><strong>Génotype</strong> = les 2 réponses d'un individu (ex : bleu/marron)</li>
+            <li><strong>Génome</strong> = toutes les questions-réponses pour tout l'ADN</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="recap">
+        <span class="label">À retenir</span>
+        <ul>
+          <li>Gène = portion d'ADN portant une information héréditaire.</li>
+          <li>Allèle = version d'un gène.</li>
+          <li>Génome = tout l'ADN d'un individu (46 chromosomes chez l'humain).</li>
+          <li>Génotype = allèles possédés par un individu pour un gène.</li>
+        </ul>
+      </div>
+
+      <label class="section-mark"><input type="checkbox" data-mark="s1"> Marquer comme lu</label>
+    </section>
+
+    <!-- §2 ADN & chromosomes -->
+    <section class="lesson" id="s2">
+      <h2><span class="num">02</span>ADN &amp; chromosomes</h2>
+      <div class="hook">
+        <strong>En clair.</strong> L'ADN est le support de l'information. Il est rangé dans des petits bâtonnets qu'on appelle <strong>chromosomes</strong>, et chaque chromosome contient des centaines de gènes.
+      </div>
+
+      <h3>L'organisation (du plus grand au plus petit)</h3>
+      <ul>
+        <li><strong>Noyau de la cellule</strong> → contient tous les chromosomes.</li>
+        <li><strong>Chromosome</strong> → une longue molécule d'ADN enroulée. On en a <strong>46</strong>.</li>
+        <li><strong>Gène</strong> → portion précise d'un chromosome qui code un caractère.</li>
+        <li><strong>Allèle</strong> → la version du gène (un reçu du père, un de la mère).</li>
+      </ul>
+
+      <h3>Les 23 paires chez l'humain</h3>
+      <p>Les 46 chromosomes vont par paires : <strong>23 paires</strong>. Les 2 chromosomes d'une paire portent les mêmes gènes, mais pas forcément les mêmes allèles.</p>
+      <ul>
+        <li><strong>22 paires d'autosomes</strong> (identiques chez les 2 sexes).</li>
+        <li><strong>1 paire de chromosomes sexuels</strong> : XX chez la femme, XY chez l'homme.</li>
+      </ul>
+
+      <div class="callout tip">
+        <span class="icon">i</span>
+        <div><strong>Pourquoi 2 allèles par gène ?</strong> Parce qu'on a <em>2 copies</em> de chaque chromosome (une du père, une de la mère). Chaque copie porte sa version du gène → d'où 2 allèles.</div>
+      </div>
+
+      <div class="recap">
+        <span class="label">À retenir</span>
+        <ul>
+          <li>46 chromosomes = 23 paires chez l'humain.</li>
+          <li>2 allèles par gène : un venu du père, un venu de la mère.</li>
+          <li>Chromosomes sexuels : XX (fille) · XY (garçon).</li>
+        </ul>
+      </div>
+
+      <label class="section-mark"><input type="checkbox" data-mark="s2"> Marquer comme lu</label>
+    </section>
+
+    <!-- §3 Dominant / récessif -->
+    <section class="lesson" id="s3">
+      <h2><span class="num">03</span>Allèle dominant / récessif / codominant</h2>
+      <div class="hook">
+        <strong>En clair.</strong> Quand les 2 allèles d'un gène sont différents, c'est souvent <strong>un seul des deux qui s'exprime</strong>. On l'appelle le <strong>dominant</strong>. L'autre, caché, est le <strong>récessif</strong>.
+      </div>
+
+      <div class="def">
+        <span class="label">Définition</span>
+        <p><span class="term">Allèle dominant</span> : s'exprime toujours dans le phénotype dès qu'il est présent, même en un seul exemplaire. On le note en <strong>majuscule</strong> (ex : <em>A</em>).</p>
+      </div>
+
+      <div class="def">
+        <span class="label">Définition</span>
+        <p><span class="term">Allèle récessif</span> : ne s'exprime <strong>que s'il est présent en double</strong> (reçu des deux parents). On le note en <strong>minuscule</strong> (ex : <em>a</em>).</p>
+      </div>
+
+      <div class="def">
+        <span class="label">Définition</span>
+        <p><span class="term">Allèles codominants</span> : <strong>les deux s'expriment en même temps</strong>. Exemple : groupe sanguin <em>AB</em>, où A et B s'affichent tous les deux.</p>
+      </div>
+
+      <h3>Les 3 génotypes possibles pour 2 allèles (A, a)</h3>
+      <table class="data">
+        <thead><tr><th>Génotype</th><th>Nom</th><th>Phénotype exprimé</th></tr></thead>
+        <tbody>
+          <tr><td><strong>AA</strong></td><td>homozygote dominant</td><td>caractère dominant</td></tr>
+          <tr><td><strong>Aa</strong></td><td>hétérozygote</td><td>caractère dominant (A masque a)</td></tr>
+          <tr><td><strong>aa</strong></td><td>homozygote récessif</td><td>caractère récessif</td></tr>
+        </tbody>
+      </table>
+
+      <div class="callout warn">
+        <span class="icon">!</span>
+        <div><strong>Piège.</strong> Un allèle récessif peut être présent sans se voir — c'est le cas chez un porteur hétérozygote (<em>Aa</em>). Il reste transmissible à la descendance.</div>
+      </div>
+
+      <div class="recap">
+        <span class="label">À retenir</span>
+        <ul>
+          <li>Dominant (majuscule) = s'exprime toujours.</li>
+          <li>Récessif (minuscule) = s'exprime seulement si en double (aa).</li>
+          <li>Codominants = s'expriment tous les deux (ex : AB).</li>
+          <li>Homozygote = 2 allèles identiques. Hétérozygote = 2 allèles différents.</li>
+        </ul>
+      </div>
+
+      <label class="section-mark"><input type="checkbox" data-mark="s3"> Marquer comme lu</label>
+    </section>
+
+    <!-- §4 Génotype vs phénotype -->
+    <section class="lesson" id="s4">
+      <h2><span class="num">04</span>Génotype vs Phénotype</h2>
+      <div class="hook">
+        <strong>En clair.</strong> Le <strong>génotype</strong>, c'est ce que tu as <em>dans l'ADN</em>. Le <strong>phénotype</strong>, c'est ce qu'on <em>voit</em> sur toi. Souvent les deux coïncident, mais pas toujours.
+      </div>
+
+      <div class="def">
+        <span class="label">Définition</span>
+        <p><span class="term">Phénotype</span> : le <strong>caractère visible ou observable</strong> d'un individu pour un gène (ex : yeux marrons, groupe sanguin A, oreilles décollées). Il résulte de l'expression du génotype.</p>
+      </div>
+
+      <table class="data">
+        <thead><tr><th>Génotype (ADN)</th><th>Phénotype (visible)</th><th>Explication</th></tr></thead>
+        <tbody>
+          <tr><td><strong>AA</strong></td><td>groupe A</td><td>2 allèles A → tout le monde est d'accord</td></tr>
+          <tr><td><strong>AO</strong></td><td>groupe A</td><td>A est dominant sur O → A s'exprime</td></tr>
+          <tr><td><strong>OO</strong></td><td>groupe O</td><td>O est récessif, il faut qu'il soit en double</td></tr>
+          <tr><td><strong>AB</strong></td><td>groupe AB</td><td>A et B codominants, les deux s'expriment</td></tr>
+        </tbody>
+      </table>
+
+      <div class="callout tip">
+        <span class="icon">i</span>
+        <div>Deux personnes avec le même <strong>phénotype</strong> peuvent avoir des <strong>génotypes différents</strong>. Ex : groupe A → peut être <em>AA</em> ou <em>AO</em>.</div>
+      </div>
+
+      <div class="recap">
+        <span class="label">À retenir</span>
+        <ul>
+          <li>Génotype = allèles portés par l'ADN (invisible).</li>
+          <li>Phénotype = caractère observable (visible).</li>
+          <li>Même phénotype ≠ même génotype (un porteur récessif reste invisible).</li>
+        </ul>
+      </div>
+
+      <label class="section-mark"><input type="checkbox" data-mark="s4"> Marquer comme lu</label>
+    </section>
+
+    <!-- §5 Exemples -->
+    <section class="lesson" id="s5">
+      <h2><span class="num">05</span>Exemples qu'on voit en classe</h2>
+
+      <h3>Les groupes sanguins ABO</h3>
+      <p>C'est l'exemple classique parce qu'il réunit <strong>dominance</strong> ET <strong>codominance</strong> dans le même gène.</p>
+      <ul>
+        <li><strong>A</strong> et <strong>B</strong> sont dominants sur O.</li>
+        <li><strong>A</strong> et <strong>B</strong> sont codominants entre eux.</li>
+      </ul>
+      <table class="data">
+        <thead><tr><th>Phénotype (groupe)</th><th>Génotypes possibles</th></tr></thead>
+        <tbody>
+          <tr><td>Groupe A</td><td>AA ou AO</td></tr>
+          <tr><td>Groupe B</td><td>BB ou BO</td></tr>
+          <tr><td>Groupe AB</td><td>AB</td></tr>
+          <tr><td>Groupe O</td><td>OO</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Un gène simple : lobes des oreilles</h3>
+      <p>Allèle <strong>L</strong> (lobes détachés, dominant) et allèle <strong>l</strong> (lobes collés, récessif).</p>
+      <ul>
+        <li>LL → lobes détachés</li>
+        <li>Ll → lobes détachés (porteur de l'allèle collé)</li>
+        <li>ll → lobes collés</li>
+      </ul>
+
+      <div class="callout tip">
+        <span class="icon">i</span>
+        <div>Pour qu'un enfant ait les lobes collés (<em>ll</em>), <strong>les deux parents doivent lui transmettre l'allèle récessif</strong> l — même si eux-mêmes ont les lobes détachés (porteurs hétérozygotes Ll).</div>
+      </div>
+
+      <label class="section-mark"><input type="checkbox" data-mark="s5"> Marquer comme lu</label>
+    </section>
+
+    <!-- §6 Tableau de croisement -->
+    <section class="lesson" id="s6">
+      <h2><span class="num">06</span>Le tableau de croisement</h2>
+      <div class="hook">
+        <strong>En clair.</strong> Le tableau de croisement sert à <strong>prévoir les génotypes possibles des enfants</strong> à partir des génotypes des parents. On met les allèles d'un parent en haut, ceux de l'autre à gauche, et on remplit les cases.
+      </div>
+
+      <h3>Exemple : deux parents Aa × Aa</h3>
+      <p>Chaque parent est hétérozygote. Chaque parent transmet au hasard l'un de ses 2 allèles.</p>
+
+      <div class="cross">
+        <div class="corner"></div>
+        <div class="hdr">A</div>
+        <div class="hdr">a</div>
+        <div class="hdr">A</div>
+        <div class="cell">AA</div>
+        <div class="cell">Aa</div>
+        <div class="hdr">a</div>
+        <div class="cell">Aa</div>
+        <div class="cell">aa</div>
+      </div>
+
+      <h3>Lecture du résultat</h3>
+      <ul>
+        <li>1 chance sur 4 : <strong>AA</strong> (homozygote dominant → caractère dominant)</li>
+        <li>2 chances sur 4 : <strong>Aa</strong> (hétérozygote → caractère dominant)</li>
+        <li>1 chance sur 4 : <strong>aa</strong> (homozygote récessif → caractère récessif)</li>
+      </ul>
+      <p><strong>Phénotypes : 3 enfants sur 4 montrent le caractère dominant, 1 sur 4 montre le récessif.</strong></p>
+
+      <div class="example">
+        <span class="label">Exemple pas à pas — lobes des oreilles</span>
+        <div class="prompt">Deux parents aux lobes détachés et hétérozygotes (<em>Ll × Ll</em>). Quelle est la probabilité qu'ils aient un enfant aux lobes collés ?</div>
+        <ol class="steps">
+          <li>Chaque parent peut transmettre soit <strong>L</strong>, soit <strong>l</strong> (une chance sur deux).</li>
+          <li>On remplit le tableau : LL, Ll, Ll, ll.</li>
+          <li>Lobes collés = génotype <strong>ll</strong> uniquement.</li>
+          <li>ll apparaît <strong>1 fois sur 4</strong> dans le tableau.</li>
+        </ol>
+        <div class="answer">Probabilité d'un enfant aux lobes collés = <strong>1/4 = 25 %</strong>.</div>
+      </div>
+
+      <div class="callout warn">
+        <span class="icon">!</span>
+        <div><strong>Attention.</strong> Les proportions (1/4, 2/4, 1/4) sont des <em>probabilités</em>, pas des certitudes. Un couple hétérozygote peut très bien n'avoir que des enfants aux lobes détachés — c'est juste statistiquement moins probable.</div>
+      </div>
+
+      <div class="recap">
+        <span class="label">À retenir</span>
+        <ul>
+          <li>Chaque parent transmet <strong>un allèle sur ses deux</strong> au hasard.</li>
+          <li>Croiser Aa × Aa donne 1/4 AA, 2/4 Aa, 1/4 aa.</li>
+          <li>Les proportions sont des <strong>probabilités</strong>, pas des règles exactes.</li>
+        </ul>
+      </div>
+
+      <label class="section-mark"><input type="checkbox" data-mark="s6"> Marquer comme lu</label>
+    </section>
+
+    <!-- §7 Méthode -->
+    <section class="lesson" id="s7">
+      <h2><span class="num">07</span>Méthode pour tout exercice de génétique</h2>
+      <p>Si l'énoncé parle de croisement, de parents, d'enfants ou d'arbre généalogique, suis toujours ces étapes dans l'ordre.</p>
+
+      <ol class="steps" style="list-style:none; padding:0; counter-reset: step;">
+        <li style="counter-increment: step; padding-left: 44px; position: relative; margin: 14px 0;">
+          <strong style="display:block; margin-bottom:4px;">Repérer le gène et ses allèles.</strong>
+          Noter le gène étudié (ex : lobes des oreilles) et ses allèles (<em>L</em> dominant, <em>l</em> récessif).
+          <span style="position:absolute; left:0; top:0; width:30px; height:30px; border-radius:50%; background:var(--accent-2); color:#fff; display:grid; place-items:center; font-family:'JetBrains Mono',monospace; font-size:0.85rem; font-weight:600;">1</span>
+        </li>
+        <li style="counter-increment: step; padding-left: 44px; position: relative; margin: 14px 0;">
+          <strong style="display:block; margin-bottom:4px;">Déterminer le génotype des parents.</strong>
+          À partir de leur phénotype et des informations de l'énoncé. Si un parent présente un caractère récessif, son génotype est forcément homozygote (<em>aa</em>).
+          <span style="position:absolute; left:0; top:0; width:30px; height:30px; border-radius:50%; background:var(--accent-2); color:#fff; display:grid; place-items:center; font-family:'JetBrains Mono',monospace; font-size:0.85rem; font-weight:600;">2</span>
+        </li>
+        <li style="counter-increment: step; padding-left: 44px; position: relative; margin: 14px 0;">
+          <strong style="display:block; margin-bottom:4px;">Faire le tableau de croisement.</strong>
+          Allèles d'un parent en haut, allèles de l'autre à gauche. Remplir les 4 cases.
+          <span style="position:absolute; left:0; top:0; width:30px; height:30px; border-radius:50%; background:var(--accent-2); color:#fff; display:grid; place-items:center; font-family:'JetBrains Mono',monospace; font-size:0.85rem; font-weight:600;">3</span>
+        </li>
+        <li style="counter-increment: step; padding-left: 44px; position: relative; margin: 14px 0;">
+          <strong style="display:block; margin-bottom:4px;">Associer génotype → phénotype.</strong>
+          Pour chaque case du tableau, dire quel phénotype elle donne (dominant ou récessif).
+          <span style="position:absolute; left:0; top:0; width:30px; height:30px; border-radius:50%; background:var(--accent-2); color:#fff; display:grid; place-items:center; font-family:'JetBrains Mono',monospace; font-size:0.85rem; font-weight:600;">4</span>
+        </li>
+        <li style="counter-increment: step; padding-left: 44px; position: relative; margin: 14px 0;">
+          <strong style="display:block; margin-bottom:4px;">Calculer les proportions.</strong>
+          Nombre de cases d'un phénotype ÷ 4. Exprimer en fraction (1/4, 2/4...) ou en pourcentage (25 %, 50 %).
+          <span style="position:absolute; left:0; top:0; width:30px; height:30px; border-radius:50%; background:var(--accent-2); color:#fff; display:grid; place-items:center; font-family:'JetBrains Mono',monospace; font-size:0.85rem; font-weight:600;">5</span>
+        </li>
+        <li style="counter-increment: step; padding-left: 44px; position: relative; margin: 14px 0;">
+          <strong style="display:block; margin-bottom:4px;">Rédiger la conclusion.</strong>
+          Phrase claire : <em>« Dans ce croisement, 3 enfants sur 4 auront le phénotype dominant, et 1 sur 4 le phénotype récessif. »</em>
+          <span style="position:absolute; left:0; top:0; width:30px; height:30px; border-radius:50%; background:var(--accent-2); color:#fff; display:grid; place-items:center; font-family:'JetBrains Mono',monospace; font-size:0.85rem; font-weight:600;">6</span>
+        </li>
+      </ol>
+
+      <div class="recap">
+        <span class="label">À retenir — les 6 étapes</span>
+        <ol>
+          <li>Repérer le gène et ses allèles.</li>
+          <li>Déterminer les génotypes des parents.</li>
+          <li>Faire le tableau de croisement.</li>
+          <li>Associer chaque génotype à son phénotype.</li>
+          <li>Calculer les proportions (fractions ou %).</li>
+          <li>Rédiger une phrase de conclusion claire.</li>
+        </ol>
+      </div>
+
+      <label class="section-mark"><input type="checkbox" data-mark="s7"> Marquer comme lu</label>
+    </section>
+
+    <!-- Quiz -->
+    <div class="quiz">
+      <h2>Quiz auto-corrigé</h2>
+      <p class="subtitle">7 questions pour valider la fiche. Coche, valide, corrige.</p>
+
+      <div class="qblock" data-answer="b">
+        <div class="question"><span class="qnum">Q1.</span>Un <strong>gène</strong>, c'est :</div>
+        <div class="options">
+          <label><input type="radio" name="q1" value="a"> une version d'un allèle</label>
+          <label><input type="radio" name="q1" value="b"> une portion d'ADN portant une information héréditaire</label>
+          <label><input type="radio" name="q1" value="c"> l'ensemble de l'information génétique d'un individu</label>
+        </div>
+        <div class="explain" hidden>Un gène est une portion d'ADN qui porte une information précise. L'<em>allèle</em> est la version du gène. Le <em>génome</em>, c'est tout l'ADN.</div>
+      </div>
+
+      <div class="qblock" data-answer="c">
+        <div class="question"><span class="qnum">Q2.</span>Un <strong>allèle</strong>, c'est :</div>
+        <div class="options">
+          <label><input type="radio" name="q2" value="a"> un chromosome entier</label>
+          <label><input type="radio" name="q2" value="b"> l'ensemble du génome</label>
+          <label><input type="radio" name="q2" value="c"> une version possible d'un gène</label>
+        </div>
+        <div class="explain" hidden>Chaque gène peut exister sous plusieurs versions appelées allèles. Ex : gène du groupe sanguin → allèles A, B, O.</div>
+      </div>
+
+      <div class="qblock" data-answer="b">
+        <div class="question"><span class="qnum">Q3.</span>Combien de chromosomes possède une cellule humaine ?</div>
+        <div class="options">
+          <label><input type="radio" name="q3" value="a"> 23</label>
+          <label><input type="radio" name="q3" value="b"> 46 (23 paires)</label>
+          <label><input type="radio" name="q3" value="c"> 92</label>
+        </div>
+        <div class="explain" hidden>46 chromosomes, soit 23 paires. Chaque paire a un chromosome venu du père et un venu de la mère.</div>
+      </div>
+
+      <div class="qblock" data-answer="c">
+        <div class="question"><span class="qnum">Q4.</span>Un individu <strong>Aa</strong> est :</div>
+        <div class="options">
+          <label><input type="radio" name="q4" value="a"> homozygote dominant</label>
+          <label><input type="radio" name="q4" value="b"> homozygote récessif</label>
+          <label><input type="radio" name="q4" value="c"> hétérozygote</label>
+        </div>
+        <div class="explain" hidden>Hétérozygote = deux allèles <strong>différents</strong>. Homozygote = deux allèles identiques (AA ou aa).</div>
+      </div>
+
+      <div class="qblock" data-answer="a">
+        <div class="question"><span class="qnum">Q5.</span>Une personne de groupe sanguin <strong>A</strong> peut avoir pour génotype :</div>
+        <div class="options">
+          <label><input type="radio" name="q5" value="a"> AA ou AO</label>
+          <label><input type="radio" name="q5" value="b"> AB uniquement</label>
+          <label><input type="radio" name="q5" value="c"> OO</label>
+        </div>
+        <div class="explain" hidden>A est dominant sur O, donc AA et AO donnent tous deux le phénotype groupe A. OO donnerait O, et AB donnerait AB.</div>
+      </div>
+
+      <div class="qblock" data-answer="b">
+        <div class="question"><span class="qnum">Q6.</span>Deux parents hétérozygotes <strong>Aa × Aa</strong>. Quelle est la probabilité d'avoir un enfant au phénotype récessif ?</div>
+        <div class="options">
+          <label><input type="radio" name="q6" value="a"> 1/2 (50 %)</label>
+          <label><input type="radio" name="q6" value="b"> 1/4 (25 %)</label>
+          <label><input type="radio" name="q6" value="c"> 3/4 (75 %)</label>
+        </div>
+        <div class="explain" hidden>Le tableau de croisement donne : 1 AA, 2 Aa, 1 aa. Le phénotype récessif correspond à <strong>aa</strong>, soit 1 chance sur 4.</div>
+      </div>
+
+      <div class="qblock" data-answer="c">
+        <div class="question"><span class="qnum">Q7.</span>Le <strong>phénotype</strong>, c'est :</div>
+        <div class="options">
+          <label><input type="radio" name="q7" value="a"> les allèles portés par l'ADN</label>
+          <label><input type="radio" name="q7" value="b"> l'ensemble des chromosomes</label>
+          <label><input type="radio" name="q7" value="c"> le caractère observable d'un individu</label>
+        </div>
+        <div class="explain" hidden>Le phénotype est ce qu'on <strong>voit</strong> (ex : yeux marrons, groupe A). Le génotype est ce qui est dans l'ADN (ex : AA, AO, Aa).</div>
+      </div>
+
+      <div class="quiz-actions">
+        <button class="btn" id="quiz-check">Corriger</button>
+        <button class="btn secondary" id="quiz-reset">Recommencer</button>
+      </div>
+      <div class="quiz-score" id="quiz-score" hidden></div>
+    </div>
+
+  </main>
+
+  <footer>Hkm — SVT 3e / Génétique. Bon courage pour l'éval.</footer>
+</div>
+
+<script>
+  const KEY = 'hkm-svt-theme';
+  const root = document.documentElement;
+  const stored = localStorage.getItem(KEY);
+  if (stored === 'dark' || stored === 'light') root.setAttribute('data-theme', stored);
+  document.getElementById('theme-toggle').addEventListener('click', () => {
+    const cur = root.getAttribute('data-theme');
+    const dark = matchMedia('(prefers-color-scheme: dark)').matches;
+    const next = cur === 'dark' ? 'light' : cur === 'light' ? (dark ? 'light' : 'dark') : (dark ? 'light' : 'dark');
+    root.setAttribute('data-theme', next);
+    localStorage.setItem(KEY, next);
+  });
+
+  const sections = document.querySelectorAll('section.lesson');
+  const links = document.querySelectorAll('nav.toc a[data-section]');
+  const linkFor = id => document.querySelector(`nav.toc a[data-section="${id}"]`);
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        links.forEach(l => l.classList.remove('active'));
+        const l = linkFor(e.target.id);
+        if (l) l.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+  sections.forEach(s => io.observe(s));
+
+  const MARK = 'hkm-svt-marks';
+  const marks = JSON.parse(localStorage.getItem(MARK) || '{}');
+  document.querySelectorAll('.section-mark input').forEach(cb => {
+    const id = cb.dataset.mark;
+    if (marks[id]) cb.checked = true;
+    cb.addEventListener('change', () => {
+      marks[id] = cb.checked;
+      localStorage.setItem(MARK, JSON.stringify(marks));
+    });
+  });
+
+  const qblocks = document.querySelectorAll('.qblock');
+  const score = document.getElementById('quiz-score');
+  document.getElementById('quiz-check').addEventListener('click', () => {
+    let ok = 0, total = qblocks.length;
+    qblocks.forEach(q => {
+      const ans = q.dataset.answer;
+      const picked = q.querySelector('input:checked');
+      q.querySelectorAll('.options label').forEach(l => l.classList.remove('correct','wrong'));
+      const explain = q.querySelector('.explain');
+      if (!picked) { if (explain) explain.hidden = false; return; }
+      const correctLabel = q.querySelector(`input[value="${ans}"]`).parentElement;
+      correctLabel.classList.add('correct');
+      if (picked.value === ans) ok++;
+      else picked.parentElement.classList.add('wrong');
+      if (explain) explain.hidden = false;
+    });
+    score.hidden = false;
+    score.textContent = `Score : ${ok} / ${total}`;
+  });
+  document.getElementById('quiz-reset').addEventListener('click', () => {
+    qblocks.forEach(q => {
+      q.querySelectorAll('input').forEach(i => i.checked = false);
+      q.querySelectorAll('.options label').forEach(l => l.classList.remove('correct','wrong'));
+      const explain = q.querySelector('.explain');
+      if (explain) explain.hidden = true;
+    });
+    score.hidden = true;
+  });
+</script>
+</html>
